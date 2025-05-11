@@ -1,0 +1,278 @@
+/* === Layout === */
+.products-layout {
+  display: flex;
+  padding: 40px;
+  gap: 40px;
+  color: #fff;
+}
+
+/* === Sidebar Filters === */
+.sidebar-filter {
+  width: 250px;
+  background: #2a2a3f;
+  padding: 20px;
+  border-radius: 16px;
+  height: fit-content;
+}
+
+.sidebar-filter h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.sidebar-filter input[type="text"] {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 20px;
+  background: #1e1e2f;
+  color: #fff;
+}
+
+.filter-block label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.reset-btn {
+  margin-top: 20px;
+  padding: 8px 14px;
+  background: #e53935;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* === Products Grid === */
+.products-main {
+  flex: 1;
+}
+
+.products-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: flex-start;
+}
+
+.product-card {
+  background: #2a2a3f;
+  border-radius: 16px;
+  width: 280px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-card .badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #4a90e2;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.product-card .carousel {
+  position: relative;
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.image-count {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.product-card h3 {
+  font-size: 17px;
+  margin: 12px 0 4px;
+}
+
+.product-card .spec {
+  font-size: 13px;
+  color: #bbb;
+  margin-bottom: 10px;
+}
+
+.color-dots,
+.product-modal .color-dots {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #888;
+}
+
+/* === Стрелка кнопка ➤ === */
+.arrow-btn {
+  align-self: flex-end;
+  margin-top: auto;
+  background: #4a90e2;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* === Модалка товара === */
+.product-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 15, 25, 0.95);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  padding: 40px;
+}
+
+.modal-content {
+  background: #2a2a3f;
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 1000px;
+  color: #fff;
+  position: relative;
+}
+
+.modal-content.product-view {
+  display: flex;
+  gap: 40px;
+}
+
+/* === Галерея слева === */
+.modal-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-left .thumbs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.modal-left .thumbs img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0.7;
+  border: 2px solid transparent;
+  transition: 0.2s;
+}
+
+.modal-left .thumbs img.active {
+  border-color: #4a90e2;
+  opacity: 1;
+}
+
+.modal-left .main-img img {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* === Информация справа === */
+.modal-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.modal-right h2 {
+  font-size: 22px;
+}
+
+.modal-right .material {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.modal-right .desc h4 {
+  font-size: 16px;
+  margin: 10px 0 4px;
+}
+
+.modal-right .desc p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* === Кнопка оставить заявку === */
+.apply-now {
+  margin-top: 20px;
+  padding: 10px 16px;
+  background: #4a90e2;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* === Кнопка закрытия × === */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* === Модалка заявки === */
+.product-modal input,
+.product-modal textarea {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #1e1e2f;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.product-modal textarea {
+  resize: vertical;
+  min-height: 80px;
+}
