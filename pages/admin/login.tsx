@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import Cookies from 'js-cookie';
-import { useRouter } from 'next/router';
+import {useRouter} from 'next/router';
 
 export default function AdminLogin() {
   const router = useRouter();
@@ -8,21 +8,21 @@ export default function AdminLogin() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleLogin = async (e) => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
 
     try {
       const res = await fetch('http://localhost:5000/api/admin/login', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({email, password}),
       });
 
       const data = await res.json();
 
       if (res.ok) {
-        Cookies.set('admin_token', data.token, { expires: 1 });
+        Cookies.set('admin_token', data.token, {expires: 1});
         router.push('/admin/dashboard');
       } else {
         setError(data.error || 'Ошибка логина');
@@ -38,22 +38,24 @@ export default function AdminLogin() {
         <h2 style={styles.title}>🔐 Admin Panel Login</h2>
         <form onSubmit={handleLogin} style={styles.form}>
           <input
-            type="email"
-            placeholder="Email"
+            type='email'
+            placeholder='Email'
             value={email}
             required
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={e => setEmail(e.target.value)}
             style={styles.input}
           />
           <input
-            type="password"
-            placeholder="Пароль"
+            type='password'
+            placeholder='Пароль'
             value={password}
             required
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={e => setPassword(e.target.value)}
             style={styles.input}
           />
-          <button type="submit" style={styles.button}>Войти</button>
+          <button type='submit' style={styles.button}>
+            Войти
+          </button>
           {error && <p style={styles.error}>{error}</p>}
         </form>
       </div>
@@ -81,7 +83,7 @@ const styles = {
   },
   title: {
     marginBottom: '20px',
-    textAlign: 'center',
+    textAlign: 'center' as const,
     fontWeight: 'bold',
     fontSize: '24px',
     color: '#00ffe7',
@@ -113,6 +115,6 @@ const styles = {
   error: {
     marginTop: '10px',
     color: 'salmon',
-    textAlign: 'center',
-  }
+    textAlign: 'center' as const,
+  },
 };

@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import {useState} from 'react';
+import {useRouter} from 'next/router';
 import Cookies from 'js-cookie';
 import AdminLayout from '../../../components/AdminLayout';
 
@@ -12,7 +12,7 @@ export default function AddProduct() {
   const [image, setImage] = useState('');
   const [error, setError] = useState('');
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
     const token = Cookies.get('admin_token');
@@ -45,13 +45,37 @@ export default function AddProduct() {
         <div style={styles.formBox}>
           <h2 style={styles.title}>➕ Новый товар</h2>
           <form onSubmit={handleSubmit} style={styles.form}>
-            <input placeholder="Название" value={title} onChange={(e) => setTitle(e.target.value)} required />
-            <textarea placeholder="Описание" value={desc} onChange={(e) => setDesc(e.target.value)} />
-            <input type="number" placeholder="Цена" value={price} onChange={(e) => setPrice(e.target.value)} />
-            <input placeholder="Категория" value={category} onChange={(e) => setCategory(e.target.value)} />
-            <input placeholder="Изображение (URL)" value={image} onChange={(e) => setImage(e.target.value)} />
+            <input
+              placeholder='Название'
+              value={title}
+              onChange={e => setTitle(e.target.value)}
+              required
+            />
+            <textarea
+              placeholder='Описание'
+              value={desc}
+              onChange={e => setDesc(e.target.value)}
+            />
+            <input
+              type='number'
+              placeholder='Цена'
+              value={price}
+              onChange={e => setPrice(e.target.value)}
+            />
+            <input
+              placeholder='Категория'
+              value={category}
+              onChange={e => setCategory(e.target.value)}
+            />
+            <input
+              placeholder='Изображение (URL)'
+              value={image}
+              onChange={e => setImage(e.target.value)}
+            />
             {error && <p style={styles.error}>{error}</p>}
-            <button type="submit" style={styles.btn}>Сохранить</button>
+            <button type='submit' style={styles.btn}>
+              Сохранить
+            </button>
           </form>
         </div>
       </div>
@@ -78,11 +102,11 @@ const styles = {
   title: {
     fontSize: '22px',
     marginBottom: '20px',
-    textAlign: 'center',
+    textAlign: 'center' as React.CSSProperties['textAlign'],
   },
   form: {
-    display: 'flex',
-    flexDirection: 'column',
+    display: 'flex' as React.CSSProperties['display'],
+    flexDirection: 'column' as React.CSSProperties['flexDirection'],
     gap: '12px',
   },
   btn: {
@@ -96,5 +120,5 @@ const styles = {
   error: {
     color: 'red',
     fontSize: '14px',
-  }
+  },
 };

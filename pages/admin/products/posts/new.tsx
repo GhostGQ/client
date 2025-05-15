@@ -1,11 +1,16 @@
-import { useState } from 'react';
-import AdminLayout from '../../../components/AdminLayout';
-import { useRouter } from 'next/router';
+'use client';
+
+import {useState} from 'react';
+import {useRouter} from 'next/router';
 import dynamic from 'next/dynamic';
 import Cookies from 'js-cookie';
-import '../../../styles/posts.css';
+import AdminLayout from '../../../../components/AdminLayout';
+import '@/styles/posts.css';
 
-const RichTextEditor = dynamic(() => import('../../../components/RichTextEditor'), { ssr: false });
+const RichTextEditor = dynamic(
+  () => import('../../../../components/RichTextEditor'),
+  {ssr: false}
+);
 
 export default function NewPost() {
   const router = useRouter();
@@ -19,9 +24,9 @@ export default function NewPost() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ title, type, content })
+      body: JSON.stringify({title, type, content}),
     });
 
     if (res.ok) {
@@ -31,24 +36,26 @@ export default function NewPost() {
 
   return (
     <AdminLayout>
-      <div className="post-editor">
+      <div className='post-editor'>
         <h2>➕ Новый пост</h2>
 
         <input
-          type="text"
-          placeholder="Заголовок"
+          type='text'
+          placeholder='Заголовок'
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={e => setTitle(e.target.value)}
         />
 
-        <select value={type} onChange={(e) => setType(e.target.value)}>
-          <option value="news">Новость</option>
-          <option value="blog">Блог</option>
+        <select value={type} onChange={e => setType(e.target.value)}>
+          <option value='news'>Новость</option>
+          <option value='blog'>Блог</option>
         </select>
 
         <RichTextEditor value={content} onChange={setContent} />
 
-        <button className="save-btn" onClick={handleSave}>💾 Сохранить</button>
+        <button className='save-btn' onClick={handleSave}>
+          💾 Сохранить
+        </button>
       </div>
     </AdminLayout>
   );

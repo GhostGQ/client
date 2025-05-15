@@ -1,0 +1,78 @@
+{
+  "hero": {
+    "title1": "Eng yaxshi an'analarni saqlaymiz",
+    "title2": "Tajriba orttiramiz",
+    "subTitle1": "Zamonaviy dizayn, maksimal funksionallik",
+    "subTitle2": "sizning individual ehtiyojlaringizga mos ravishda",
+    "button": {
+      "aboutCompany": "Kompaniya haqida",
+      "products": "Mahsulotlar katalogi"
+    }
+  },
+  "about": {
+    "title": "kompaniya haqida",
+    "text": "Toʻqimachilik fabrikasi — bu tolalar va iplar asosida toʻqimachilik mahsulotlarini ishlab chiqaruvchi korxona. Bunday fabrikalarning asosiy faoliyati matolar ishlab chiqarishdan iborat.",
+    "cards": {
+      "years": "Kompaniya tashkil etilgan yil",
+      "partners": "Doimiy hamkorlar",
+      "employes": "Xodimlar soni"
+    },
+    "button": {
+      "more": "Batafsil"
+    }
+  },
+  "products": {
+    "title": "Mahsulotlar",
+    "button": "Boshqa mahsulotlarni ko‘rish",
+    "el1": {
+      "title": "Mato",
+      "description": "Mato — bu moda, uy bezagi, sanoat va boshqa ko‘plab sohalarda qo‘llaniladigan muhim materialdir. U turli tolalardan — tabiiy yoki sun’iy — tayyorlanishi mumkin."
+    },
+    "el2": {
+      "title": "Yostiq-to‘shak jixozlari",
+      "description": "Yostiq-to‘shak jixozlari — bu moda, uy bezagi, sanoat va boshqa ko‘plab sohalarda qo‘llaniladigan muhim materialdir. U turli tolalardan — tabiiy yoki sun’iy — tayyorlanishi mumkin."
+    },
+    "el3": {
+      "title": "Uy to‘qimachiligi",
+      "description": "Uy to‘qimachiligi — bu moda, uy bezagi, sanoat va boshqa ko‘plab sohalarda qo‘llaniladigan muhim materialdir. U turli tolalardan — tabiiy yoki sun’iy — tayyorlanishi mumkin."
+    }
+  },
+  "lelitAd": {
+    "desc": "«Lelit Bed Linen» savdo belgisi 2015 yilda tashkil etilgan «Samarkand Euro Asia Textile» MChJ tekstil korxonasi bazasida yaratilgan bo‘lib, u paxta yetishtirishdan tortib, tayyor mahsulot ishlab chiqarishga qadar bo‘lgan to‘liq ishlab chiqarish tsiklini o‘z korxonasida amalga oshiradigan noyob korxona hisoblanadi.",
+    "mobileDesc": "«Lelit Bed Linen» savdo belgisi 2015 yilda tashkil etilgan «Samarkand Euro Asia Textile» MChJ tekstil korxonasi bazasida yaratilgan bo‘lib",
+    "button": "Batafsil"
+  },
+  "opportunities": {
+    "title": "Hamkorlik afzalliklari",
+    "desc": "To‘qimachilik fabrikasi — tolalar va iplardan to‘qimachilik mahsulotlarini ishlab chiqaruvchi korxona. Bunday fabrikalarning asosiy faoliyati matolar ishlab chiqarishga qaratilgan.",
+    "button": "Mahsulotlar katalogi",
+    "op1": {
+      "title": "Keng assortiment",
+      "desc": "Reps to‘qimali paxta mato, bir tomonlama yoki ikki tomonlama tekis va siyrak junli. Yumshoq va mayin material, terini bezovta qilmaydi, namlikni yaxshi shimadi va issiqlikni ushlab turadi. Bolalar kiyimlari, ko‘ylaklar, pijamalar, xalatlar tikishda, astar mato sifatida va boshqalarda qo‘llaniladi."
+    },
+    "op2": {
+      "title": "Moslashuvchan hamkorlik shartlari",
+      "desc": "Reps to‘qimali paxta mato, bir tomonlama yoki ikki tomonlama tekis va siyrak junli. Yumshoq va mayin material, terini bezovta qilmaydi, namlikni yaxshi shimadi va issiqlikni ushlab turadi. Bolalar kiyimlari, ko‘ylaklar, pijamalar, xalatlar tikishda, astar mato sifatida va boshqalarda qo‘llaniladi."
+    },
+    "op3": {
+      "title": "Raqobatbardosh narxlar",
+      "desc": "Reps to‘qimali paxta mato, bir tomonlama yoki ikki tomonlama tekis va siyrak junli. Yumshoq va mayin material, terini bezovta qilmaydi, namlikni yaxshi shimadi va issiqlikni ushlab turadi. Bolalar kiyimlari, ko‘ylaklar, pijamalar, xalatlar tikishda, astar mato sifatida va boshqalarda qo‘llaniladi."
+    }
+  },
+  "partners": {
+    "title": "Hamkorlarimiz",
+    "desc": "To‘qimachilik fabrikasi — tolalar va iplardan to‘qimachilik mahsulotlarini ishlab chiqaruvchi korxona. Bunday fabrikalarning asosiy faoliyati matolar ishlab chiqarishga qaratilgan."
+  },
+  "contactUs": {
+    "title": "Biz bilan bog‘laning",
+    "desc": "To‘qimachilik fabrikasi — tolalar va iplardan to‘qimachilik mahsulotlarini ishlab chiqaruvchi korxona. Bunday fabrikalarning asosiy faoliyati matolar ishlab chiqarishga qaratilgan.",
+    "cards": {
+      "phone": "Telefon raqami",
+      "email": "Elektron pochta manzili",
+      "addres": "Manzil",
+      "tg": "Telegram kanali",
+      "inst": "Instagram",
+      "face": "Facebook"
+    }
+  }
+}
