@@ -2,7 +2,6 @@ import {useEffect, useState} from 'react';
 import {useRouter} from 'next/router';
 import AdminLayout from '../../components/AdminLayout';
 import Cookies from 'js-cookie';
-import '../../styles/posts.css';
 
 interface IPost {
   id: number;

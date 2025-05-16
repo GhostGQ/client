@@ -1,7 +1,10 @@
 'use client';
 
+import '../i18n'
 import '@/styles/globals.css';
 import '../styles/admin.css';
+import '@/styles/products.css';
+import '@/styles/requests.css';
 import 'leaflet/dist/leaflet.css';
 import '@mantine/core/styles.css';
 import type {AppProps} from 'next/app';

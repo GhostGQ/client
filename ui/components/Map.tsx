@@ -11,7 +11,7 @@ export default function SimpleMap() {
       center={position}
       zoom={17}
       scrollWheelZoom={false}
-      style={{height: '400px', width: '100%', borderRadius: '16px'}}
+      style={{height: '400px', width: '100%', border: '4px solid #fff'}}
     >
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

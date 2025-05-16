@@ -28,7 +28,7 @@ const Footer = () => {
   return (
     <>
       <EmailSubscribe />
-      <footer className='mb-10 pt-10 pb-3 bg-[rgba(2,3,8,1)]'>
+      <footer className='pt-10 pb-3 bg-[rgba(2,3,8,1)]'>
         <div className='container pb-7 flex flex-wrap justify-between items-center'>
           <div className='max-w-[140px] w-full order-1'>
             <img src='/logo.png' alt='Logo' className='w-full' />

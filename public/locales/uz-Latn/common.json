@@ -13,5 +13,28 @@
   },
   "email": {
     "title": "Yangiliklarimizga obuna bo‘ling"
+  },
+  "form": {
+    "name": {
+      "label": "Ism",
+      "placeholder": "Ismingiz",
+      "required": "Ism majburiy",
+      "short": "Ism juda qisqa"
+    },
+    "phone": {
+      "label": "Telefon raqami",
+      "required": "Telefon raqami majburiy",
+      "incorrect": "To‘g‘ri raqam kiriting"
+    },
+    "message": {
+      "label": "Xabar",
+      "required": "Xabar majburiy",
+      "short": "Xabar juda qisqa"
+    },
+    "check": {
+      "label": "Maxfiylik siyosatiga roziman",
+      "required": "Tasdiqlash majburiy"
+    },
+    "button": "Arizani yuborish"
   }
 }

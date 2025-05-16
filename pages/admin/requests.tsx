@@ -1,6 +1,5 @@
 import {useEffect, useState} from 'react';
 import AdminLayout from '../../components/AdminLayout';
-import '../../styles/requests.css';
 import Cookies from 'js-cookie';
 
 interface IReq {

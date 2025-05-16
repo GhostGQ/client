@@ -5,7 +5,6 @@ import {useRouter} from 'next/router';
 import dynamic from 'next/dynamic';
 import Cookies from 'js-cookie';
 import AdminLayout from '../../../../components/AdminLayout';
-import '@/styles/posts.css';
 
 const RichTextEditor = dynamic(
   () => import('../../../../components/RichTextEditor'),

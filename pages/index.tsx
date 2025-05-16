@@ -1,4 +1,3 @@
-import Header from '@/components/header/Header';
 import {Hero} from '@/ui/sections/home-page/Hero';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {GetServerSideProps} from 'next';

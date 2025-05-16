@@ -1,3 +1,5 @@
+'use client'
+
 import BgContainer from '@/ui/components/BgContainer';
 import PartnersLogoCarousel from '@/ui/components/PartnersLogoCarousel';
 import React from 'react';

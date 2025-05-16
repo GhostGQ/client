@@ -25,7 +25,7 @@ const Navbar = ({isMain}: {isMain: boolean}) => {
     {key: 'nav.about', path: '/about'},
     {key: 'nav.production', path: '/production'},
     {key: 'nav.products', path: '/products'},
-    {key: 'nav.news', path: '/news'},
+    {key: 'nav.news', path: '/news-and-blog'},
     {key: 'nav.contacts', path: '/contacts'},
   ];
 
@@ -51,7 +51,7 @@ const Navbar = ({isMain}: {isMain: boolean}) => {
         opened={opened}
         onClick={toggle}
         className='lg:hidden z-50'
-        color='white'
+        color={isMain ? 'white' : 'dark'}
         size='md'
       />
 
