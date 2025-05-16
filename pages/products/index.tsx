@@ -5,6 +5,7 @@ import Partners from '@/ui/sections/home-page/Partners';
 import {GetServerSideProps} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {useTranslation} from 'next-i18next';
+import i18nConfig from '../../next-i18next.config';
 
 const index = () => {;
   const {t} = useTranslation('products');
@@ -27,7 +28,7 @@ export const getServerSideProps: GetServerSideProps = async ({locale}) => {
         'common',
         'main',
         'products',
-      ])),
+      ], i18nConfig)),
     },
   };
 };
