@@ -1,6 +1,5 @@
 'use client';
 
-import '../i18n'
 import '@/styles/globals.css';
 import '../styles/admin.css';
 import '@/styles/products.css';

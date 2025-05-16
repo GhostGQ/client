@@ -1,9 +1,9 @@
 'use client';
 
 import {useEffect, useState} from 'react';
-import {useTranslation} from 'react-i18next';
+import {useTranslation} from 'next-i18next';
 
-export const Hero = () => {
+const Hero = () => {
   const {t} = useTranslation('main');
 
   const [mounted, setMounted] = useState(false);
@@ -51,3 +51,5 @@ export const Hero = () => {
     </section>
   );
 };
+
+export default Hero

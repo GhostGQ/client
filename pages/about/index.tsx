@@ -4,18 +4,10 @@ import ContactUs from '@/ui/sections/home-page/ContactUs';
 import Partners from '@/ui/sections/home-page/Partners';
 import {GetServerSideProps} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
-import React, {useEffect, useState} from 'react';
-import {useTranslation} from 'react-i18next';
+import {useTranslation} from 'next-i18next';
 
 const index = () => {
-  const [mounted, setMounted] = useState(false);
   const {t} = useTranslation('about');
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
 
   return (
     <div>
