@@ -11,4 +11,5 @@ module.exports = {
     uz: ['uz-Latn'],
     default: ['ru'],
   },
+  localePath: './public/locales',
 };
