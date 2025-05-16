@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: true,
   i18n: nextI18NextConfig.i18n,
+  output: 'standalone'
 };
 
 export default nextConfig;

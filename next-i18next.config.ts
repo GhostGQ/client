@@ -1,3 +1,4 @@
+import path from 'path';
 import type { UserConfig } from 'next-i18next';
 
 const config: UserConfig = {
@@ -6,11 +7,15 @@ const config: UserConfig = {
     locales: ['ru', 'uz-Latn'],
     localeDetection: false,
   },
-  react: { useSuspense: false },
+  react: { useSuspense: true },
   reloadOnPrerender: process.env.NODE_ENV === 'development',
   ns: ['common', 'main', 'contacts', 'about', 'production', 'products', 'blog'],
   fallbackLng: 'ru',
-  localePath: './public/locales',
+  localePath: path.resolve('./public/locales'),
+  serializeConfig: false,
+  interpolation: {
+    escapeValue: false,
+  },
 };
 
 export default config;
