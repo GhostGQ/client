@@ -24,7 +24,6 @@ function App({Component, pageProps}: AppProps) {
       <div className={manrope.className}>
         <Header />
         <Component {...pageProps} />
-        {/* <Footer /> */}
       </div>
     </MantineProvider>
   );
