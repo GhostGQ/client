@@ -11,6 +11,7 @@ import {MantineProvider} from '@mantine/core';
 import {appWithTranslation} from 'next-i18next';
 import {Manrope} from 'next/font/google';
 import Header from '@/components/header/Header';
+import i18nConfig from '../next-i18next.config';
 
 const manrope = Manrope({
   subsets: ['latin', 'cyrillic'], // лучше указать и кириллицу для русского
@@ -29,4 +30,4 @@ function App({Component, pageProps}: AppProps) {
   );
 }
 
-export default appWithTranslation(App);
+export default appWithTranslation(App, i18nConfig);

@@ -7,6 +7,7 @@ import Opportunities from '@/ui/sections/home-page/Opportunities';
 import Partners from '@/ui/sections/home-page/Partners';
 import ContactUs from '@/ui/sections/home-page/ContactUs';
 import dynamic from 'next/dynamic';
+import i18nConfig from '../next-i18next.config';
 
 const Hero = dynamic(() => import('@/ui/sections/home-page/Hero'), {
   ssr: false,
@@ -34,7 +35,11 @@ export default function Home() {
 export const getServerSideProps: GetServerSideProps = async ({locale}) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'ru', ['common', 'main'])),
+      ...(await serverSideTranslations(
+        locale ?? 'ru',
+        ['common', 'main'],
+        i18nConfig
+      )),
     },
   };
 };
