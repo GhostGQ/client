@@ -2,7 +2,7 @@
 
 import {FaArrowRightLong} from 'react-icons/fa6';
 import AnimatedCards from '@/ui/components/AnimatedCards';
-import {useTranslation} from 'react-i18next';
+import {useTranslation} from 'next-i18next';
 import { useEffect, useState } from 'react';
 
 const Products = () => {

@@ -3,7 +3,7 @@
 import {useEffect, useState} from 'react';
 import {FaArrowRightLong, FaMinus, FaPlus} from 'react-icons/fa6';
 import {motion, AnimatePresence} from 'framer-motion';
-import {useTranslation} from 'react-i18next';
+import {useTranslation} from 'next-i18next';
 
 const AnimatedCards = () => {
   const {t} = useTranslation('main');

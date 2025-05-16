@@ -5,7 +5,7 @@ import {Button, Checkbox, Textarea, TextInput} from '@mantine/core';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import {FaArrowRightLong} from 'react-icons/fa6';
-import {useTranslation} from 'react-i18next';
+import {useTranslation} from 'next-i18next';
 
 type FormValues = {
   name: string;

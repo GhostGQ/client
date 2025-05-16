@@ -3,7 +3,7 @@
 import BgContainer from '@/ui/components/BgContainer';
 import PartnersLogoCarousel from '@/ui/components/PartnersLogoCarousel';
 import React from 'react';
-import {useTranslation} from 'react-i18next';
+import {useTranslation} from 'next-i18next';
 
 const Partners = () => {
   const {t} = useTranslation('main');

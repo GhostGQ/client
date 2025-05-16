@@ -2,7 +2,7 @@ import {FaFacebookF, FaInstagram, FaYoutube} from 'react-icons/fa';
 import {BiLogoTelegram} from 'react-icons/bi';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
-import {useTranslation} from 'react-i18next';
+import {useTranslation} from 'next-i18next';
 import {useEffect, useState} from 'react';
 import EmailSubscribe from './ui/EmailSubscribe';
 
