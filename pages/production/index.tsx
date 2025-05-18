@@ -6,6 +6,7 @@ import {GetServerSideProps} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {useTranslation} from 'next-i18next';
 import i18nConfig from '../../next-i18next.config';
+import Content from '@/ui/sections/production/Content';
 
 const index = () => {
   const {t} = useTranslation('production');
@@ -14,6 +15,7 @@ const index = () => {
     <div>
       <PageHeader title={t('header.title')} subtitle={t('header.subtitle')} />
 
+      <Content />
       <Partners />
       <ContactUs />
       <Footer />
@@ -24,11 +26,11 @@ const index = () => {
 export const getServerSideProps: GetServerSideProps = async ({locale}) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'ru', [
-        'common',
-        'main',
-        'production',
-      ], i18nConfig)),
+      ...(await serverSideTranslations(
+        locale ?? 'ru',
+        ['common', 'main', 'production'],
+        i18nConfig
+      )),
     },
   };
 };

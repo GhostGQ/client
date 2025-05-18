@@ -2,6 +2,7 @@
 import React from 'react';
 import {useTranslation} from 'next-i18next';
 import {FaArrowRightLong} from 'react-icons/fa6';
+import Link from 'next/link';
 
 const Opportunities = () => {
   const {t} = useTranslation('main');
@@ -52,14 +53,16 @@ const Opportunities = () => {
                   {op.title}
                 </h3>
                 <p className='mb-6 text-[16px] font-medium'>{op.desc}</p>
-                <button className='flex gap-2 items-center mt-4 md:mt-8'>
-                  <span className='text-[#2A3F87] text-[16px]'>
-                    Каталог продукции
-                  </span>
-                  <span className='bg-[#F3F3F3] py-2 px-5 rounded-full'>
-                    <FaArrowRightLong color='#000' />
-                  </span>
-                </button>
+                <Link href='/products'>
+                  <button className='flex gap-2 items-center mt-4 md:mt-8'>
+                    <span className='text-[#2A3F87] text-[16px]'>
+                      {t('opportunities.button')}
+                    </span>
+                    <span className='bg-[#F3F3F3] py-2 px-5 rounded-full'>
+                      <FaArrowRightLong color='#000' />
+                    </span>
+                  </button>
+                </Link>
               </div>
             </div>
           ))}

@@ -4,6 +4,7 @@ import {Button} from '@mantine/core';
 import {useEffect, useState} from 'react';
 import {useTranslation} from 'next-i18next';
 import {FaArrowRightLong} from 'react-icons/fa6';
+import Link from 'next/link';
 
 const About = () => {
   const {t} = useTranslation('main');
@@ -24,16 +25,18 @@ const About = () => {
             {t('about.title')}
           </h2>
           <div className='sm:block hidden'>
-            <Button
-              variant='filled'
-              radius='xl'
-              color='#43A1D0'
-              size='lg'
-              className='font-medium w-full sm:w-auto'
-              rightSection={<FaArrowRightLong />}
-            >
-              {t('about.button.more')}
-            </Button>
+            <Link href='/about'>
+              <Button
+                variant='filled'
+                radius='xl'
+                color='#43A1D0'
+                size='lg'
+                className='font-medium w-full sm:w-auto'
+                rightSection={<FaArrowRightLong />}
+              >
+                {t('about.button.more')}
+              </Button>
+            </Link>
           </div>
         </div>
 

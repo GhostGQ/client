@@ -2,6 +2,7 @@
 
 import {useEffect, useState} from 'react';
 import {useTranslation} from 'next-i18next';
+import Link from 'next/link';
 
 const Hero = () => {
   const {t} = useTranslation('main');
@@ -41,10 +42,10 @@ const Hero = () => {
         </p>
         <div className='flex gap-4 flex-col sm:flex-row w-full sm:w-fit'>
           <button className='btn_filled sm:w-[206px]'>
-            {t('hero.button.products')}
+            <Link href='/products'>{t('hero.button.products')}</Link>
           </button>
           <button className='btn_outline sm:w-[206px]'>
-            {t('hero.button.aboutCompany')}
+            <Link href='/about'>{t('hero.button.aboutCompany')}</Link>
           </button>
         </div>
       </div>
@@ -52,4 +53,4 @@ const Hero = () => {
   );
 };
 
-export default Hero
+export default Hero;

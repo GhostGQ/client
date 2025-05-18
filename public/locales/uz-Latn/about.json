@@ -2,5 +2,25 @@
   "header": {
     "title": "Kompaniya haqida",
     "subtitle": "To‘qimachilik fabrikasi — tolalar va iplardan to‘qimachilik mahsulotlarini ishlab chiqarishga ixtisoslashgan korxona."
+  },
+  "content": {
+    "title": "Kompaniya haqida",
+    "intro": "To‘qimachilik kompaniyasi — bu matolarni ishlab chiqarish, qayta ishlash va sotish bilan shug‘ullanuvchi korxona. Bunday kompaniyalar yirik fabrikalardan tortib tayyor mahsulot ishlab chiqaruvchi kichik ustaxonalarigacha bo‘lishi mumkin.",
+    "functions_title": "To‘qimachilik kompaniyasining asosiy funksiyalari",
+    "functions": {
+      "f1": {
+        "title": "Matolar ishlab chiqarish",
+        "desc": "To‘qimachilik kompaniyalari tabiiy (paxta, zig‘ir, jun) va sintetik (poliester, naylon) materiallardan turli matolarni ishlab chiqaradi."
+      },
+      "f2": {
+        "title": "Dizayn va ishlab chiqish",
+        "desc": "Ko‘plab kompaniyalar noyob dizayn va kolleksiyalar ishlab chiqish bilan shug‘ullanadi, bu ularga bozorda ajralib turishga yordam beradi."
+      },
+      "f3": {
+        "title": "Ulgurji va chakana savdo",
+        "desc": "Kompaniyalar mahsulotlarini ulgurji va chakana savdoda sotish orqali do‘konlar va yakuniy iste’molchilarga yetkazib beradilar."
+      }
+    },
+    "conclusion": "To‘qimachilik sanoati eng qadimiy va eng talab yuqori bo‘lgan sohalardan biridir, u kiyim-kechak, uy tekstili va boshqa mahsulotlarga bo‘lgan ehtiyojni qondiradi. To‘qimachilik kompaniyalari iqtisodiyotda muhim rol o‘ynaydi, ish o‘rinlari yaratadi va boshqa sohalarning rivojlanishiga hissa qo‘shadi."
   }
 }
