@@ -1,0 +1,40 @@
+{
+  "nav": {
+    "home": "Bosh sahifa",
+    "about": "Kompaniya haqida",
+    "production": "Ishlab chiqarish",
+    "products": "Mahsulotlar",
+    "news": "Yangiliklar va blog",
+    "contacts": "Aloqa"
+  },
+  "footer": {
+    "privacy": "© 2024 Set.uz. Sayt ommaviy oferta emas",
+    "copyrights": "SET kompaniyasi holding tarkibiga kiradi"
+  },
+  "email": {
+    "title": "Yangiliklarimizga obuna bo‘ling"
+  },
+  "form": {
+    "name": {
+      "label": "Ism",
+      "placeholder": "Ismingiz",
+      "required": "Ism majburiy",
+      "short": "Ism juda qisqa"
+    },
+    "phone": {
+      "label": "Telefon raqami",
+      "required": "Telefon raqami majburiy",
+      "incorrect": "To‘g‘ri raqam kiriting"
+    },
+    "message": {
+      "label": "Xabar",
+      "required": "Xabar majburiy",
+      "short": "Xabar juda qisqa"
+    },
+    "check": {
+      "label": "Maxfiylik siyosatiga roziman",
+      "required": "Tasdiqlash majburiy"
+    },
+    "button": "Arizani yuborish"
+  }
+}

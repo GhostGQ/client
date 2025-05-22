@@ -1,26 +1,62 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* PartnersLogoCarousel скрыть scrollbar но оставить возможность скролла */
+.inline-flex::-webkit-scrollbar {
+  display: none;
+}
+.inline-flex {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.leaflet-bottom {
+  display: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  min-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* Мобильные устройства (до 767px) */
+@media (max-width: 767px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Планшеты (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
+
+/* Десктопы (1024px и выше) */
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+.btn_filled {
+  @apply py-3 rounded-full bg-white text-[#081B24];
+}
+
+.btn_outline {
+  @apply border border-[#ffffffbc] py-3 rounded-full text-white;
+}
+

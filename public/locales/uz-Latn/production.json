@@ -1,0 +1,35 @@
+{
+  "header": {
+    "title": "Ishlab chiqarish",
+    "subtitle": "To‘qimachilik fabrikasi — tolalar va iplardan to‘qimachilik mahsulotlarini ishlab chiqarishga ixtisoslashgan korxona."
+  },
+  "content": {
+    "title": "Ishlab chiqarish",
+    "intro": "Toʻqimachilik kompaniyasi — bu mato mahsulotlarini ishlab chiqarish, qayta ishlash va sotish bilan shugʻullanuvchi korxona. Bu kompaniyalar katta fabrikalardan tortib, mato va tayyor mahsulot ishlab chiqaradigan korxonalar, shuningdek noyob yoki dizaynerlik mahsulotlariga ixtisoslashgan kichik ustaxonalar boʻlishi mumkin.",
+    "machine": {
+      "type": "Avtomatik mato to‘shash majmuasi",
+      "params": {
+        "width": "Mato eni (mm)",
+        "speed": "To‘shash tezligi (m/min)",
+        "diameter": "Rulon diametri (mm)"
+      },
+      "descriptionTitle": "Tavsif",
+      "descriptionText": "Poplin — bu mato turi boʻlib, u mustahkamligi, silliqligi va engilligi bilan ajralib turadi. U koʻpincha kiyim-kechak, yotoq jihozlari va boshqa toʻqimachilik mahsulotlarini tikishda ishlatiladi. Poplin — bu mato turi boʻlib, u mustahkamligi, silliqligi va engilligi bilan ajralib turadi. U koʻpincha kiyim-kechak, yotoq jihozlari va boshqa toʻqimachilik mahsulotlarini tikishda ishlatiladi."
+    },
+    "functions_title": "To‘qimachilik kompaniyasining asosiy funksiyalari",
+    "functions": {
+      "f1": {
+        "title": "Matolar ishlab chiqarish",
+        "desc": "To‘qimachilik kompaniyalari tabiiy (paxta, zig‘ir, jun) va sintetik (poliester, naylon) materiallardan turli matolarni ishlab chiqaradi."
+      },
+      "f2": {
+        "title": "Dizayn va ishlab chiqish",
+        "desc": "Ko‘plab kompaniyalar noyob dizayn va kolleksiyalar ishlab chiqish bilan shug‘ullanadi, bu ularga bozorda ajralib turishga yordam beradi."
+      },
+      "f3": {
+        "title": "Ulgurji va chakana savdo",
+        "desc": "Kompaniyalar mahsulotlarini ulgurji va chakana savdoda sotish orqali do‘konlar va yakuniy iste’molchilarga yetkazib beradilar."
+      }
+    }
+  }
+}
