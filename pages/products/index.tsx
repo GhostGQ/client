@@ -6,6 +6,7 @@ import {GetServerSideProps} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {useTranslation} from 'next-i18next';
 import i18nConfig from '../../next-i18next.config';
+import Catalog from '@/ui/sections/products/Catalog';
 
 const index = () => {;
   const {t} = useTranslation('products');
@@ -13,7 +14,7 @@ const index = () => {;
   return (
     <div>
       <PageHeader title={t('header.title')} subtitle={t('header.subtitle')} />
-
+      <Catalog />
       <Partners />
       <ContactUs />
       <Footer />

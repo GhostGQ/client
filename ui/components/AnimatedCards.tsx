@@ -4,6 +4,7 @@ import {useEffect, useState} from 'react';
 import {FaArrowRightLong, FaMinus, FaPlus} from 'react-icons/fa6';
 import {motion, AnimatePresence} from 'framer-motion';
 import {useTranslation} from 'next-i18next';
+import Link from 'next/link';
 
 const AnimatedCards = () => {
   const {t} = useTranslation('main');
@@ -146,14 +147,16 @@ const AnimatedCards = () => {
                   <p className='text-white text-[14px] sm:text-[16px] mb-4'>
                     {product.description}
                   </p>
-                  <button className='flex gap-2 items-center'>
-                    <span className='text-white text-[16px]'>
-                      Посмотреть другие товары
-                    </span>
-                    <span className='bg-white py-2 px-5 rounded-full'>
-                      <FaArrowRightLong color='#000' />
-                    </span>
-                  </button>
+                  <Link href='/products'>
+                    <button className='flex gap-2 items-center z-50'>
+                      <span className='text-white text-[16px]'>
+                        Посмотреть другие товары
+                      </span>
+                      <span className='bg-white py-2 px-5 rounded-full'>
+                        <FaArrowRightLong color='#000' />
+                      </span>
+                    </button>
+                  </Link>
                 </motion.div>
               )}
             </AnimatePresence>

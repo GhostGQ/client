@@ -32,14 +32,23 @@ const Navbar = ({isMain}: {isMain: boolean}) => {
   return (
     <>
       {/* Desktop Navigation */}
-      <ul className={`hidden lg:flex ${isMain ? 'text-white' : 'text-[#2A3F87]'} w-full text-[16px] font-medium justify-between gap-3`}>
+      <ul
+        className={`hidden lg:flex ${
+          isMain ? 'text-white' : 'text-[#2A3F87]'
+        } w-full text-[16px] font-medium justify-between gap-3`}
+      >
         {navItems.map(item => (
           <li key={item.key}>
             <Link
               href={item.path}
-              className={`hover:text-blue-300 transition whitespace-nowrap ${
-                router.pathname === item.path ? 'text-blue-400 font-medium' : ''
-              }`}
+              className={`relative pb-1 hover:text-blue-300 transition whitespace-nowrap
+                ${
+                  router.pathname === item.path
+                    ? `text-blue-400 font-medium after:content-[""] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:h-[2px] after:w-[120%] ${
+                        isMain ? 'after:bg-white' : 'after:bg-[#2A3F87]'
+                      }`
+                    : ''
+                }`}
             >
               {t(item.key)}
             </Link>
