@@ -1,0 +1,62 @@
+.product-wizard {
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .wizard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .wizard-content input,
+  .wizard-content textarea,
+  .wizard-content select {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 0.7rem;
+    background: #111;
+    border: 1px solid #333;
+    color: white;
+    border-radius: 6px;
+  }
+  
+  .color-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  
+  .color-chip {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+  }
+  
+  .image-preview {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+  
+  .thumb {
+    position: relative;
+  }
+  
+  .thumb button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: black;
+    color: red;
+    border: none;
+    border-radius: 50%;
+    padding: 2px 5px;
+    cursor: pointer;
+  }
+  
