@@ -1,247 +1,137 @@
-import {useEffect, useState} from 'react';
-import AdminLayout from '../../components/AdminLayout';
-import Cookies from 'js-cookie';
+import { useEffect, useState } from 'react';
+import AdminLayout from '@/components/admin/AdminLayout';
+import styles from '@/styles/admin-products.module.css';
 
-interface IReq {
-  id: number;
-  name: string;
-  phone: string;
-  status: 'pending' | 'approved' | 'rejected';
-  created_at: string;
-  comment: string;
-  product_title: string;
-  category: string;
-  material_type: string;
-  material_spec: string;
-}
-
-export default function AdminRequests() {
-  const [requests, setRequests] = useState<IReq[]>([]);
-  const [filtered, setFiltered] = useState<IReq[]>([]);
+export default function RequestsPage() {
+  const [requests, setRequests] = useState([]);
+  const [status, setStatus] = useState('');
   const [search, setSearch] = useState('');
-  const [statusFilter, setStatusFilter] = useState('');
-  const [dateFilter, setDateFilter] = useState('');
-  const [selectedRequest, setSelectedRequest] = useState<IReq | null>(null);
-  const [statusUpdate, setStatusUpdate] = useState('');
+  const [dateFrom, setDateFrom] = useState('');
+  const [dateTo, setDateTo] = useState('');
+  const [loading, setLoading] = useState(true);
 
   const fetchRequests = async () => {
-    const res = await fetch('http://localhost:5000/api/requests');
+    setLoading(true);
+    const params = new URLSearchParams();
+    if (status) params.append('status', status);
+    if (search) params.append('search', search);
+    if (dateFrom) params.append('from', dateFrom);
+    if (dateTo) params.append('to', dateTo);
+
+    const res = await fetch(`/api/requests?${params.toString()}`);
     const data = await res.json();
-    setRequests(data);
-    setFiltered(data);
+    setRequests(data.requests || []);
+    setLoading(false);
   };
 
   useEffect(() => {
     fetchRequests();
-  }, []);
+  }, [status, search, dateFrom, dateTo]);
 
-  useEffect(() => {
-    let filteredData = [...requests];
-
-    if (search) {
-      filteredData = filteredData.filter(
-        r =>
-          r.name.toLowerCase().includes(search.toLowerCase()) ||
-          r.phone.toLowerCase().includes(search.toLowerCase())
-      );
-    }
-
-    if (statusFilter) {
-      filteredData = filteredData.filter(r => r.status === statusFilter);
-    }
-
-    if (dateFilter) {
-      filteredData = filteredData.filter(
-        r => new Date(r.created_at).toISOString().slice(0, 10) === dateFilter
-      );
-    }
-
-    setFiltered(filteredData);
-  }, [search, statusFilter, dateFilter, requests]);
-
-  const statusMap = {
-    pending: {text: 'В ожидании', color: '#ff9800'},
-    approved: {text: 'Одобрено', color: '#4caf50'},
-    rejected: {text: 'Отклонено', color: '#f44336'},
-  };
-
-  const handleStatusChange = async () => {
-    if (!statusUpdate) return;
-    const token = Cookies.get('admin_token');
-
-    const res = await fetch(
-      `http://localhost:5000/api/requests/${selectedRequest?.id}`,
-      {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({status: statusUpdate}),
-      }
-    );
-
-    if (res.ok) {
-      fetchRequests();
-      setSelectedRequest(null);
-      setStatusUpdate('');
-    }
+  const updateStatus = async (id: string, newStatus: string) => {
+    const res = await fetch(`/api/requests/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ status: newStatus }),
+    });
+    if (res.ok) fetchRequests();
   };
 
   return (
     <AdminLayout>
-      <div className='requests-wrapper'>
-        <div className='requests-container'>
-          <h2>📨 Все заявки</h2>
+      <div className={styles.page}>
+        <h1 style={{ fontSize: '28px', marginBottom: '20px' }}>📨 Заявки от клиентов</h1>
 
-          <div className='filters-bar'>
-            <input
-              type='text'
-              placeholder='Поиск по имени или телефону...'
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-            />
-
-            <select
-              value={statusFilter}
-              onChange={e => setStatusFilter(e.target.value)}
-            >
-              <option value=''>Все статусы</option>
-              <option value='pending'>⏳ В ожидании</option>
-              <option value='approved'>✅ Одобрено</option>
-              <option value='rejected'>❌ Отклонено</option>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+          gap: '16px',
+          background: '#1f1f1f',
+          padding: '20px',
+          borderRadius: '12px',
+          marginBottom: '24px',
+          boxShadow: '0 0 10px rgba(0,0,0,0.3)'
+        }}>
+          <div>
+            <label className={styles.label}>Статус</label>
+            <select value={status} onChange={(e) => setStatus(e.target.value)} className={styles.input}>
+              <option value="">Все</option>
+              <option value="pending">Новые</option>
+              <option value="approved">Одобренные</option>
+              <option value="rejected">Отклонённые</option>
             </select>
-
-            <input
-              type='date'
-              value={dateFilter}
-              onChange={e => setDateFilter(e.target.value)}
-            />
-
-            <button
-              onClick={() => {
-                setSearch('');
-                setStatusFilter('');
-                setDateFilter('');
-              }}
-            >
-              Сбросить
-            </button>
           </div>
+          <div>
+            <label className={styles.label}>Поиск (имя или номер)</label>
+            <input
+              type="text"
+              value={search}
+              placeholder="Введите текст..."
+              onChange={(e) => setSearch(e.target.value)}
+              className={styles.input}
+            />
+          </div>
+          <div>
+            <label className={styles.label}>Дата от</label>
+            <input type="date" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)} className={styles.input} />
+          </div>
+          <div>
+            <label className={styles.label}>Дата до</label>
+            <input type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)} className={styles.input} />
+          </div>
+        </div>
 
-          <div className='requests-table'>
-            <table>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Имя</th>
-                  <th>Телефон</th>
-                  <th>Комментарий</th>
-                  <th>Дата</th>
-                  <th>Продукт</th>
-                  <th>Статус</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {filtered.map((r: IReq) => (
+        <div className={styles.tableWrapper}>
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th>Имя</th>
+                <th>Телефон</th>
+                <th>Комментарий</th>
+                <th>Статус</th>
+                <th>Дата</th>
+                <th>Действия</th>
+              </tr>
+            </thead>
+            <tbody>
+              {loading ? (
+                <tr><td colSpan={6}>Загрузка...</td></tr>
+              ) : requests.length === 0 ? (
+                <tr><td colSpan={6}>Нет заявок</td></tr>
+              ) : (
+                requests.map((r: any) => (
                   <tr key={r.id}>
-                    <td>{r.id}</td>
                     <td>{r.name}</td>
                     <td>{r.phone}</td>
-                    <td>{r.comment}</td>
-                    <td>{new Date(r.created_at).toLocaleDateString()}</td>
-                    <td>{r.product_title}</td>
+                    <td>{r.comment || '—'}</td>
                     <td>
-                      <span
-                        style={{
-                          background: statusMap[r.status].color,
-                          padding: '4px 10px',
-                          borderRadius: '12px',
-                          fontSize: '12px',
-                          color: '#fff',
-                        }}
-                      >
-                        {statusMap[r.status].text}
-                      </span>
+                      {r.status === 'pending' ? (
+                        <span style={{ color: 'red', fontWeight: 'bold' }}>⏳ В ожидании</span>
+                      ) : r.status === 'approved' ? (
+                        <span style={{ color: 'limegreen' }}>✅ Одобрено</span>
+                      ) : (
+                        <span style={{ color: 'gray' }}>❌ Отклонено</span>
+                      )}
                     </td>
+                    <td>{new Date(r.created_at).toLocaleString()}</td>
                     <td>
-                      <button
-                        onClick={() => {
-                          setSelectedRequest(r);
-                          setStatusUpdate(r.status);
-                        }}
+                      <select
+                        value={r.status}
+                        onChange={(e) => updateStatus(r.id, e.target.value)}
+                        className={styles.input}
                       >
-                        <i className='fas fa-eye'></i>
-                      </button>
+                        <option value="pending">В ожидании</option>
+                        <option value="approved">Одобрено</option>
+                        <option value="rejected">Отклонено</option>
+                      </select>
                     </td>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-            {filtered.length === 0 && <p className='empty-msg'>Нет заявок</p>}
-          </div>
+                ))
+              )}
+            </tbody>
+          </table>
         </div>
       </div>
-
-      {/* Модалка просмотра заявки (альбомная) */}
-      {selectedRequest && (
-        <div className='modal-overlay'>
-          <div className='modal-box'>
-            <div className='modal-left'>
-              <h3>Заявка №{selectedRequest.id}</h3>
-              <p>
-                <b>Имя:</b> {selectedRequest.name}
-              </p>
-              <p>
-                <b>Телефон:</b> {selectedRequest.phone}
-              </p>
-              <p>
-                <b>Комментарий:</b> {selectedRequest.comment || '—'}
-              </p>
-              <p>
-                <b>Дата:</b>{' '}
-                {new Date(selectedRequest.created_at).toLocaleString()}
-              </p>
-
-              <div style={{marginTop: '12px'}}>
-                <label>Изменить статус:</label>
-                <br />
-                <select
-                  value={statusUpdate}
-                  onChange={e => setStatusUpdate(e.target.value)}
-                  style={{marginTop: 6}}
-                >
-                  <option value='pending'>В ожидании</option>
-                  <option value='approved'>Одобрено</option>
-                  <option value='rejected'>Отклонено</option>
-                </select>
-              </div>
-            </div>
-
-            <div className='modal-right'>
-              <h4>Информация о товаре</h4>
-              <p>
-                <b>Название:</b> {selectedRequest.product_title || '—'}
-              </p>
-              <p>
-                <b>Категория:</b> {selectedRequest.category || '—'}
-              </p>
-              <p>
-                <b>Материал:</b> {selectedRequest.material_type || '—'}
-              </p>
-              <p>
-                <b>Состав:</b> {selectedRequest.material_spec || '—'}
-              </p>
-            </div>
-
-            <div className='modal-actions'>
-              <button onClick={handleStatusChange}>💾 Сохранить</button>
-              <button onClick={() => setSelectedRequest(null)}>Закрыть</button>
-            </div>
-          </div>
-        </div>
-      )}
     </AdminLayout>
   );
 }

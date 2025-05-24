@@ -11,9 +11,11 @@
   "dependencies": {
     "@mantine/core": "^8.0.0",
     "@mantine/hooks": "^8.0.0",
+    "cookie": "^1.0.2",
     "framer-motion": "^12.11.3",
     "i18next": "^25.1.2",
     "js-cookie": "^3.0.5",
+    "jsonwebtoken": "^9.0.2",
     "leaflet": "^1.9.4",
     "next": "15.3.2",
     "next-i18next": "^15.4.2",
@@ -25,6 +27,7 @@
     "react-leaflet": "^5.0.0",
     "react-phone-input-2": "^2.15.1",
     "react-quill": "^2.0.0",
+    "recharts": "^2.15.3",
     "zustand": "^5.0.4"
   },
   "devDependencies": {
