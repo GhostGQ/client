@@ -12,14 +12,14 @@ const index = () => {
   const {t} = useTranslation('production');
 
   return (
-    <div>
+    <>
       <PageHeader title={t('header.title')} subtitle={t('header.subtitle')} />
 
       <Content />
       <Partners />
       <ContactUs />
       <Footer />
-    </div>
+    </>
   );
 };
 

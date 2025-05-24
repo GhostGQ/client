@@ -29,7 +29,7 @@ const About = () => {
               <Button
                 variant='filled'
                 radius='xl'
-                color='#43A1D0'
+                color='#2BA8FC'
                 size='lg'
                 className='font-medium w-full sm:w-auto'
                 rightSection={<FaArrowRightLong />}
@@ -49,7 +49,7 @@ const About = () => {
           <div className='mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6'>
             {/* Карточка 1 */}
             <div className='border border-[#CBD6FF] p-4 sm:p-6 bg-white'>
-              <span className='text-[#43A1D0] text-4xl sm:text-5xl lg:text-6xl font-semibold block'>
+              <span className='text-[#2BA8FC] text-4xl sm:text-5xl lg:text-6xl font-semibold block'>
                 2001
               </span>
               <div className='h-px w-full max-w-[240px] bg-[#E5E5E5] my-2'></div>
@@ -60,7 +60,7 @@ const About = () => {
 
             {/* Карточка 2 */}
             <div className='border border-[#CBD6FF] p-4 sm:p-6 bg-white'>
-              <span className='text-[#43A1D0] text-4xl sm:text-5xl lg:text-6xl font-semibold block'>
+              <span className='text-[#2BA8FC] text-4xl sm:text-5xl lg:text-6xl font-semibold block'>
                 1500+
               </span>
               <div className='h-px w-full max-w-[240px] bg-[#E5E5E5] my-2'></div>
@@ -71,7 +71,7 @@ const About = () => {
 
             {/* Карточка 3 */}
             <div className='border border-[#CBD6FF] p-4 sm:p-6 bg-white'>
-              <span className='text-[#43A1D0] text-4xl sm:text-5xl lg:text-6xl font-semibold block'>
+              <span className='text-[#2BA8FC] text-4xl sm:text-5xl lg:text-6xl font-semibold block'>
                 1200+
               </span>
               <div className='h-px w-full max-w-[240px] bg-[#E5E5E5] my-2'></div>
@@ -84,7 +84,7 @@ const About = () => {
             <Button
               variant='filled'
               radius='xl'
-              color='#43A1D0'
+              color='#2BA8FC'
               size='lg'
               className='font-medium w-full sm:w-auto'
               fullWidth

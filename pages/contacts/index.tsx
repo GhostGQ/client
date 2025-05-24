@@ -10,11 +10,11 @@ const index = () => {
   const {t} = useTranslation('contacts');
 
   return (
-    <div>
+    <>
       <PageHeader title={t('header.title')} subtitle={t('header.subtitle')} />
       <Contacts />
       <Footer />
-    </div>
+    </>
   );
 };
 

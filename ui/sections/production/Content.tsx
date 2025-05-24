@@ -19,7 +19,7 @@ const Content = () => {
             <img src='/KP-LS190.png' alt='' className='lg:max-w-[500px]' />
           </div>
           <div className='w-full'>
-            <h3 className='text-[32px] text-[#2A3F87] font-semibold'>
+            <h3 className='text-[32px] text-[#2BA8FC] font-semibold'>
               KP-LS190
             </h3>
             <span className='text-[#7C7C7C] text-[20px] font-medium'>
@@ -63,7 +63,7 @@ const Content = () => {
             <img src='/MA-LS07.png' alt='' className='lg:max-w-[500px]' />
           </div>
           <div className='w-full lg:order-1'>
-            <h3 className='text-[32px] text-[#2A3F87] font-semibold'>
+            <h3 className='text-[32px] text-[#2BA8FC] font-semibold'>
               MA-LS07
             </h3>
             <span className='text-[#7C7C7C] text-[20px] font-medium'>
@@ -104,7 +104,7 @@ const Content = () => {
         </div>
 
         <div className='bg-[#F3F3F3] p-6 mt-10'>
-          <h4 className='text-[#43A1D0] text-[16px] font-semibold'>
+          <h4 className='text-[#2BA8FC] text-[16px] font-semibold'>
             {t('content.functions_title')}
           </h4>
           <div className='flex flex-col gap-3 mt-3'>

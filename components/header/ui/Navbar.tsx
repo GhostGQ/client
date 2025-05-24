@@ -25,7 +25,6 @@ const Navbar = ({isMain}: {isMain: boolean}) => {
     {key: 'nav.about', path: '/about'},
     {key: 'nav.production', path: '/production'},
     {key: 'nav.products', path: '/products'},
-    {key: 'nav.news', path: '/news-and-blog'},
     {key: 'nav.contacts', path: '/contacts'},
   ];
 
@@ -33,9 +32,9 @@ const Navbar = ({isMain}: {isMain: boolean}) => {
     <>
       {/* Desktop Navigation */}
       <ul
-        className={`hidden lg:flex ${
+        className={`hidden md:flex ${
           isMain ? 'text-white' : 'text-[#2A3F87]'
-        } w-full text-[16px] font-medium justify-between gap-3`}
+        } w-full text-[16px] font-medium gap-5 lg:gap-10`}
       >
         {navItems.map(item => (
           <li key={item.key}>
@@ -59,14 +58,14 @@ const Navbar = ({isMain}: {isMain: boolean}) => {
       <Burger
         opened={opened}
         onClick={toggle}
-        className='lg:hidden z-50'
+        className='md:hidden z-50'
         color={isMain ? 'white' : 'dark'}
         size='md'
       />
 
       {/* Mobile Menu Overlay */}
       {opened && (
-        <div className='fixed inset-0 bg-black bg-opacity-90 z-40 lg:hidden'>
+        <div className='fixed inset-0 bg-black bg-opacity-90 z-40 md:hidden'>
           <div className='container h-full flex flex-col justify-center items-center'>
             <ul className='text-white text-xl space-y-8 flex flex-col items-center text-center'>
               {navItems.map(item => (

@@ -109,7 +109,7 @@ const Timeline = () => {
                         ? {
                             opacity: 1,
                             y: 0,
-                            color: '#43A1D0',
+                            color: '#2BA8FC',
                             transition: {duration: 0.6, delay: 0.1},
                           }
                         : {}

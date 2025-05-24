@@ -70,7 +70,7 @@ export const FilterAccordion = () => {
           radius='xl'
           fullWidth
           size='lg'
-          bg={'#43A1D0'}
+          bg={'#2BA8FC'}
           styles={{label: {fontSize: '16px', fontWeight: 500}}}
           rightSection={<FaArrowRightLong color='#fff' />}
         >

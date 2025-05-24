@@ -8,28 +8,28 @@ import {useTranslation} from 'next-i18next';
 import i18nConfig from '../../next-i18next.config';
 import Catalog from '@/ui/sections/products/Catalog';
 
-const index = () => {;
+const index = () => {
   const {t} = useTranslation('products');
 
   return (
-    <div>
+    <>
       <PageHeader title={t('header.title')} subtitle={t('header.subtitle')} />
       <Catalog />
       <Partners />
       <ContactUs />
       <Footer />
-    </div>
+    </>
   );
 };
 
 export const getServerSideProps: GetServerSideProps = async ({locale}) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'ru', [
-        'common',
-        'main',
-        'products',
-      ], i18nConfig)),
+      ...(await serverSideTranslations(
+        locale ?? 'ru',
+        ['common', 'main', 'products'],
+        i18nConfig
+      )),
     },
   };
 };

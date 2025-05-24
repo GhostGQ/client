@@ -5,9 +5,10 @@ import {HiOutlineSlash} from 'react-icons/hi2';
 interface Props {
   title: string;
   subtitle: string;
+  product?: string;
 }
 
-const PageHeader = ({title, subtitle}: Props) => {
+const PageHeader = ({title, subtitle, product}: Props) => {
   return (
     <div className='md:block hidden'>
       <BgContainer>
@@ -16,7 +17,13 @@ const PageHeader = ({title, subtitle}: Props) => {
             <div className='flex items-center'>
               <GoHome color='#5B7988' size={24} />
               <HiOutlineSlash color='#5B7988' size={30} />
-              <p className='text-white text-[14px]'>{title}</p>
+              <p className='text-white text-[15px]'>{title}</p>
+              {product && (
+                <>
+                  <HiOutlineSlash color='#5B7988' size={30} />
+                  <p className='text-white text-[15px]'>{product}</p>
+                </>
+              )}
             </div>
             <div className='text-white'>
               <h1 className='text-[40px] font-medium mb-5 mt-8'>{title}</h1>

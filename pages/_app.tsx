@@ -7,22 +7,17 @@ import '@/styles/requests.css';
 import 'leaflet/dist/leaflet.css';
 import '@mantine/core/styles.css';
 import type {AppProps} from 'next/app';
-import {MantineProvider} from '@mantine/core';
+import {MantineProvider, createTheme} from '@mantine/core';
 import {appWithTranslation} from 'next-i18next';
-import {Manrope} from 'next/font/google';
 import Header from '@/components/header/Header';
 import i18nConfig from '../next-i18next.config';
 
-const manrope = Manrope({
-  subsets: ['latin', 'cyrillic'], // лучше указать и кириллицу для русского
-  weight: ['400', '500', '700'], // если нужно
-  variable: '--font-manrope', // по желанию
-});
+const theme = createTheme({});
 
 function App({Component, pageProps}: AppProps) {
   return (
-    <MantineProvider>
-      <div className={manrope.className}>
+    <MantineProvider theme={theme}>
+      <div>
         <Header />
         <Component {...pageProps} />
       </div>

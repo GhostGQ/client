@@ -4,20 +4,29 @@ import ContactUs from '@/ui/sections/home-page/ContactUs';
 import Partners from '@/ui/sections/home-page/Partners';
 import {GetServerSideProps} from 'next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
-import {useTranslation} from 'next-i18next';
-import i18nConfig from '../../next-i18next.config';
-import Timeline from '@/ui/sections/about/Timeline';
-import AboutCompany from '@/ui/sections/about/AboutCompany';
+import {useTranslation} from 'react-i18next';
+import i18nConfig from '../../../next-i18next.config';
+import {useEffect, useState} from 'react';
 
-const index = () => {
-  const {t} = useTranslation('about');
+const Product = () => {
+  const {t} = useTranslation('products');
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <>
-      <PageHeader title={t('header.title')} subtitle={t('header.subtitle')} />
+      <PageHeader
+        title={t('header.title')}
+        subtitle={t('header.subtitle')}
+        product='Poplin'
+      />
 
-      <AboutCompany />
-      <Timeline />
       <Partners />
       <ContactUs />
       <Footer />
@@ -30,11 +39,11 @@ export const getServerSideProps: GetServerSideProps = async ({locale}) => {
     props: {
       ...(await serverSideTranslations(
         locale ?? 'ru',
-        ['common', 'main', 'about'],
+        ['common', 'main', 'products'],
         i18nConfig
       )),
     },
   };
 };
 
-export default index;
+export default Product;
