@@ -1,123 +1,124 @@
-import {useEffect, useState} from 'react';
-import {useRouter} from 'next/router';
-import AdminLayout from '../../components/AdminLayout';
-import Cookies from 'js-cookie';
+import { useEffect, useState } from 'react';
+import AdminLayout from '@/components/admin/AdminLayout';
+import '@/styles/admin-requests.css';
 
-interface IPost {
-  id: number;
-  title: string;
-  type: string;
-  archived: boolean;
-  created_at: string;
-}
-
-export default function AdminPosts() {
-  const router = useRouter();
-  const [posts, setPosts] = useState<IPost[]>([]);
-  const [filterType, setFilterType] = useState('');
+export default function RequestsPage() {
+  const [requests, setRequests] = useState([]);
+  const [status, setStatus] = useState('');
   const [search, setSearch] = useState('');
-  const [selectedPost, setSelectedPost] = useState(null);
+  const [dateFrom, setDateFrom] = useState('');
+  const [dateTo, setDateTo] = useState('');
+  const [loading, setLoading] = useState(true);
 
-  const fetchPosts = async () => {
-    const res = await fetch('http://localhost:5000/api/posts');
+  const fetchRequests = async () => {
+    setLoading(true);
+    const params = new URLSearchParams();
+    if (status) params.append('status', status);
+    if (search) params.append('search', search);
+    if (dateFrom) params.append('from', dateFrom);
+    if (dateTo) params.append('to', dateTo);
+
+    const res = await fetch(`/api/requests?${params.toString()}`);
     const data = await res.json();
-    setPosts(data);
+    setRequests(data.requests || []);
+    setLoading(false);
   };
 
   useEffect(() => {
-    fetchPosts();
-  }, []);
+    fetchRequests();
+  }, [status, search, dateFrom, dateTo]);
 
-  const filteredPosts = posts.filter(
-    p =>
-      (!filterType || p.type === filterType) &&
-      (!search || p.title.toLowerCase().includes(search.toLowerCase()))
-  );
-
-  const handleDelete = async (id: number) => {
-    if (!confirm('Удалить пост?')) return;
-    const token = Cookies.get('admin_token');
-    await fetch(`http://localhost:5000/api/posts/${id}`, {
-      method: 'DELETE',
-      headers: {Authorization: `Bearer ${token}`},
+  const updateStatus = async (id: string, newStatus: string) => {
+    const res = await fetch(`/api/requests/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ status: newStatus })
     });
-    fetchPosts();
-  };
-
-  const handleArchive = async (id: number) => {
-    const token = Cookies.get('admin_token');
-    await fetch(`http://localhost:5000/api/posts/${id}/archive`, {
-      method: 'PATCH',
-      headers: {Authorization: `Bearer ${token}`},
-    });
-    fetchPosts();
+    if (res.ok) fetchRequests();
   };
 
   return (
     <AdminLayout>
-      <div className='posts-wrapper'>
-        <div className='posts-header'>
-          <h2>📰 Все посты</h2>
-          <button onClick={() => router.push('/admin/posts/new')}>
-            ➕ Новый пост
-          </button>
+      <div className="requests-page">
+        <h1 style={{ fontSize: '28px', marginBottom: '20px' }}>📨 Заявки от клиентов</h1>
+
+        <div className="requests-filters">
+          <div>
+            <label>Статус</label>
+            <select value={status} onChange={(e) => setStatus(e.target.value)}>
+              <option value="">Все</option>
+              <option value="pending">Новые</option>
+              <option value="approved">Одобренные</option>
+              <option value="rejected">Отклонённые</option>
+            </select>
+          </div>
+          <div>
+            <label>Поиск (имя или номер)</label>
+            <input
+              type="text"
+              value={search}
+              placeholder="Введите текст..."
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </div>
+          <div>
+            <label>Дата от</label>
+            <input type="date" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)} />
+          </div>
+          <div>
+            <label>Дата до</label>
+            <input type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)} />
+          </div>
         </div>
 
-        <div className='posts-filters'>
-          <input
-            type='text'
-            placeholder='Поиск по заголовку...'
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-          />
-          <select
-            value={filterType}
-            onChange={e => setFilterType(e.target.value)}
-          >
-            <option value=''>Все типы</option>
-            <option value='news'>Новости</option>
-            <option value='blog'>Блог</option>
-          </select>
-        </div>
-
-        <div className='posts-table'>
-          <table>
+        <div style={{ overflowX: 'auto' }}>
+          <table className="requests-table">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Заголовок</th>
-                <th>Тип</th>
+                <th>Имя</th>
+                <th>Телефон</th>
+                <th>Комментарий</th>
                 <th>Статус</th>
                 <th>Дата</th>
                 <th>Действия</th>
               </tr>
             </thead>
             <tbody>
-              {filteredPosts.map(post => (
-                <tr key={post.id}>
-                  <td>{post.id}</td>
-                  <td>{post.title}</td>
-                  <td>{post.type === 'news' ? 'Новость' : 'Блог'}</td>
-                  <td>{post.archived ? '🗃️ Архив' : '🟢 Активный'}</td>
-                  <td>{new Date(post.created_at).toLocaleDateString()}</td>
-                  <td>
-                    <button
-                      onClick={() =>
-                        router.push(`/admin/posts/edit/${post.id}`)
-                      }
-                    >
-                      ✏️
-                    </button>
-                    <button onClick={() => handleDelete(post.id)}>🗑️</button>
-                    <button onClick={() => handleArchive(post.id)}>📦</button>
-                  </td>
-                </tr>
-              ))}
+              {loading ? (
+                <tr><td colSpan={6}>Загрузка...</td></tr>
+              ) : requests.length === 0 ? (
+                <tr><td colSpan={6}>Нет заявок</td></tr>
+              ) : (
+                requests.map((r: any) => (
+                  <tr key={r.id}>
+                    <td>{r.name}</td>
+                    <td>{r.phone}</td>
+                    <td>{r.comment || '—'}</td>
+                    <td>
+                      {r.status === 'pending' ? (
+                        <span style={{ color: 'red', fontWeight: 'bold' }}>⏳ В ожидании</span>
+                      ) : r.status === 'approved' ? (
+                        <span style={{ color: 'limegreen' }}>✅ Одобрено</span>
+                      ) : (
+                        <span style={{ color: 'gray' }}>❌ Отклонено</span>
+                      )}
+                    </td>
+                    <td>{new Date(r.created_at).toLocaleString()}</td>
+                    <td>
+                      <select
+                        value={r.status}
+                        onChange={(e) => updateStatus(r.id, e.target.value)}
+                      >
+                        <option value="pending">В ожидании</option>
+                        <option value="approved">Одобрено</option>
+                        <option value="rejected">Отклонено</option>
+                      </select>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
-          {filteredPosts.length === 0 && (
-            <p className='empty-msg'>Нет постов</p>
-          )}
         </div>
       </div>
     </AdminLayout>

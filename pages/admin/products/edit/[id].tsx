@@ -10,8 +10,10 @@ interface Option {
   label_uz: string;
 }
 
-export default function AddProduct() {
+export default function EditProduct() {
   const router = useRouter();
+  const { id } = router.query;
+
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
@@ -27,27 +29,51 @@ export default function AddProduct() {
   const [filters, setFilters] = useState<Record<string, Option[]>>({});
 
   useEffect(() => {
+    if (!id) return;
+
+    const fetchProduct = async () => {
+      const res = await fetch(`/api/products/${id}`);
+      const data = await res.json();
+      const p = data.product;
+      setTitle(p.title_ru || '');
+      setDescription(p.description_ru || '');
+      setPrice(p.price || '');
+      setImg(p.img || '');
+      setImages(p.images || []);
+      setCategoryId(p.category_id || null);
+      setWidthIds(p.width_ids || []);
+      setDensityId(p.density_id || null);
+      setDyeingId(p.dyeing_id || null);
+      setCompositionId(p.composition_id || null);
+    };
+
     const fetchFilters = async () => {
-      const filterTypes = ['category', 'width', 'density', 'dyeing', 'composition'];
+      const types = ['category', 'width', 'density', 'dyeing', 'composition'];
       const fetched: Record<string, Option[]> = {};
       await Promise.all(
-        filterTypes.map(async (type) => {
-          const res = await fetch(`http://localhost:5000/filters/${type}`);
+        types.map(async (type) => {
+          const res = await fetch(`/api/filters/${type}`);
           const data = await res.json();
           fetched[type] = data;
         })
       );
       setFilters(fetched);
     };
-    fetchFilters();
-  }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+    fetchProduct();
+    fetchFilters();
+  }, [id]);
+
+  const toggleWidthId = (val: number) => {
+    setWidthIds(prev => prev.includes(val) ? prev.filter(id => id !== val) : [...prev, val]);
+  };
+
+  const handleUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
     const token = Cookies.get('admin_token');
 
-    const res = await fetch('/api/products', {
-      method: 'POST',
+    const res = await fetch(`/api/products/${id}`, {
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
@@ -67,36 +93,28 @@ export default function AddProduct() {
       })
     });
 
-    if (res.ok) {
-      router.push('/admin/products');
-    }
-  };
-
-  const toggleWidthId = (id: number) => {
-    setWidthIds(prev => prev.includes(id) ? prev.filter(w => w !== id) : [...prev, id]);
+    if (res.ok) router.push('/admin/products');
   };
 
   return (
     <AdminLayout>
-      <div className="add-product-form dark">
-        <h1>Добавить товар</h1>
-        <form onSubmit={handleSubmit} className="form">
-          <input placeholder="Название" value={title} onChange={e => setTitle(e.target.value)} required />
+      <div className="edit-product-form dark">
+        <h1>Редактировать товар</h1>
+        <form onSubmit={handleUpdate} className="form">
+          <input placeholder="Название" value={title} onChange={e => setTitle(e.target.value)} />
           <textarea placeholder="Описание" value={description} onChange={e => setDescription(e.target.value)} />
           <input placeholder="Цена" type="number" value={price} onChange={e => setPrice(e.target.value)} />
           <input placeholder="Обложка" value={img} onChange={e => setImg(e.target.value)} />
 
-          {/* Категория */}
-          <select value={categoryId ?? ''} onChange={e => setCategoryId(Number(e.target.value))} required>
+          <select value={categoryId ?? ''} onChange={e => setCategoryId(Number(e.target.value))}>
             <option value="">Выберите категорию</option>
             {filters.category?.map(opt => (
               <option key={opt.id} value={opt.id}>{opt.label_ru}</option>
             ))}
           </select>
 
-          {/* Ширина (мульти) */}
           <fieldset>
-            <legend>Ширина (можно несколько)</legend>
+            <legend>Ширина</legend>
             {filters.width?.map(opt => (
               <label key={opt.id} style={{ display: 'block' }}>
                 <input
@@ -108,7 +126,6 @@ export default function AddProduct() {
             ))}
           </fieldset>
 
-          {/* Остальные одиночные фильтры */}
           <select value={densityId ?? ''} onChange={e => setDensityId(Number(e.target.value))}>
             <option value="">Плотность</option>
             {filters.density?.map(opt => (
@@ -130,7 +147,7 @@ export default function AddProduct() {
             ))}
           </select>
 
-          <button type="submit">➕ Добавить</button>
+          <button type="submit">💾 Сохранить</button>
         </form>
       </div>
     </AdminLayout>

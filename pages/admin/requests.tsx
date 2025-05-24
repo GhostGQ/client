@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import AdminLayout from '@/components/admin/AdminLayout';
-import styles from '@/styles/admin-products.module.css';
+import '@/styles/admin-requests.css';
 
 export default function RequestsPage() {
   const [requests, setRequests] = useState([]);
@@ -32,29 +32,20 @@ export default function RequestsPage() {
     const res = await fetch(`/api/requests/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ status: newStatus }),
+      body: JSON.stringify({ status: newStatus })
     });
     if (res.ok) fetchRequests();
   };
 
   return (
     <AdminLayout>
-      <div className={styles.page}>
+      <div className="requests-page">
         <h1 style={{ fontSize: '28px', marginBottom: '20px' }}>📨 Заявки от клиентов</h1>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-          gap: '16px',
-          background: '#1f1f1f',
-          padding: '20px',
-          borderRadius: '12px',
-          marginBottom: '24px',
-          boxShadow: '0 0 10px rgba(0,0,0,0.3)'
-        }}>
+        <div className="requests-filters">
           <div>
-            <label className={styles.label}>Статус</label>
-            <select value={status} onChange={(e) => setStatus(e.target.value)} className={styles.input}>
+            <label>Статус</label>
+            <select value={status} onChange={(e) => setStatus(e.target.value)}>
               <option value="">Все</option>
               <option value="pending">Новые</option>
               <option value="approved">Одобренные</option>
@@ -62,27 +53,26 @@ export default function RequestsPage() {
             </select>
           </div>
           <div>
-            <label className={styles.label}>Поиск (имя или номер)</label>
+            <label>Поиск (имя или номер)</label>
             <input
               type="text"
               value={search}
               placeholder="Введите текст..."
               onChange={(e) => setSearch(e.target.value)}
-              className={styles.input}
             />
           </div>
           <div>
-            <label className={styles.label}>Дата от</label>
-            <input type="date" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)} className={styles.input} />
+            <label>Дата от</label>
+            <input type="date" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)} />
           </div>
           <div>
-            <label className={styles.label}>Дата до</label>
-            <input type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)} className={styles.input} />
+            <label>Дата до</label>
+            <input type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)} />
           </div>
         </div>
 
-        <div className={styles.tableWrapper}>
-          <table className={styles.table}>
+        <div style={{ overflowX: 'auto' }}>
+          <table className="requests-table">
             <thead>
               <tr>
                 <th>Имя</th>
@@ -118,7 +108,6 @@ export default function RequestsPage() {
                       <select
                         value={r.status}
                         onChange={(e) => updateStatus(r.id, e.target.value)}
-                        className={styles.input}
                       >
                         <option value="pending">В ожидании</option>
                         <option value="approved">Одобрено</option>

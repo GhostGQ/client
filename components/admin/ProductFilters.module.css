@@ -1,0 +1,82 @@
+/* ProductFilters.module.css */
+.sidebar {
+  position: sticky;
+  top: 90px;
+  right: 0;
+  width: 260px;
+  padding: 1rem;
+  background: #111;
+  border-left: 1px solid #333;
+  height: calc(100vh - 90px);
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+}
+
+.sidebarHidden {
+  transform: translateX(100%);
+}
+
+.sidebarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.toggleBtn {
+  background: #222;
+  border: 1px solid #444;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.searchBox {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.searchInput {
+  flex: 1;
+  padding: 0.4rem;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background: #1b1b1b;
+  color: white;
+}
+
+.resetBtn {
+  background: #333;
+  border: 1px solid #555;
+  padding: 0.4rem 0.6rem;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.filterGroup {
+  margin-bottom: 1rem;
+}
+
+.groupTitle {
+  color: #ccc;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 0.4rem;
+}
+
+.checkboxList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.2rem;
+}
+
+.checkboxItem {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  font-size: 13px;
+  color: #eee;
+}

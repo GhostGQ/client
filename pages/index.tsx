@@ -8,6 +8,8 @@ import Partners from '@/ui/sections/home-page/Partners';
 import ContactUs from '@/ui/sections/home-page/ContactUs';
 import dynamic from 'next/dynamic';
 import i18nConfig from '../next-i18next.config';
+import '@/styles/admin-requests.css';
+
 
 const Hero = dynamic(() => import('@/ui/sections/home-page/Hero'), {
   ssr: false,
