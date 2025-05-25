@@ -1,5 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import { useRouter } from 'next/router';
+import useAdminAuth from '@/hooks/useAdminAuth';
 
 export default function AdminLoginPage() {
   const router = useRouter();
