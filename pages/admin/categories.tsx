@@ -1,5 +1,3 @@
-// Вставить этот код в файл: pages/admin/categories.tsx
-
 import { useEffect, useState } from 'react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import useAdminAuth from '@/hooks/useAdminAuth';
@@ -35,6 +33,7 @@ export default function AdminCategoriesPage() {
   const [search, setSearch] = useState('');
   const [multiRu, setMultiRu] = useState('');
   const [multiUz, setMultiUz] = useState('');
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     fetch(`/api/filters/${selectedFilter}`)
@@ -56,6 +55,13 @@ export default function AdminCategoriesPage() {
   }, [search, options]);
 
   const handleBatchAdd = async () => {
+    if (!multiRu.trim() || !multiUz.trim()) {
+      setError(true);
+      return;
+    }
+
+    setError(false);
+
     const ruLines = multiRu.split(',').map(l => l.trim()).filter(Boolean);
     const uzLines = multiUz.split(',').map(l => l.trim()).filter(Boolean);
     const length = Math.min(ruLines.length, uzLines.length);
@@ -81,8 +87,9 @@ export default function AdminCategoriesPage() {
     setMultiUz('');
     const res = await fetch(`/api/filters/${selectedFilter}`);
     const data = await res.json();
-    setOptions(data);
-    setFilteredOptions(data);
+    const sorted = [...data].reverse(); 
+    setOptions(sorted);
+    setFilteredOptions(sorted);
   };
 
   const handleDelete = async (id: number) => {
@@ -112,6 +119,45 @@ export default function AdminCategoriesPage() {
             />
           </div>
         </div>
+        <div className="filters-add" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr auto', gap: '16px', alignItems: 'end' }}>
+          <div>
+            <label style={{ display: 'block', marginBottom: '4px' }}>Русский:</label>
+            <input
+              type="text"
+              style={{
+                padding: '8px',
+                borderRadius: '6px',
+                background: '#2b2b2b',
+                color: '#fff',
+                border: error && !multiRu.trim() ? '1px solid red' : '1px solid #555',
+                width: '100%'
+              }}
+              placeholder="Хлопок, Лён"
+              value={multiRu}
+              onChange={e => setMultiRu(e.target.value)}
+            />
+            {error && !multiRu.trim() && <p style={{ color: 'red', fontSize: '12px' }}>Введите хотя бы одно значение</p>}
+          </div>
+          <div>
+            <label style={{ display: 'block', marginBottom: '4px' }}>O‘zbekcha:</label>
+            <input
+              type="text"
+              style={{
+                padding: '8px',
+                borderRadius: '6px',
+                background: '#2b2b2b',
+                color: '#fff',
+                border: error && !multiUz.trim() ? '1px solid red' : '1px solid #555',
+                width: '100%'
+              }}
+              placeholder="Paxta, Zig'ir"
+              value={multiUz}
+              onChange={e => setMultiUz(e.target.value)}
+            />
+            {error && !multiUz.trim() && <p style={{ color: 'red', fontSize: '12px' }}>Kamida bitta qiymat kiriting</p>}
+          </div>
+          <button onClick={handleBatchAdd} style={{ height: '40px' }}>➕ Добавить</button>
+        </div>
 
         <ul className="filters-list">
           {filteredOptions.map(o => (
@@ -124,29 +170,7 @@ export default function AdminCategoriesPage() {
           ))}
         </ul>
 
-        <div className="filters-add" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr auto', gap: '16px', alignItems: 'end' }}>
-          <div>
-            <label style={{ display: 'block', marginBottom: '4px' }}>Русский:</label>
-            <input
-              type="text"
-              style={{ padding: '8px', borderRadius: '6px', background: '#2b2b2b', color: '#fff', border: '1px solid #555', width: '100%' }}
-              placeholder="Хлопок, Лён"
-              value={multiRu}
-              onChange={e => setMultiRu(e.target.value)}
-            />
-          </div>
-          <div>
-            <label style={{ display: 'block', marginBottom: '4px' }}>O‘zbekcha:</label>
-            <input
-              type="text"
-              style={{ padding: '8px', borderRadius: '6px', background: '#2b2b2b', color: '#fff', border: '1px solid #555', width: '100%' }}
-              placeholder="Paxta, Zig'ir"
-              value={multiUz}
-              onChange={e => setMultiUz(e.target.value)}
-            />
-          </div>
-          <button onClick={handleBatchAdd} style={{ height: '40px' }}>➕ Добавить</button>
-        </div>
+        
       </div>
     </AdminLayout>
   );

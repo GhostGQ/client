@@ -109,3 +109,13 @@
 .pagination button:hover {
   background: #666;
 }
+.error {
+  border: 1px solid red !important;
+  outline: none;
+}
+
+.errorText {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
