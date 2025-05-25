@@ -1,6 +1,7 @@
 // pages/admin/products.tsx
 import React, { useEffect, useState } from 'react';
 import ProductModalWizard from '@/components/admin/ProductModalWizard';
+import useAdminAuth from '@/hooks/useAdminAuth';
 import AdminLayout from '@/components/admin/AdminLayout';
 import styles from '@/styles/admin-products.module.css';
 import EditProductModal from '@/components/admin/EditProductModal';
@@ -26,6 +27,7 @@ type SelectedFilters = Record<string, number[]>;
 type TempFilters = Record<string, number[]>;
 
 export default function AdminProductsPage() {
+  useAdminAuth();
   const [products, setProducts] = useState<any[]>([]);
   const [filtersData, setFiltersData] = useState<FilterMap>({});
   const [selected, setSelected] = useState<SelectedFilters>({});

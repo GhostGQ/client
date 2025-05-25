@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import AdminLayout from '@/components/admin/AdminLayout';
+import useAdminAuth from '@/hooks/useAdminAuth';
 import '@/styles/admin-filters.css';
-
 interface Option {
   id: number;
   value: string;
@@ -21,6 +21,7 @@ interface Filter {
 }
 
 export default function AdminCategoriesPage() {
+  useAdminAuth();
   const [filters] = useState<Filter[]>([
     { id: 'category', label: { ru: 'Категория', uz: 'Kategoriya' } },
     { id: 'width', label: { ru: 'Ширина', uz: 'Kenglik' } },
