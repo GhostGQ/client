@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import styles from './ProductModalWizard.module.css';
 
-// ... импорт остаётся тем же
 
 interface ProductData {
   title_ru: string;
@@ -34,7 +33,13 @@ export default function ProductModalWizard({ onClose }: { onClose: () => void })
     img: '',
     images: [],
   });
-
+  const [errors, setErrors] = useState({
+    title_ru: false,
+    title_uz: false,
+    description_ru: false,
+    description_uz: false,
+  });
+  
   const [categoryOptions, setCategoryOptions] = useState<FilterOption[]>([]);
   const [widthOptions, setWidthOptions] = useState<FilterOption[]>([]);
   const [densityOptions, setDensityOptions] = useState<FilterOption[]>([]);
@@ -123,10 +128,42 @@ export default function ProductModalWizard({ onClose }: { onClose: () => void })
       label: 'Основная информация',
       content: (
         <div className={styles.section}>
-          <div className={styles.fieldGroup}><label>Название RU</label><input className={styles.input} value={data.title_ru} onChange={(e) => setData({ ...data, title_ru: e.target.value })} /></div>
-          <div className={styles.fieldGroup}><label>Название UZ</label><input className={styles.input} value={data.title_uz} onChange={(e) => setData({ ...data, title_uz: e.target.value })} /></div>
-          <div className={styles.fieldGroup}><label>Описание RU</label><textarea className={styles.textarea} value={data.description_ru} onChange={(e) => setData({ ...data, description_ru: e.target.value })} /></div>
-          <div className={styles.fieldGroup}><label>Описание UZ</label><textarea className={styles.textarea} value={data.description_uz} onChange={(e) => setData({ ...data, description_uz: e.target.value })} /></div>
+          <div className={styles.fieldGroup}>
+            <label>Название RU <span style={{ color: 'red' }}>*</span></label>
+            <input
+              className={`${styles.input} ${errors.title_ru ? styles.error : ''}`}
+              value={data.title_ru}
+              onChange={(e) => setData({ ...data, title_ru: e.target.value })}
+            />
+            {errors.title_ru && <p className={styles.errorText}>Это обязательное поле</p>}
+          </div>
+          <div className={styles.fieldGroup}>
+            <label>Название UZ <span style={{ color: 'red' }}>*</span></label>
+            <input
+              className={`${styles.input} ${errors.title_uz ? styles.error : ''}`}
+              value={data.title_uz}
+              onChange={(e) => setData({ ...data, title_uz: e.target.value })}
+            />
+            {errors.title_uz && <p className={styles.errorText}>Это обязательное поле</p>}
+          </div>
+          <div className={styles.fieldGroup}>
+            <label>Описание RU <span style={{ color: 'red' }}>*</span></label>
+            <textarea
+              className={`${styles.textarea} ${errors.description_ru ? styles.error : ''}`}
+              value={data.description_ru}
+              onChange={(e) => setData({ ...data, description_ru: e.target.value })}
+            />
+            {errors.description_ru && <p className={styles.errorText}>Это обязательное поле</p>}
+          </div>
+          <div className={styles.fieldGroup}>
+            <label>Описание UZ <span style={{ color: 'red' }}>*</span></label>
+            <textarea
+              className={`${styles.textarea} ${errors.description_uz ? styles.error : ''}`}
+              value={data.description_uz}
+              onChange={(e) => setData({ ...data, description_uz: e.target.value })}
+            />
+            {errors.description_uz && <p className={styles.errorText}>Это обязательное поле</p>}
+          </div>
         </div>
       )
     },

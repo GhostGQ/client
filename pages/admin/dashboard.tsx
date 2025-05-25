@@ -19,7 +19,7 @@ export default function Dashboard() {
       .then(setStats);
   }, []);
 
-  if (!stats) return <p style={{ padding: 32 }}>Загрузка...</p>;
+  if (!stats) return <p style={{ padding: 32, color: '#fff', background: '#121212' }}>Загрузка...</p>;
 
   const requestChartData = [
     { name: 'Новые', value: stats.requests.pending },
