@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import AdminLayout from '@/components/admin/AdminLayout';
+import useAdminAuth from '@/hooks/useAdminAuth';
 import styles from '@/styles/admin-products.module.css';
 import {
   PieChart, Pie, Cell,
@@ -9,6 +10,7 @@ import {
 const COLORS = ['#FFA500', '#28a745', '#dc3545'];
 
 export default function Dashboard() {
+  useAdminAuth();
   const [stats, setStats] = useState<any>(null);
 
   useEffect(() => {

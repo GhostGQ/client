@@ -35,10 +35,18 @@ export default function AdminLayout({ children }: Props) {
     return () => clearInterval(interval);
   }, []);
 
-  const handleLogout = () => {
-    document.cookie = 'admin_token=; Max-Age=0';
-    router.push('/admin/login');
+  const handleLogout = async () => {
+    try {
+      await fetch('http://localhost:5000/api/admin/logout', {
+        method: 'POST',
+        credentials: 'include',
+      });
+      router.push('/admin/login');
+    } catch (err) {
+      console.error('Ошибка выхода', err);
+    }
   };
+  
 
   return (
     <div className={`admin-layout ${collapsed ? 'collapsed' : ''}`}>
