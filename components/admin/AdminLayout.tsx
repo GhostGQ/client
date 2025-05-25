@@ -95,7 +95,7 @@ export default function AdminLayout({ children }: Props) {
         </button>
       </aside>
 
-      <main className="admin-content">{children}</main>
+      <main>{children}</main>
     </div>
   );
 }

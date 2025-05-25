@@ -17,7 +17,12 @@ export default function AddProduct() {
     setError('');
     const token = Cookies.get('admin_token');
 
-    const res = await fetch('http://localhost:5000/api/products', {
+    const apiUrl = process.env.DATABASE_URL ?? '';
+    if (!apiUrl) {
+      setError('API URL не задан');
+      return;
+    }
+    const res = await fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

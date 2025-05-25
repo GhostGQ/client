@@ -85,7 +85,7 @@ export default function AdminCategoriesPage() {
 
   return (
     <AdminLayout>
-      <div className="categories-page">
+      <div className="categories-page p-8">
         <div className="categories-header">
           <h1>Категории</h1>
           <div className="filters">
