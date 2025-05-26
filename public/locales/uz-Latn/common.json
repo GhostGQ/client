@@ -35,6 +35,11 @@
       "label": "Maxfiylik siyosatiga roziman",
       "required": "Tasdiqlash majburiy"
     },
+    "state": {
+      "success": "Rahmat! Sizning arizangiz muvaffaqiyatli yuborildi.",
+      "error": "Arizani yuborishda xatolik yuz berdi. Iltimos, qayta urinib ko‘ring.",
+      "loading": "Ariza yuborilmoqda..."
+    },
     "button": "Arizani yuborish"
   }
 }

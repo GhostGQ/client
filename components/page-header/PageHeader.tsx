@@ -7,7 +7,6 @@ interface Props {
   subtitle: string;
   product?: string;
 }
-
 const PageHeader = ({title, subtitle, product}: Props) => {
   return (
     <div className='md:block hidden'>

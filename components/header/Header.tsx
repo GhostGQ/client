@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <header
-      className={`border-b border-[#ffffff34] ${!isMain && 'bg-white'} py-7`}
+      className={`border-b border-[#ffffff34] ${!isMain && 'bg-white'} md:py-7 py-4`}
     >
       <div className='container flex justify-between items-center'>
         <div className='flex items-center lg:justify-start justify-between gap-12 lg:w-3/4 w-full'>
