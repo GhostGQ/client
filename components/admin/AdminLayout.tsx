@@ -37,7 +37,7 @@ export default function AdminLayout({ children }: Props) {
 
   const handleLogout = async () => {
     try {
-      await fetch('http://localhost:5000/api/admin/logout', {
+      await fetch(`${process.env.NEXT_PUBLIC_DATABASE_URL}/api/admin/logout`, {
         method: 'POST',
         credentials: 'include',
       });

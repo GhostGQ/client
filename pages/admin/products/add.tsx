@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import {useEffect, useState} from 'react';
+import {useRouter} from 'next/router';
 import Cookies from 'js-cookie';
-import AdminLayout from '@/components/AdminLayout';
+import AdminLayout from '@/components/admin/AdminLayout';
 
 interface Option {
   id: number;
@@ -28,11 +28,19 @@ export default function AddProduct() {
 
   useEffect(() => {
     const fetchFilters = async () => {
-      const filterTypes = ['category', 'width', 'density', 'dyeing', 'composition'];
+      const filterTypes = [
+        'category',
+        'width',
+        'density',
+        'dyeing',
+        'composition',
+      ];
       const fetched: Record<string, Option[]> = {};
       await Promise.all(
-        filterTypes.map(async (type) => {
-          const res = await fetch(`http://localhost:5000/filters/${type}`);
+        filterTypes.map(async type => {
+          const res = await fetch(
+            `${process.env.NEXT_PUBLIC_DATABASE_URL}/api/filters/${type}`
+          );
           const data = await res.json();
           fetched[type] = data;
         })
@@ -63,8 +71,8 @@ export default function AddProduct() {
         dyeing_id: dyeingId,
         composition_id: compositionId,
         img,
-        images
-      })
+        images,
+      }),
     });
 
     if (res.ok) {
@@ -73,24 +81,50 @@ export default function AddProduct() {
   };
 
   const toggleWidthId = (id: number) => {
-    setWidthIds(prev => prev.includes(id) ? prev.filter(w => w !== id) : [...prev, id]);
+    setWidthIds(prev =>
+      prev.includes(id) ? prev.filter(w => w !== id) : [...prev, id]
+    );
   };
 
   return (
     <AdminLayout>
-      <div className="add-product-form dark">
+      <div className='add-product-form dark'>
         <h1>Добавить товар</h1>
-        <form onSubmit={handleSubmit} className="form">
-          <input placeholder="Название" value={title} onChange={e => setTitle(e.target.value)} required />
-          <textarea placeholder="Описание" value={description} onChange={e => setDescription(e.target.value)} />
-          <input placeholder="Цена" type="number" value={price} onChange={e => setPrice(e.target.value)} />
-          <input placeholder="Обложка" value={img} onChange={e => setImg(e.target.value)} />
+        <form onSubmit={handleSubmit} className='form'>
+          <input
+            placeholder='Название'
+            value={title}
+            onChange={e => setTitle(e.target.value)}
+            required
+          />
+          <textarea
+            placeholder='Описание'
+            value={description}
+            onChange={e => setDescription(e.target.value)}
+          />
+          <input
+            placeholder='Цена'
+            type='number'
+            value={price}
+            onChange={e => setPrice(e.target.value)}
+          />
+          <input
+            placeholder='Обложка'
+            value={img}
+            onChange={e => setImg(e.target.value)}
+          />
 
           {/* Категория */}
-          <select value={categoryId ?? ''} onChange={e => setCategoryId(Number(e.target.value))} required>
-            <option value="">Выберите категорию</option>
+          <select
+            value={categoryId ?? ''}
+            onChange={e => setCategoryId(Number(e.target.value))}
+            required
+          >
+            <option value=''>Выберите категорию</option>
             {filters.category?.map(opt => (
-              <option key={opt.id} value={opt.id}>{opt.label_ru}</option>
+              <option key={opt.id} value={opt.id}>
+                {opt.label_ru}
+              </option>
             ))}
           </select>
 
@@ -98,39 +132,55 @@ export default function AddProduct() {
           <fieldset>
             <legend>Ширина (можно несколько)</legend>
             {filters.width?.map(opt => (
-              <label key={opt.id} style={{ display: 'block' }}>
+              <label key={opt.id} style={{display: 'block'}}>
                 <input
-                  type="checkbox"
+                  type='checkbox'
                   checked={widthIds.includes(opt.id)}
                   onChange={() => toggleWidthId(opt.id)}
-                /> {opt.label_ru}
+                />{' '}
+                {opt.label_ru}
               </label>
             ))}
           </fieldset>
 
           {/* Остальные одиночные фильтры */}
-          <select value={densityId ?? ''} onChange={e => setDensityId(Number(e.target.value))}>
-            <option value="">Плотность</option>
+          <select
+            value={densityId ?? ''}
+            onChange={e => setDensityId(Number(e.target.value))}
+          >
+            <option value=''>Плотность</option>
             {filters.density?.map(opt => (
-              <option key={opt.id} value={opt.id}>{opt.label_ru}</option>
+              <option key={opt.id} value={opt.id}>
+                {opt.label_ru}
+              </option>
             ))}
           </select>
 
-          <select value={dyeingId ?? ''} onChange={e => setDyeingId(Number(e.target.value))}>
-            <option value="">Крашение</option>
+          <select
+            value={dyeingId ?? ''}
+            onChange={e => setDyeingId(Number(e.target.value))}
+          >
+            <option value=''>Крашение</option>
             {filters.dyeing?.map(opt => (
-              <option key={opt.id} value={opt.id}>{opt.label_ru}</option>
+              <option key={opt.id} value={opt.id}>
+                {opt.label_ru}
+              </option>
             ))}
           </select>
 
-          <select value={compositionId ?? ''} onChange={e => setCompositionId(Number(e.target.value))}>
-            <option value="">Состав</option>
+          <select
+            value={compositionId ?? ''}
+            onChange={e => setCompositionId(Number(e.target.value))}
+          >
+            <option value=''>Состав</option>
             {filters.composition?.map(opt => (
-              <option key={opt.id} value={opt.id}>{opt.label_ru}</option>
+              <option key={opt.id} value={opt.id}>
+                {opt.label_ru}
+              </option>
             ))}
           </select>
 
-          <button type="submit">➕ Добавить</button>
+          <button type='submit'>➕ Добавить</button>
         </form>
       </div>
     </AdminLayout>

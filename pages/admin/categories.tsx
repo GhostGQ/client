@@ -1,8 +1,6 @@
-
 import { useEffect, useState } from 'react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import useAdminAuth from '@/hooks/useAdminAuth';
-import '@/styles/admin-filters.css';
 interface Option {
   id: number;
   value: string;

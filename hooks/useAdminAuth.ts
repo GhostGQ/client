@@ -3,11 +3,10 @@ import { useRouter } from 'next/router';
 
 export default function useAdminAuth() {
   const router = useRouter();
-
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/admin/me', {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_DATABASE_URL}/api/admin/me`, {
           method: 'GET',
           credentials: 'include',
         });

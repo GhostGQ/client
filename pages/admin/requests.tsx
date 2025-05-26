@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import AdminLayout from '@/components/admin/AdminLayout';
-import '@/styles/admin-requests.css';
 import useAdminAuth from '@/hooks/useAdminAuth';
 
 export default function RequestsPage() {

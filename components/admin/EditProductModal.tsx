@@ -83,7 +83,7 @@ export default function EditProductModal({
       body: form,
     });
     const result = await res.json();
-    return `http://localhost:5000${result.url}`;
+    return `${process.env.NEXT_PUBLIC_DATABASE_URL}${result.url}`;
   };
 
   const handleSave = async () => {

@@ -1,10 +1,11 @@
 import '@/styles/globals.css';
 import '../styles/admin.css';
 import '../styles/admin-login.css';
-import '../styles/admin-dashboard.css';
 import '../styles/admin-layout.css';
 import '../styles/admin-products.css';
 import '../styles/admin-categories.css';
+import '../styles/admin-requests.css';
+import '../styles/admin-filters.css';
 import '@/styles/products.css';
 import '@/styles/requests.css';
 import 'leaflet/dist/leaflet.css';

@@ -1,5 +1,4 @@
 import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
-import { FiUpload, FiTrash2 } from 'react-icons/fi';
 
 interface Category {
   id: string;
