@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import Image from 'next/image';
 import styles from './ProductModalWizard.module.css';
 
@@ -22,7 +22,13 @@ interface ProductData {
   images: string[];
 }
 
-export default function EditProductModal({ product, onClose }: { product: any, onClose: () => void }) {
+export default function EditProductModal({
+  product,
+  onClose,
+}: {
+  product: any;
+  onClose: () => void;
+}) {
   const [data, setData] = useState<ProductData>({
     id: product.id,
     title_ru: product.title_ru,
@@ -55,7 +61,7 @@ export default function EditProductModal({ product, onClose }: { product: any, o
         const json = await res.json();
         result[type] = json.map((f: any) => ({
           id: f.id,
-          label: f.label_ru || f.label || f.value
+          label: f.label_ru || f.label || f.value,
         }));
       }
       setOptions(result);
@@ -66,7 +72,7 @@ export default function EditProductModal({ product, onClose }: { product: any, o
   const toggleMulti = (field: keyof ProductData, value: number) => {
     const current = new Set((data[field] as number[]) || []);
     current.has(value) ? current.delete(value) : current.add(value);
-    setData({ ...data, [field]: Array.from(current) });
+    setData({...data, [field]: Array.from(current)});
   };
 
   const handleUpload = async (file: File) => {
@@ -74,7 +80,7 @@ export default function EditProductModal({ product, onClose }: { product: any, o
     form.append('file', file);
     const res = await fetch('/api/upload/image', {
       method: 'POST',
-      body: form
+      body: form,
     });
     const result = await res.json();
     return `http://localhost:5000${result.url}`;
@@ -87,28 +93,34 @@ export default function EditProductModal({ product, onClose }: { product: any, o
       width_ids: Array.isArray(data.width_ids) ? data.width_ids : [],
       density_ids: Array.isArray(data.density_ids) ? data.density_ids : [],
       dyeing_ids: Array.isArray(data.dyeing_ids) ? data.dyeing_ids : [],
-      composition_ids: Array.isArray(data.composition_ids) ? data.composition_ids : [],
+      composition_ids: Array.isArray(data.composition_ids)
+        ? data.composition_ids
+        : [],
     };
 
     const res = await fetch(`/api/products/${data.id}`, {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(cleanedData),
     });
 
     if (res.ok) onClose();
   };
 
-  const renderGroup = (label: string, field: keyof ProductData, opts: FilterOption[]) => (
+  const renderGroup = (
+    label: string,
+    field: keyof ProductData,
+    opts: FilterOption[]
+  ) => (
     <div className={styles.fieldGroup}>
       <label>{label}</label>
       <div className={styles.checkboxScroll}>
         <div className={styles.checkboxGrid}>
-          {opts.map((o) => (
+          {opts.map(o => (
             <label key={o.id} className={styles.checkboxItem}>
               <input
-                type="checkbox"
-                checked={data[field]?.includes(o.id)}
+                type='checkbox'
+                checked={(data[field] as number[])?.includes(o.id)}
                 onChange={() => toggleMulti(field, o.id)}
               />
               <span>{o.label}</span>
@@ -125,10 +137,38 @@ export default function EditProductModal({ product, onClose }: { product: any, o
         <h2>Редактировать товар</h2>
 
         <div className={styles.section}>
-          <div className={styles.fieldGroup}><label>Название RU</label><input className={styles.input} value={data.title_ru} onChange={(e) => setData({ ...data, title_ru: e.target.value })} /></div>
-          <div className={styles.fieldGroup}><label>Название UZ</label><input className={styles.input} value={data.title_uz} onChange={(e) => setData({ ...data, title_uz: e.target.value })} /></div>
-          <div className={styles.fieldGroup}><label>Описание RU</label><textarea className={styles.textarea} value={data.description_ru} onChange={(e) => setData({ ...data, description_ru: e.target.value })} /></div>
-          <div className={styles.fieldGroup}><label>Описание UZ</label><textarea className={styles.textarea} value={data.description_uz} onChange={(e) => setData({ ...data, description_uz: e.target.value })} /></div>
+          <div className={styles.fieldGroup}>
+            <label>Название RU</label>
+            <input
+              className={styles.input}
+              value={data.title_ru}
+              onChange={e => setData({...data, title_ru: e.target.value})}
+            />
+          </div>
+          <div className={styles.fieldGroup}>
+            <label>Название UZ</label>
+            <input
+              className={styles.input}
+              value={data.title_uz}
+              onChange={e => setData({...data, title_uz: e.target.value})}
+            />
+          </div>
+          <div className={styles.fieldGroup}>
+            <label>Описание RU</label>
+            <textarea
+              className={styles.textarea}
+              value={data.description_ru}
+              onChange={e => setData({...data, description_ru: e.target.value})}
+            />
+          </div>
+          <div className={styles.fieldGroup}>
+            <label>Описание UZ</label>
+            <textarea
+              className={styles.textarea}
+              value={data.description_uz}
+              onChange={e => setData({...data, description_uz: e.target.value})}
+            />
+          </div>
         </div>
 
         <div className={styles.section}>
@@ -142,24 +182,33 @@ export default function EditProductModal({ product, onClose }: { product: any, o
         <div className={styles.fieldGroup}>
           <label>Обложка</label>
           {!data.img ? (
-            <input className={styles.input} type="file" accept="image/*" onChange={async (e) => {
-              const file = e.target.files?.[0];
-              if (file) {
-                const url = await handleUpload(file);
-                setData({ ...data, img: url });
-              }
-            }} />
+            <input
+              className={styles.input}
+              type='file'
+              accept='image/*'
+              onChange={async e => {
+                const file = e.target.files?.[0];
+                if (file) {
+                  const url = await handleUpload(file);
+                  setData({...data, img: url});
+                }
+              }}
+            />
           ) : (
             <div className={styles.thumb}>
-              <Image src={data.img} alt="cover" width={120} height={120} />
-              <button onClick={() => setData({ ...data, img: '' })}>×</button>
+              <Image src={data.img} alt='cover' width={120} height={120} />
+              <button onClick={() => setData({...data, img: ''})}>×</button>
             </div>
           )}
         </div>
 
         <div className={styles.modalActions}>
-          <button className="btn" onClick={onClose}>Отмена</button>
-          <button className="btn" onClick={handleSave}>💾 Сохранить</button>
+          <button className='btn' onClick={onClose}>
+            Отмена
+          </button>
+          <button className='btn' onClick={handleSave}>
+            💾 Сохранить
+          </button>
         </div>
       </div>
     </div>
