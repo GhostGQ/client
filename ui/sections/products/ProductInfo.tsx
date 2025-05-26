@@ -7,6 +7,7 @@ import {FaArrowRightLong} from 'react-icons/fa6';
 import ImageGallery from './ImageGallery';
 import {useDisclosure} from '@mantine/hooks';
 import ContactModal from './ContactModal';
+import {memo} from 'react';
 
 const ProductInfo = ({product}: Product) => {
   const [opened, {open, close}] = useDisclosure(false);
@@ -78,4 +79,4 @@ const ProductInfo = ({product}: Product) => {
   );
 };
 
-export default ProductInfo;
+export default memo(ProductInfo);
