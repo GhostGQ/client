@@ -1,30 +1,37 @@
 // stores/useFilterStore.ts
 import { create } from 'zustand';
 
-type FilterSelections = {
-  [key: string]: string[];
-};
+type Filters = Record<string, (string | number)[]>;
 
 interface FilterStore {
-  selectedFilters: FilterSelections;
-  toggleFilter: (filterId: string, value: string) => void;
+  tempFilters: Filters;
+  selectedFilters: Filters;
+  toggleTempFilter: (filterKey: string, id: number | string) => void;
+  applyFilters: () => void;
   resetFilters: () => void;
 }
 
-export const useFilterStore = create<FilterStore>((set) => ({
+export const useFilterStore = create<FilterStore>((set, get) => ({
+  tempFilters: {},
   selectedFilters: {},
-  toggleFilter: (filterId, value) =>
-    set((state) => {
-      const current = state.selectedFilters[filterId] || [];
-      const updated = current.includes(value)
-        ? current.filter((v) => v !== value)
-        : [...current, value];
-      return {
-        selectedFilters: {
-          ...state.selectedFilters,
-          [filterId]: updated
-        }
-      };
-    }),
-  resetFilters: () => set({ selectedFilters: {} })
+  toggleTempFilter: (filterKey, id) => {
+    const current = get().tempFilters[filterKey] || [];
+
+    const updated = current.includes(id)
+      ? current.filter((v) => v !== id)
+      : [...current, id];
+
+    set({
+      tempFilters: {
+        ...get().tempFilters,
+        [filterKey]: updated,
+      },
+    });
+  },
+  applyFilters: () => {
+    set({ selectedFilters: get().tempFilters });
+  },
+  resetFilters: () => {
+    set({ tempFilters: {}, selectedFilters: {} });
+  },
 }));

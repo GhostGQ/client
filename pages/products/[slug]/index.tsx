@@ -7,20 +7,25 @@ import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {useTranslation} from 'react-i18next';
 import i18nConfig from '../../../next-i18next.config';
 import {useEffect, useState} from 'react';
+import Header from '@/components/header/Header';
+import {useProduct} from '@/lib/hooks/useProducts';
+import {useRouter} from 'next/router';
 
 const Product = () => {
+  const router = useRouter();
   const {t} = useTranslation('products');
-
   const [mounted, setMounted] = useState(false);
-
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const {data, isLoading} = useProduct(router.query.id as string);
 
   if (!mounted) return null;
 
   return (
     <>
+      <Header />
       <PageHeader
         title={t('header.title')}
         subtitle={t('header.subtitle')}

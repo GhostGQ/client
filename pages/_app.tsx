@@ -13,13 +13,19 @@ import type {AppProps} from 'next/app';
 import {MantineProvider, createTheme} from '@mantine/core';
 import {appWithTranslation} from 'next-i18next';
 import i18nConfig from '../next-i18next.config';
+import {QueryClientProvider, QueryClient} from '@tanstack/react-query';
+import {useState} from 'react';
 
 const theme = createTheme({});
 
 function App({Component, pageProps}: AppProps) {
+  const [queryClient] = useState(() => new QueryClient());
+
   return (
     <MantineProvider theme={theme}>
-      <Component {...pageProps} />
+      <QueryClientProvider client={queryClient}>
+        <Component {...pageProps} />
+      </QueryClientProvider>
     </MantineProvider>
   );
 }

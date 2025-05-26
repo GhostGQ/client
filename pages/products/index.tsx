@@ -7,12 +7,14 @@ import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {useTranslation} from 'next-i18next';
 import i18nConfig from '../../next-i18next.config';
 import Catalog from '@/ui/sections/products/Catalog';
+import Header from '@/components/header/Header';
 
 const index = () => {
   const {t} = useTranslation('products');
 
   return (
     <>
+      <Header />
       <PageHeader title={t('header.title')} subtitle={t('header.subtitle')} />
       <Catalog />
       <Partners />
