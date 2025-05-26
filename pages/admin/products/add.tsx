@@ -1,124 +1,188 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {useRouter} from 'next/router';
 import Cookies from 'js-cookie';
-import AdminLayout from '../../../components/AdminLayout';
+import AdminLayout from '@/components/admin/AdminLayout';
+
+interface Option {
+  id: number;
+  value: string;
+  label_ru: string;
+  label_uz: string;
+}
 
 export default function AddProduct() {
   const router = useRouter();
   const [title, setTitle] = useState('');
-  const [desc, setDesc] = useState('');
+  const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
-  const [category, setCategory] = useState('');
-  const [image, setImage] = useState('');
-  const [error, setError] = useState('');
+  const [img, setImg] = useState('');
+  const [images, setImages] = useState<string[]>([]);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const [categoryId, setCategoryId] = useState<number | null>(null);
+  const [widthIds, setWidthIds] = useState<number[]>([]);
+  const [densityId, setDensityId] = useState<number | null>(null);
+  const [dyeingId, setDyeingId] = useState<number | null>(null);
+  const [compositionId, setCompositionId] = useState<number | null>(null);
+
+  const [filters, setFilters] = useState<Record<string, Option[]>>({});
+
+  useEffect(() => {
+    const fetchFilters = async () => {
+      const filterTypes = [
+        'category',
+        'width',
+        'density',
+        'dyeing',
+        'composition',
+      ];
+      const fetched: Record<string, Option[]> = {};
+      await Promise.all(
+        filterTypes.map(async type => {
+          const res = await fetch(
+            `${process.env.NEXT_PUBLIC_DATABASE_URL}/api/filters/${type}`
+          );
+          const data = await res.json();
+          fetched[type] = data;
+        })
+      );
+      setFilters(fetched);
+    };
+    fetchFilters();
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
     const token = Cookies.get('admin_token');
 
-    const res = await fetch('http://localhost:5000/api/products', {
+    const res = await fetch('/api/products', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
-        title,
-        description: desc,
-        price,
-        category,
-        image_url: image,
+        title_ru: title,
+        title_uz: title,
+        description_ru: description,
+        description_uz: description,
+        category_id: categoryId,
+        width_ids: widthIds,
+        density_id: densityId,
+        dyeing_id: dyeingId,
+        composition_id: compositionId,
+        img,
+        images,
       }),
     });
 
     if (res.ok) {
       router.push('/admin/products');
-    } else {
-      setError('Ошибка при добавлении товара');
     }
+  };
+
+  const toggleWidthId = (id: number) => {
+    setWidthIds(prev =>
+      prev.includes(id) ? prev.filter(w => w !== id) : [...prev, id]
+    );
   };
 
   return (
     <AdminLayout>
-      <div style={styles.wrapper}>
-        <div style={styles.formBox}>
-          <h2 style={styles.title}>➕ Новый товар</h2>
-          <form onSubmit={handleSubmit} style={styles.form}>
-            <input
-              placeholder='Название'
-              value={title}
-              onChange={e => setTitle(e.target.value)}
-              required
-            />
-            <textarea
-              placeholder='Описание'
-              value={desc}
-              onChange={e => setDesc(e.target.value)}
-            />
-            <input
-              type='number'
-              placeholder='Цена'
-              value={price}
-              onChange={e => setPrice(e.target.value)}
-            />
-            <input
-              placeholder='Категория'
-              value={category}
-              onChange={e => setCategory(e.target.value)}
-            />
-            <input
-              placeholder='Изображение (URL)'
-              value={image}
-              onChange={e => setImage(e.target.value)}
-            />
-            {error && <p style={styles.error}>{error}</p>}
-            <button type='submit' style={styles.btn}>
-              Сохранить
-            </button>
-          </form>
-        </div>
+      <div className='add-product-form dark'>
+        <h1>Добавить товар</h1>
+        <form onSubmit={handleSubmit} className='form'>
+          <input
+            placeholder='Название'
+            value={title}
+            onChange={e => setTitle(e.target.value)}
+            required
+          />
+          <textarea
+            placeholder='Описание'
+            value={description}
+            onChange={e => setDescription(e.target.value)}
+          />
+          <input
+            placeholder='Цена'
+            type='number'
+            value={price}
+            onChange={e => setPrice(e.target.value)}
+          />
+          <input
+            placeholder='Обложка'
+            value={img}
+            onChange={e => setImg(e.target.value)}
+          />
+
+          {/* Категория */}
+          <select
+            value={categoryId ?? ''}
+            onChange={e => setCategoryId(Number(e.target.value))}
+            required
+          >
+            <option value=''>Выберите категорию</option>
+            {filters.category?.map(opt => (
+              <option key={opt.id} value={opt.id}>
+                {opt.label_ru}
+              </option>
+            ))}
+          </select>
+
+          {/* Ширина (мульти) */}
+          <fieldset>
+            <legend>Ширина (можно несколько)</legend>
+            {filters.width?.map(opt => (
+              <label key={opt.id} style={{display: 'block'}}>
+                <input
+                  type='checkbox'
+                  checked={widthIds.includes(opt.id)}
+                  onChange={() => toggleWidthId(opt.id)}
+                />{' '}
+                {opt.label_ru}
+              </label>
+            ))}
+          </fieldset>
+
+          {/* Остальные одиночные фильтры */}
+          <select
+            value={densityId ?? ''}
+            onChange={e => setDensityId(Number(e.target.value))}
+          >
+            <option value=''>Плотность</option>
+            {filters.density?.map(opt => (
+              <option key={opt.id} value={opt.id}>
+                {opt.label_ru}
+              </option>
+            ))}
+          </select>
+
+          <select
+            value={dyeingId ?? ''}
+            onChange={e => setDyeingId(Number(e.target.value))}
+          >
+            <option value=''>Крашение</option>
+            {filters.dyeing?.map(opt => (
+              <option key={opt.id} value={opt.id}>
+                {opt.label_ru}
+              </option>
+            ))}
+          </select>
+
+          <select
+            value={compositionId ?? ''}
+            onChange={e => setCompositionId(Number(e.target.value))}
+          >
+            <option value=''>Состав</option>
+            {filters.composition?.map(opt => (
+              <option key={opt.id} value={opt.id}>
+                {opt.label_ru}
+              </option>
+            ))}
+          </select>
+
+          <button type='submit'>➕ Добавить</button>
+        </form>
       </div>
     </AdminLayout>
   );
 }
-
-const styles = {
-  wrapper: {
-    display: 'grid',
-    placeItems: 'center',
-    minHeight: 'calc(100vh - 80px)',
-  },
-  formBox: {
-    background: 'rgba(255,255,255,0.6)',
-    backdropFilter: 'blur(12px)',
-    border: '1px solid rgba(200,200,200,0.3)',
-    borderRadius: '16px',
-    padding: '30px',
-    width: '100%',
-    maxWidth: '600px',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
-  },
-  title: {
-    fontSize: '22px',
-    marginBottom: '20px',
-    textAlign: 'center' as React.CSSProperties['textAlign'],
-  },
-  form: {
-    display: 'flex' as React.CSSProperties['display'],
-    flexDirection: 'column' as React.CSSProperties['flexDirection'],
-    gap: '12px',
-  },
-  btn: {
-    background: '#4a90e2',
-    color: '#fff',
-    padding: '10px',
-    borderRadius: '8px',
-    border: 'none',
-    cursor: 'pointer',
-  },
-  error: {
-    color: 'red',
-    fontSize: '14px',
-  },
-};

@@ -8,6 +8,7 @@ import Partners from '@/ui/sections/home-page/Partners';
 import ContactUs from '@/ui/sections/home-page/ContactUs';
 import dynamic from 'next/dynamic';
 import i18nConfig from '../next-i18next.config';
+import Header from '@/components/header/Header';
 
 const Hero = dynamic(() => import('@/ui/sections/home-page/Hero'), {
   ssr: false,
@@ -20,6 +21,7 @@ const LelitAd = dynamic(() => import('@/ui/sections/home-page/LelitAdd'), {
 export default function Home() {
   return (
     <div className='sm:h-[calc(100vh-91px)] h-[482px]'>
+      <Header />
       <Hero />
       <About />
       <Products />

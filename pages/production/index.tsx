@@ -7,19 +7,21 @@ import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 import {useTranslation} from 'next-i18next';
 import i18nConfig from '../../next-i18next.config';
 import Content from '@/ui/sections/production/Content';
+import Header from '@/components/header/Header';
 
 const index = () => {
   const {t} = useTranslation('production');
 
   return (
-    <div>
+    <>
+    <Header />
       <PageHeader title={t('header.title')} subtitle={t('header.subtitle')} />
 
       <Content />
       <Partners />
       <ContactUs />
       <Footer />
-    </div>
+    </>
   );
 };
 

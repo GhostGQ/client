@@ -1,162 +1,168 @@
 import { useEffect, useState } from 'react';
 import AdminLayout from '@/components/admin/AdminLayout';
-import CategoryModal from '@/components/admin/CategoryModal';
-import ConfirmModal from '@/components/admin/ConfirmModal';
-
-interface Subcategory {
-  id: string;
-  name: string;
-  product_count: number;
+import useAdminAuth from '@/hooks/useAdminAuth';
+interface Option {
+  id: number;
+  value: string;
+  label_ru: string;
+  label_uz: string;
+  count: number;
 }
 
-interface Category {
+interface Filter {
   id: string;
-  name: string;
-  lang: string;
-  subcategories: Subcategory[];
-}
-
-interface DualCategory {
-  id: string;
-  ru: { name: string; subcategories: string[] };
-  uz: { name: string; subcategories: string[] };
+  label: {
+    ru: string;
+    uz: string;
+  };
 }
 
 export default function AdminCategoriesPage() {
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [filtered, setFiltered] = useState<Category[]>([]);
-  const [lang, setLang] = useState<'ru' | 'uz'>('ru');
+  useAdminAuth();
+  const [filters] = useState<Filter[]>([
+    { id: 'category', label: { ru: 'Категория', uz: 'Kategoriya' } },
+    { id: 'width', label: { ru: 'Ширина', uz: 'Kenglik' } },
+    { id: 'density', label: { ru: 'Плотность', uz: 'Zichlik' } },
+    { id: 'dyeing', label: { ru: 'Вид крашения', uz: 'Boʻyoqlash turi' } },
+    { id: 'composition', label: { ru: 'Состав', uz: 'Tarkibi' } },
+  ]);
+  const [options, setOptions] = useState<Option[]>([]);
+  const [filteredOptions, setFilteredOptions] = useState<Option[]>([]);
+  const [selectedFilter, setSelectedFilter] = useState<string>('category');
   const [search, setSearch] = useState('');
-  const [expandedId, setExpandedId] = useState<string | null>(null);
-  const [selected, setSelected] = useState<DualCategory | null>(null);
-  const [deleteTarget, setDeleteTarget] = useState<Category | null>(null);
-  const [showModal, setShowModal] = useState(false);
-
-  const fetchCategories = async () => {
-    const res = await fetch(`/api/categories?lang=${lang}`);
-    const data = await res.json();
-    setCategories(data.categories || []);
-  };
+  const [multiRu, setMultiRu] = useState('');
+  const [multiUz, setMultiUz] = useState('');
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetchCategories();
-  }, [lang]);
+    fetch(`/api/filters/${selectedFilter}`)
+      .then(res => res.json())
+      .then(data => {
+        const sorted = [...data].reverse();
+        setOptions(sorted);
+        setFilteredOptions(sorted);
+      });
+  }, [selectedFilter]);
 
   useEffect(() => {
-    setFiltered(
-      categories.filter((cat) => cat.name.toLowerCase().includes(search.toLowerCase()))
+    const keyword = search.toLowerCase();
+    setFilteredOptions(
+      options.filter(opt =>
+        opt.label_ru.toLowerCase().includes(keyword) ||
+        opt.label_uz.toLowerCase().includes(keyword)
+      )
     );
-  }, [categories, search]);
+  }, [search, options]);
 
-  const toggleExpand = (id: string) => {
-    setExpandedId(expandedId === id ? null : id);
-  };
+  const handleBatchAdd = async () => {
+    if (!multiRu.trim() || !multiUz.trim()) {
+      setError(true);
+      return;
+    }
 
-  const handleDelete = async () => {
-    if (!deleteTarget) return;
-    await fetch(`/api/categories/${deleteTarget.id}`, { method: 'DELETE' });
-    setDeleteTarget(null);
-    fetchCategories();
-  };
+    setError(false);
 
-  const openEditModal = async (id: string) => {
-    const [ruRes, uzRes] = await Promise.all([
-      fetch(`/api/categories/${id}?lang=ru`),
-      fetch(`/api/categories/${id}?lang=uz`)
-    ]);
+    const ru = multiRu.trim();
+    const uz = multiUz.trim();
+    const value = ru.toLowerCase().replace(/\s+/g, '_');
 
-    const ruData = await ruRes.json();
-    const uzData = await uzRes.json();
-
-    setSelected({
-      id,
-      ru: {
-        name: ruData.category?.name || '',
-        subcategories: ruData.category?.subcategories?.map((s: any) => s.name) || []
-      },
-      uz: {
-        name: uzData.category?.name || '',
-        subcategories: uzData.category?.subcategories?.map((s: any) => s.name) || []
-      }
+    await fetch('/api/filters', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        filter_id: selectedFilter,
+        value,
+        label_ru: ru,
+        label_uz: uz
+      })
     });
 
-    setShowModal(true);
+    setMultiRu('');
+    setMultiUz('');
+    const res = await fetch(`/api/filters/${selectedFilter}`);
+    const data = await res.json();
+    const sorted = [...data].reverse();
+    setOptions(sorted);
+    setFilteredOptions(sorted);
+  };
+
+  const handleDelete = async (id: number) => {
+    await fetch(`/api/filters/${id}`, { method: 'DELETE' });
+    const res = await fetch(`/api/filters/${selectedFilter}`);
+    const data = await res.json();
+    const sorted = [...data].reverse();
+    setOptions(sorted);
+    setFilteredOptions(sorted);
   };
 
   return (
     <AdminLayout>
-      <div className="categories-page">
-        <div className="categories-header">
-          <h1>Категории</h1>
-          <div className="filters">
-            <select value={lang} onChange={(e) => setLang(e.target.value as 'ru' | 'uz')}>
-              <option value="ru">Русский</option>
-              <option value="uz">O‘zbekcha</option>
+      <div className="filters-page">
+        <div className="filters-header">
+          <h1>Фильтры и Подкатегории</h1>
+          <div className="filters-controls">
+            <select value={selectedFilter} onChange={e => setSelectedFilter(e.target.value)}>
+              {filters.map(f => (
+                <option key={f.id} value={f.id}>{f.label.ru} / {f.label.uz}</option>
+              ))}
             </select>
             <input
               type="text"
-              placeholder="Поиск категории"
+              placeholder="Поиск подкатегории"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-            <button onClick={() => { setSelected(null); setShowModal(true); }}>
-              ➕ Добавить
-            </button>
           </div>
         </div>
-
-        <table className="category-table">
-          <thead>
-            <tr>
-              <th>Категория</th>
-              <th>Язык</th>
-              <th>Подкатегории</th>
-              <th>Действия</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filtered.map((cat) => (
-              <tr key={cat.id}>
-                <td onClick={() => toggleExpand(cat.id)} style={{ cursor: 'pointer' }}>
-                  {cat.name}
-                </td>
-                <td>{cat.lang}</td>
-                <td>
-                  {expandedId === cat.id ? (
-                    <ul>
-                      {cat.subcategories.map((sub) => (
-                        <li key={sub.id}>
-                          {sub.name} ({sub.product_count})
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    `${cat.subcategories.length} подкатегорий`
-                  )}
-                </td>
-                <td>
-                  <button onClick={() => openEditModal(cat.id)}>✏️</button>
-                  <button onClick={() => setDeleteTarget(cat)}>🗑️</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        {showModal && (
-          <CategoryModal
-            onClose={() => { setShowModal(false); fetchCategories(); }}
-            category={selected}
-          />
-        )}
-
-        {deleteTarget && (
-          <ConfirmModal
-            title="Удалить категорию?"
-            onConfirm={handleDelete}
-            onCancel={() => setDeleteTarget(null)}
-          />
-        )}
+        <div className="filters-add" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr auto', gap: '16px', alignItems: 'end' }}>
+          <div>
+            <label style={{ display: 'block', marginBottom: '4px' }}>Русский:</label>
+            <input
+              type="text"
+              style={{
+                padding: '8px',
+                borderRadius: '6px',
+                background: '#2b2b2b',
+                color: '#fff',
+                border: error && !multiRu.trim() ? '1px solid red' : '1px solid #555',
+                width: '100%'
+              }}
+              placeholder="Хлопок"
+              value={multiRu}
+              onChange={e => setMultiRu(e.target.value.replace(/,/g, ''))}
+            />
+            {error && !multiRu.trim() && <p style={{ color: 'red', fontSize: '12px' }}>Введите хотя бы одно значение</p>}
+          </div>
+          <div>
+            <label style={{ display: 'block', marginBottom: '4px' }}>O‘zbekcha:</label>
+            <input
+              type="text"
+              style={{
+                padding: '8px',
+                borderRadius: '6px',
+                background: '#2b2b2b',
+                color: '#fff',
+                border: error && !multiUz.trim() ? '1px solid red' : '1px solid #555',
+                width: '100%'
+              }}
+              placeholder="Paxta"
+              value={multiUz}
+              onChange={e => setMultiUz(e.target.value.replace(/,/g, ''))}
+            />
+            {error && !multiUz.trim() && <p style={{ color: 'red', fontSize: '12px' }}>Kamida bitta qiymat kiriting</p>}
+          </div>
+          <button onClick={handleBatchAdd} style={{ height: '40px' }}>➕ Добавить</button>
+        </div>
+        <ul className="filters-list">
+          {filteredOptions.map(o => (
+            <li key={o.id} className="filters-item">
+              <span>{o.label_ru} / {o.label_uz}</span>
+              <div className="filters-actions">
+                <button onClick={() => handleDelete(o.id)}>🗑</button>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </AdminLayout>
   );

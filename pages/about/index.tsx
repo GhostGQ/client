@@ -8,12 +8,14 @@ import {useTranslation} from 'next-i18next';
 import i18nConfig from '../../next-i18next.config';
 import Timeline from '@/ui/sections/about/Timeline';
 import AboutCompany from '@/ui/sections/about/AboutCompany';
+import Header from '@/components/header/Header';
 
 const index = () => {
   const {t} = useTranslation('about');
 
   return (
-    <div>
+    <>
+      <Header />
       <PageHeader title={t('header.title')} subtitle={t('header.subtitle')} />
 
       <AboutCompany />
@@ -21,7 +23,7 @@ const index = () => {
       <Partners />
       <ContactUs />
       <Footer />
-    </div>
+    </>
   );
 };
 

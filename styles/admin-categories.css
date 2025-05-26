@@ -410,4 +410,13 @@
     color: white;
     margin-top: 0.5rem;
   }
+  .input-error {
+    border: 1px solid red;
+  }
+  
+  .error-text {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: 4px;
+  }
   

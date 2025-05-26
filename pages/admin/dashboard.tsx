@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import AdminLayout from '@/components/admin/AdminLayout';
+import useAdminAuth from '@/hooks/useAdminAuth';
 import styles from '@/styles/admin-products.module.css';
 import {
   PieChart, Pie, Cell,
@@ -9,6 +10,7 @@ import {
 const COLORS = ['#FFA500', '#28a745', '#dc3545'];
 
 export default function Dashboard() {
+  useAdminAuth();
   const [stats, setStats] = useState<any>(null);
 
   useEffect(() => {
@@ -17,7 +19,7 @@ export default function Dashboard() {
       .then(setStats);
   }, []);
 
-  if (!stats) return <p style={{ padding: 32 }}>Загрузка...</p>;
+  if (!stats) return <p style={{ padding: 32, color: '#fff', background: '#121212' }}>Загрузка...</p>;
 
   const requestChartData = [
     { name: 'Новые', value: stats.requests.pending },

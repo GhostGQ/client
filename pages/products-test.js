@@ -11,7 +11,7 @@ export default function ProductsPage() {
   const [mainImage, setMainImage] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/products')
+    fetch(`${process.env.NEXT_PUBLIC_DATABASE_URL}/api/products`)
       .then(res => res.json())
       .then(data => {
         setProducts(data);
@@ -47,7 +47,7 @@ export default function ProductsPage() {
   };
 
   const submitRequest = async () => {
-    const res = await fetch('http://localhost:5000/api/requests', {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_DATABASE_URL}/api/requests`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -106,7 +106,7 @@ export default function ProductsPage() {
 
                 {images.length > 0 && (
                   <div className="carousel">
-                    <img src={`http://localhost:5000${images[0]}`} alt={p.title} />
+                    <img src={`${process.env.NEXT_PUBLIC_DATABASE_URL}${images[0]}`} alt={p.title} />
                     {images.length > 1 && <span className="image-count">+{images.length - 1}</span>}
                   </div>
                 )}
@@ -141,7 +141,7 @@ export default function ProductsPage() {
                 {JSON.parse(activeModal.images || '[]').map((img, i) => (
                   <img
                     key={i}
-                    src={`http://localhost:5000${img}`}
+                    src={`${process.env.NEXT_PUBLIC_DATABASE_URL}${img}`}
                     alt={`thumb-${i}`}
                     onClick={() => setMainImage(img)}
                     className={mainImage === img ? 'active' : ''}
@@ -149,7 +149,7 @@ export default function ProductsPage() {
                 ))}
               </div>
               <div className="main-img">
-                {mainImage && <img src={`http://localhost:5000${mainImage}`} alt="main" />}
+                {mainImage && <img src={`${process.env.NEXT_PUBLIC_DATABASE_URL}${mainImage}`} alt="main" />}
               </div>
             </div>
 

@@ -14,7 +14,7 @@ const AboutCompany = () => {
           {t('content.intro')}
         </p>
         <div className='mt-6'>
-          <h4 className='text-[#43A1D0] text-[16px] font-semibold'>
+          <h4 className='text-[#2BA8FC] text-[18px] font-semibold'>
             {t('content.functions_title')}
           </h4>
           <div className='flex flex-col gap-3 mt-3'>
