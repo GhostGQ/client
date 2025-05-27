@@ -1,3 +1,5 @@
+'use client'
+
 import styles from './ProductModalWizard.module.css';
 
 export default function DeleteProductModal({ productId, onClose, onDeleted }: {

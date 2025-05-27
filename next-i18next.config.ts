@@ -9,7 +9,7 @@ const config: UserConfig = {
   },
   react: { useSuspense: true },
   reloadOnPrerender: process.env.NODE_ENV === 'development',
-  ns: ['common', 'main', 'contacts', 'about', 'production', 'products', 'blog'],
+  ns: ['common', 'main', 'contacts', 'about', 'production', 'products',],
   fallbackLng: 'ru',
   localePath: path.resolve('./public/locales'),
   serializeConfig: false,

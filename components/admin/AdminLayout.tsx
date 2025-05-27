@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, useEffect, ReactNode } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -31,7 +33,7 @@ export default function AdminLayout({ children }: Props) {
     };
 
     loadCount();
-    const interval = setInterval(loadCount, 10000);
+    const interval = setInterval(loadCount, 100000);
     return () => clearInterval(interval);
   }, []);
 
