@@ -14,6 +14,7 @@ import {useProduct} from '@/hooks/useProducts';
 import {useRouter} from 'next/router';
 import ProductInfo from '@/ui/sections/products/ProductInfo';
 import SuggestionProducts from '@/ui/sections/products/SuggestionProducts';
+import Head from 'next/head';
 
 const Product = () => {
   const router = useRouter();
@@ -30,19 +31,25 @@ const Product = () => {
 
   return (
     <>
-      <Header />
-      <PageHeader
-        title={t('header.title')}
-        subtitle={t('header.subtitle')}
-        product={
-          lang === 'uz' ? data?.product?.title_uz : data?.product?.title_ru
-        }
-      />
-      {data?.product && <ProductInfo product={data.product} />}
-      <SuggestionProducts />
-      <Partners />
-      <ContactUs />
-      <Footer />
+      <Head>
+        <title>{lang === 'uz' ?  data?.product?.title_uz : data?.product?.title_ru}</title>
+        <meta property='og:title' content='SET' key='title' />
+      </Head>
+      <main>
+        <Header />
+        <PageHeader
+          title={t('header.title')}
+          subtitle={t('header.subtitle')}
+          product={
+            lang === 'uz' ? data?.product?.title_uz : data?.product?.title_ru
+          }
+        />
+        {data?.product && <ProductInfo product={data.product} />}
+        <SuggestionProducts />
+        <Partners />
+        <ContactUs />
+        <Footer />
+      </main>
     </>
   );
 };

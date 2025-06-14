@@ -6,10 +6,11 @@ import {useState} from 'react';
 
 interface ContactModalProps {
   opened: boolean;
+  productId?: number;
   onClose: () => void;
 }
 
-const ContactModal = ({opened, onClose}: ContactModalProps) => {
+const ContactModal = ({opened, productId, onClose}: ContactModalProps) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   if (isSubmitted) {
@@ -37,7 +38,7 @@ const ContactModal = ({opened, onClose}: ContactModalProps) => {
         },
       }}
     >
-      <ContactForm setIsSubmitted={setIsSubmitted} />
+      <ContactForm setIsSubmitted={setIsSubmitted} productId={productId} />
     </Modal>
   );
 };

@@ -4,6 +4,7 @@ interface RequestData {
   name: string;
   phone: string;
   comment: string;
+  product_id?: number | null
 }
 
 const sendRequest = async (data: RequestData) => {

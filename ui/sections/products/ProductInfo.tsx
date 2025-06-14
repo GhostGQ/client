@@ -74,7 +74,7 @@ const ProductInfo = ({product}: Product) => {
         </div>
       </div>
 
-      <ContactModal opened={opened} onClose={close} />
+      <ContactModal opened={opened} onClose={close} productId={product.id} />
     </section>
   );
 };

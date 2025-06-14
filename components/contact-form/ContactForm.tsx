@@ -14,13 +14,15 @@ type FormValues = {
   phone: string;
   comment: string;
   agree: boolean;
+  product_id?: number | null;
 };
 
 interface Props {
   setIsSubmitted?: (value: boolean) => void;
+  productId?: number;
 }
 
-const ContactForm = ({setIsSubmitted}: Props) => {
+const ContactForm = ({setIsSubmitted, productId}: Props) => {
   const {t} = useTranslation('common');
   const {mutate} = useSendRequest();
   const {
@@ -37,21 +39,25 @@ const ContactForm = ({setIsSubmitted}: Props) => {
       phone: '',
       comment: '',
       agree: false,
+      product_id: null,
     },
   });
 
   const onSubmit = (data: FormValues) => {
-    mutate(data, {
-      onSuccess: () => {
-        reset();
-        toast.success(t('form.state.success'));
-        if (setIsSubmitted) setIsSubmitted(true);
-      },
-      onError: err => {
-        console.error('Error submitting form:', err);
-        toast.error(t('form.state.error'));
-      },
-    });
+    mutate(
+      {...data, product_id: productId},
+      {
+        onSuccess: () => {
+          reset();
+          toast.success(t('form.state.success'));
+          if (setIsSubmitted) setIsSubmitted(true);
+        },
+        onError: err => {
+          console.error('Error submitting form:', err);
+          toast.error(t('form.state.error'));
+        },
+      }
+    );
   };
 
   const isFormReady = watch('agree') && isValid;
