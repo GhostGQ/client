@@ -17,7 +17,7 @@ const Header = () => {
       <div className='container flex justify-between items-center'>
         <div className='flex items-center lg:justify-start justify-between gap-12 lg:w-3/4 w-full'>
           <Link href={'/'}>
-            <img src={isMain ? '/logo.png' : '/alt_logo.png'} alt='Logo' />
+            <img src={isMain ? '/logo.png' : '/alt_logo.png'} alt='Logo' className='w-[90px]' />
           </Link>
           <Navbar isMain={isMain} />
         </div>

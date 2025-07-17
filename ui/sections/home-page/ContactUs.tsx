@@ -14,21 +14,20 @@ const ContactUs = () => {
     {
       image: '/socials/phone.png',
       title: t('contactUs.cards.phone'),
-      content: '+998 (71) 111 11 11',
-      linkType: 'tel:+998711111111',
+      content: '+998 (91) 031 11 03',
+      linkType: 'tel:+998910311103',
     },
     {
       image: '/socials/email.png',
       title: t('contactUs.cards.email'),
-      content: 'set1112@gmail.com',
-      linkType: 'mailto:set1112@gmail.com',
+      content: 'info@setextile.uz',
+      linkType: 'mailto:info@setextile.uz',
     },
     {
       image: '/socials/addres.png',
       title: t('contactUs.cards.addres'),
-      content: 'г. Ташкент, Юнусабадский р.',
-      linkType:
-        'https://www.google.com/maps/search/г.+Ташкент,+Юнусабадский+р.', // можно обновить на точную ссылку на карту
+      content: 'Адрес: г. Самарканд, пр. Спитамена, 270',
+      linkType: 'https://yandex.uz/maps/-/CHDlI8y2', // можно обновить на точную ссылку на карту
     },
     {
       image: '/socials/tg.png',
@@ -67,7 +66,7 @@ const ContactUs = () => {
               href={card.linkType}
               target='_blank'
               key={index}
-              className='flex gap-4 py-6 pl-6 bg-white border border-[#CBD6FF] cursor-pointer transition-shadow duration-300 shadow-[#CBD6FF] hover:shadow-md'
+              className='flex items-center gap-4 py-6 pl-6 bg-white border border-[#CBD6FF] cursor-pointer transition-shadow duration-300 shadow-[#CBD6FF] hover:shadow-md'
             >
               <img src={card.image} alt='icon' />
               <div>

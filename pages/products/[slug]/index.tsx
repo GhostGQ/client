@@ -39,7 +39,6 @@ const Product = () => {
         <Header />
         <PageHeader
           title={t('header.title')}
-          subtitle={t('header.subtitle')}
           product={
             lang === 'uz' ? data?.product?.title_uz : data?.product?.title_ru
           }

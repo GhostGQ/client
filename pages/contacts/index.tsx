@@ -19,7 +19,7 @@ const index = () => {
       </Head>
       <main>
         <Header />
-        <PageHeader title={t('header.title')} subtitle={t('header.subtitle')} />
+        <PageHeader title={t('header.title')} />
         <Contacts />
         <Footer />
       </main>

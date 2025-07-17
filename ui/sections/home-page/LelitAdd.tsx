@@ -42,33 +42,34 @@ const LelitAdd = () => {
       </div>
 
       {/* Контент поверх всего */}
-      <div className='container relative z-10 h-full mx-auto flex flex-col gap-3 md:flex-row items-center py-12'>
+      <div className='container relative z-10 h-full mx-auto flex flex-col gap-3 md:flex-row items-center md:py-12 py-8'>
         <div className='w-full md:w-2/3 text-white md:py-8 md:order-1 order-2'>
           <h3 className='text-[20px] md:text-4xl font-bold md:mb-6 mb-2'>
-            Lelit Bed Linen
+            Lelit Home Textile
           </h3>
-          <p className='text-lg max-w-full hidden md:block'>
-            {t('lelitAd.desc')}
-          </p>
-          <p className='text-[14px] md:hidden inline w-full max-w-[350px]'>
-            {t('lelitAd.mobileDesc')}
-          </p>
-          <button className='flex gap-2 items-center mt-4 md:mt-8'>
+          <p className='text-lg max-w-full'>{t('lelitAd.desc')}</p>
+          <a
+            href='https://www.lelit.uz/'
+            target='_blank'
+            className='flex gap-2 items-center mt-4 md:mt-8 cursor-pointer'
+          >
             <span className='text-white text-[16px]'>
               {t('lelitAd.button')}
             </span>
             <span className='bg-white py-2 px-5 rounded-full'>
               <FaArrowRightLong color='#000' />
             </span>
-          </button>
+          </a>
         </div>
 
         <div className='w-full md:w-1/3 flex justify-left md:justify-end mt-8 md:mt-0 md:order-2 order-1'>
-          <img
-            src='/lelit_logo.png'
-            alt='Lelit Logo'
-            className='w-[50px] md:w-full md:max-w-[300px] object-contain'
-          />
+          <div className='bg-white px-6 py-2 rounded-lg'>
+            <img
+              src='/lelit_logo.png'
+              alt='Lelit Logo'
+              className='w-[70px] md:w-full md:max-w-[200px] object-contain'
+            />
+          </div>
         </div>
       </div>
     </section>

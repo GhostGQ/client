@@ -21,7 +21,6 @@ const Footer = () => {
     {key: 'nav.home', path: '/'},
     {key: 'nav.about', path: '/about'},
     {key: 'nav.products', path: '/products'},
-    {key: 'nav.news', path: '/news'},
     {key: 'nav.contacts', path: '/contacts'},
   ];
 
@@ -49,12 +48,6 @@ const Footer = () => {
               </li>
             ))}
           </ul>
-          <div className='flex gap-3 lg:order-3 order-2'>
-            <BiLogoTelegram color='#8D98B5' size={24} />
-            <FaInstagram color='#8D98B5' size={24} />
-            <FaFacebookF color='#8D98B5' size={22} />
-            <FaYoutube color='#8D98B5' size={24} />
-          </div>
         </div>
         <div className='container text-white flex md:flex-row flex-col justify-between items-center pt-8 border-t border-[rgba(247,247,248,0.3)]'>
           <p className='text-[12px] md:text-[18px]'>{t('footer.privacy')}</p>
@@ -62,7 +55,7 @@ const Footer = () => {
             <p className='text-[12px] md:text-[18px]'>
               {t('footer.copyrights')}
             </p>
-            <img src='/sag_logo.png' alt='' />
+            <img className='w-[70px]' src='/sag_logo.png' alt='' />
           </div>
         </div>
       </footer>

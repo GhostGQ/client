@@ -11,7 +11,8 @@
   },
   "about": {
     "title": "kompaniya haqida",
-    "text": "Toʻqimachilik fabrikasi — bu tolalar va iplar asosida toʻqimachilik mahsulotlarini ishlab chiqaruvchi korxona. Bunday fabrikalarning asosiy faoliyati matolar ishlab chiqarishdan iborat.",
+    "text": "Bu yupqa tolali paxta etishtirishdan tortib, o'z ishlab chiqarish quvvatlarida tayyor to'qimachilik mahsulotlarini ishlab chiqarishgacha bo'lgan butun ishlab chiqarish tsiklini amalga oshiradigan noyob korxona.",
+    "text2": "Kompaniyamiz O'zbekiston to'qimachilik sanoati bozorida yetakchi hisoblanadi va o'z ishlab chiqarishimiz hamkorlarimizga turli xil modellar va rang sxemalarini tayyor mahsulotlarning keng assortimentini taklif qilish imkonini beradi.",
     "cards": {
       "years": "Kompaniya tashkil etilgan yil",
       "partners": "Doimiy hamkorlar",
@@ -38,8 +39,7 @@
     }
   },
   "lelitAd": {
-    "desc": "«Lelit Bed Linen» savdo belgisi 2015 yilda tashkil etilgan «Samarkand Euro Asia Textile» MChJ tekstil korxonasi bazasida yaratilgan bo‘lib, u paxta yetishtirishdan tortib, tayyor mahsulot ishlab chiqarishga qadar bo‘lgan to‘liq ishlab chiqarish tsiklini o‘z korxonasida amalga oshiradigan noyob korxona hisoblanadi.",
-    "mobileDesc": "«Lelit Bed Linen» savdo belgisi 2015 yilda tashkil etilgan «Samarkand Euro Asia Textile» MChJ tekstil korxonasi bazasida yaratilgan bo‘lib",
+    "desc": "Lelit Home Textile brendi 2021-yilda sotuvga chiqarilgan. Bu nafislik, qulaylik va sifatni birlashtirgan uy to'qimachilik brendi.",
     "button": "Batafsil"
   },
   "opportunities": {
@@ -57,6 +57,22 @@
     "op3": {
       "title": "Raqobatbardosh narxlar",
       "desc": "Reps to‘qimali paxta mato, bir tomonlama yoki ikki tomonlama tekis va siyrak junli. Yumshoq va mayin material, terini bezovta qilmaydi, namlikni yaxshi shimadi va issiqlikni ushlab turadi. Bolalar kiyimlari, ko‘ylaklar, pijamalar, xalatlar tikishda, astar mato sifatida va boshqalarda qo‘llaniladi."
+    }
+  },
+  "advantages": {
+    "title": "BIZNING AFZALLIKLARIMIZ",
+    "subtitle": "Biz yuqori texnologiyali uskunalarga egamiz, bu esa bozorda eng talab qilinadigan to'qimachilik mahsulotlarini ishlab chiqarish imkonini beradi. Biz siz va biznesingiz uchun qulay shart-sharoitlar yaratamiz.",
+    "item1": {
+      "title": "Biz ishlab chiqaruvchimiz",
+      "text": "Yuqori sifatli paxtani yetishtirishdan tortib tayyor to'qimachilik mahsulotigacha bo'lgan to‘liq ishlab chiqarish jarayoniga ega korxona. Bu mahsulot sifatini har bir bosqichda nazorat qilish imkonini beradi."
+    },
+    "item2": {
+      "title": "Imkoniyatlar",
+      "text": "Yuqori texnologiyali ishlab chiqarish sizning talablaringizga javob beradigan yuqori sifatli mahsulotlarni yaratishga imkon beradi."
+    },
+    "item3": {
+      "title": "Doimiy rivojlanish",
+      "text": "Biz erishilgan yutuqlar bilan cheklanib qolmaymiz, chunki ishlab chiqarish samaradorligini oshirish va takomillashtirish — bu cheksiz va qiziqarli jarayon."
     }
   },
   "partners": {

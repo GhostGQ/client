@@ -10,6 +10,7 @@ import dynamic from 'next/dynamic';
 import i18nConfig from '../next-i18next.config';
 import Header from '@/components/header/Header';
 import Head from 'next/head';
+import Advantages from '@/ui/sections/home-page/Advantages';
 
 const Hero = dynamic(() => import('@/ui/sections/home-page/Hero'), {
   ssr: false,
@@ -33,6 +34,7 @@ export default function Home() {
         <Products />
         <LelitAd />
         <Opportunities />
+        <Advantages />
         <Partners />
         <ContactUs />
         <Footer />

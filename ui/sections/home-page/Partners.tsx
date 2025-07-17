@@ -15,7 +15,6 @@ const Partners = () => {
           <h2 className='text-[24px] font-semibold uppercase'>
             {t('partners.title')}
           </h2>
-          <p className='text-[16px] font-medium'>{t('partners.desc')}</p>
         </div>
         <PartnersLogoCarousel />
       </div>

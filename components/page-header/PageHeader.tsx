@@ -4,7 +4,7 @@ import {HiOutlineSlash} from 'react-icons/hi2';
 
 interface Props {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   product?: string;
 }
 const PageHeader = ({title, subtitle, product}: Props) => {

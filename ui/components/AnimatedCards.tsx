@@ -27,6 +27,7 @@ const AnimatedCards = () => {
       id: 1,
       title: t('products.el1.title'),
       description: t('products.el1.description'),
+      button: t('products.button'),
       image: '/card1.png',
       gradient: {
         from: 'rgba(21, 38, 33, 0.2)',
@@ -37,6 +38,7 @@ const AnimatedCards = () => {
       id: 2,
       title: t('products.el2.title'),
       description: t('products.el2.description'),
+      button: t('products.button'),
       image: '/card2.png',
       gradient: {
         from: 'rgba(16, 46, 70, 0.2)',
@@ -47,6 +49,7 @@ const AnimatedCards = () => {
       id: 3,
       title: t('products.el3.title'),
       description: t('products.el3.description'),
+      button: t('products.button'),
       image: '/card3.png',
       gradient: {
         from: 'rgba(52, 7, 37, 0.2)',
@@ -150,7 +153,7 @@ const AnimatedCards = () => {
                   <Link href='/products'>
                     <button className='flex gap-2 items-center z-50'>
                       <span className='text-white text-[16px]'>
-                        Посмотреть другие товары
+                        {product.button}
                       </span>
                       <span className='bg-white py-2 px-5 rounded-full'>
                         <FaArrowRightLong color='#000' />
