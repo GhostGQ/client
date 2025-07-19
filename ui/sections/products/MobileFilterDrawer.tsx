@@ -44,7 +44,7 @@ export const MobileFilterDrawer = () => {
 
           {/* Bottom Drawer */}
           <motion.div
-            className='fixed bottom-0 left-0 right-0 h-[90vh] bg-[#F3F3F3] z-50 rounded-t-2xl shadow-lg overflow-auto'
+            className='fixed bottom-0 left-0 right-0 h-[80vh] bg-[#F3F3F3] z-50 rounded-t-2xl shadow-lg overflow-auto'
             initial={{y: '100%'}}
             animate={{y: 0}}
             exit={{y: '100%'}}
@@ -57,7 +57,7 @@ export const MobileFilterDrawer = () => {
             }}
           >
             <div className='h-1 w-24 bg-black rounded-full mx-auto my-4' />
-            <FilterAccordion />
+            <FilterAccordion height={'80vh'} />
           </motion.div>
         </>
       )}

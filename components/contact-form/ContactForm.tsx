@@ -6,21 +6,31 @@ import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import {FaArrowRightLong} from 'react-icons/fa6';
 import {useTranslation} from 'next-i18next';
+import {useSendRequest} from '@/hooks/useSendRequest';
+import {toast} from 'react-toastify';
 
 type FormValues = {
   name: string;
   phone: string;
   comment: string;
   agree: boolean;
+  product_id?: number | null;
 };
 
-const ContactForm = () => {
+interface Props {
+  setIsSubmitted?: (value: boolean) => void;
+  productId?: number;
+}
+
+const ContactForm = ({setIsSubmitted, productId}: Props) => {
   const {t} = useTranslation('common');
+  const {mutate} = useSendRequest();
   const {
     control,
     handleSubmit,
     register,
     watch,
+    reset,
     formState: {errors, isValid},
   } = useForm<FormValues>({
     mode: 'onChange',
@@ -29,11 +39,25 @@ const ContactForm = () => {
       phone: '',
       comment: '',
       agree: false,
+      product_id: null,
     },
   });
 
   const onSubmit = (data: FormValues) => {
-    console.log('Form submitted:', data);
+    mutate(
+      {...data, product_id: productId},
+      {
+        onSuccess: () => {
+          reset();
+          toast.success(t('form.state.success'));
+          if (setIsSubmitted) setIsSubmitted(true);
+        },
+        onError: err => {
+          console.error('Error submitting form:', err);
+          toast.error(t('form.state.error'));
+        },
+      }
+    );
   };
 
   const isFormReady = watch('agree') && isValid;

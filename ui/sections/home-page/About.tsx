@@ -42,15 +42,18 @@ const About = () => {
 
         {/* Правая колонка */}
         <div className='w-full lg:w-[70%] xl:w-2/3'>
-          <p className='text-[16px] sm:text-3xl lg:text-[32px] md:font-semibold font-medium'>
+          <p className='text-[16px] sm:text-3xl lg:text-[24px] md:font-semibold font-medium md:leading-[30px]'>
             {t('about.text')}
+          </p>
+          <p className='text-[16px] sm:text-3xl lg:text-[24px] md:font-semibold font-medium md:leading-[30px]'>
+            {t('about.text2')}
           </p>
 
           <div className='mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6'>
             {/* Карточка 1 */}
             <div className='border border-[#CBD6FF] p-4 sm:p-6 bg-white'>
               <span className='text-[#2BA8FC] text-4xl sm:text-5xl lg:text-6xl font-semibold block'>
-                2001
+                2014
               </span>
               <div className='h-px w-full max-w-[240px] bg-[#E5E5E5] my-2'></div>
               <span className='text-sm sm:text-[14px] font-medium'>
@@ -72,7 +75,7 @@ const About = () => {
             {/* Карточка 3 */}
             <div className='border border-[#CBD6FF] p-4 sm:p-6 bg-white'>
               <span className='text-[#2BA8FC] text-4xl sm:text-5xl lg:text-6xl font-semibold block'>
-                1200+
+                350+ 
               </span>
               <div className='h-px w-full max-w-[240px] bg-[#E5E5E5] my-2'></div>
               <span className='text-sm sm:text-[14px] font-medium'>

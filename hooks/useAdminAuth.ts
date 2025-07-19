@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 
 export default function useAdminAuth() {
   const router = useRouter();
+
   useEffect(() => {
     const checkAuth = async () => {
       try {

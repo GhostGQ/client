@@ -1,6 +1,8 @@
+'use client';
+
 import {useState, ChangeEvent, FormEvent} from 'react';
 import {useRouter} from 'next/router';
-import useAdminAuth from '@/hooks/useAdminAuth';
+import Head from 'next/head';
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -21,6 +23,7 @@ export default function AdminLoginPage() {
     setError('');
 
     try {
+      console.log(email, password);
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_DATABASE_URL}/api/admin/login`,
         {
@@ -33,6 +36,7 @@ export default function AdminLoginPage() {
 
       const data = await res.json();
       if (res.ok) {
+        localStorage.setItem('admin', email);
         router.push('/admin/dashboard');
       } else {
         setError(data.message || 'Ошибка входа');
@@ -45,40 +49,45 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className='admin-login-wrapper'>
-      <div className='admin-login-box'>
-        <h2 className='admin-login-title'>Вход в админ-панель</h2>
+    <>
+    <Head>
+        <title>Admin</title>
+      </Head>
+      <div className='admin-login-wrapper'>
+        <div className='admin-login-box'>
+          <h2 className='admin-login-title'>Вход в админ-панель</h2>
 
-        {error && <div className='admin-login-error'>{error}</div>}
+          {error && <div className='admin-login-error'>{error}</div>}
 
-        <form onSubmit={handleLogin}>
-          <input
-            type='email'
-            placeholder='Email'
-            className='admin-login-input'
-            value={email}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              setEmail(e.target.value)
-            }
-          />
-          <input
-            type='password'
-            placeholder='Пароль'
-            className='admin-login-input'
-            value={password}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              setPassword(e.target.value)
-            }
-          />
-          <button
-            type='submit'
-            className='admin-login-button'
-            disabled={loading}
-          >
-            {loading ? 'Входим...' : 'Войти'}
-          </button>
-        </form>
+          <form onSubmit={handleLogin}>
+            <input
+              type='email'
+              placeholder='Email'
+              className='admin-login-input'
+              value={email}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setEmail(e.target.value)
+              }
+            />
+            <input
+              type='password'
+              placeholder='Пароль'
+              className='admin-login-input'
+              value={password}
+              onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                setPassword(e.target.value)
+              }
+            />
+            <button
+              type='submit'
+              className='admin-login-button'
+              disabled={loading}
+            >
+              {loading ? 'Входим...' : 'Войти'}
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

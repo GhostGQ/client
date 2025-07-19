@@ -40,7 +40,7 @@ const FILTER_KEYS = [
 
 type FilterKey = (typeof FILTER_KEYS)[number]['id'];
 
-export const FilterAccordion = () => {
+export const FilterAccordion = ({height = '85vh'}) => {
   const {i18n, t} = useTranslation();
   const lang = i18n.language.startsWith('uz') ? 'uz' : 'ru';
 
@@ -89,7 +89,7 @@ export const FilterAccordion = () => {
 
   return (
     <Accordion
-      className='p-1 bg-[#F3F3F3] w-full sm:block flex flex-col justify-between sm:h-fit h-[85vh]'
+      className={`p-1 bg-[#F3F3F3] w-full sm:block flex flex-col justify-between sm:h-fit h-[${height}]`}
       variant='default'
       multiple
     >

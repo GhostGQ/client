@@ -13,6 +13,12 @@ const AboutCompany = () => {
         <p className='text-[16px] text-[#081B24] font-medium mt-4'>
           {t('content.intro')}
         </p>
+        <p className='text-[16px] text-[#081B24] font-medium mt-1'>
+          {t('content.intro2')}
+        </p>
+        <p className='text-[16px] text-[#081B24] font-medium mt-1'>
+          {t('content.intro3')}
+        </p>
         <div className='mt-6'>
           <h4 className='text-[#2BA8FC] text-[18px] font-semibold'>
             {t('content.functions_title')}

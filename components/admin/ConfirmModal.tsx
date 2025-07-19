@@ -1,3 +1,5 @@
+'use client'
+
 interface ConfirmModalProps {
     title: string;
     onConfirm: () => void;

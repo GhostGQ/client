@@ -1,11 +1,10 @@
 'use client';
 
 import {useFilterStore} from '@/components/accordion/useFilterStore';
-import {Divider, Image, Button} from '@mantine/core';
+import {Button} from '@mantine/core';
 import {useTranslation} from 'next-i18next';
-import {IoIosArrowForward} from 'react-icons/io';
 import {useState} from 'react';
-import {useProducts} from '@/lib/hooks/useProducts';
+import {useProducts} from '@/hooks/useProducts';
 import ProductCard from './ProductCard';
 
 const ProductList = () => {
@@ -21,7 +20,7 @@ const ProductList = () => {
       values.map(Number),
     ])
   );
-  console.log('Numeric Filters:', selectedFilters);
+
   const {data, isLoading, isError} = useProducts({
     page,
     filters: numericFilters,

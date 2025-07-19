@@ -5,7 +5,7 @@
     "production": "Ishlab chiqarish",
     "products": "Mahsulotlar",
     "news": "Yangiliklar va blog",
-    "contacts": "Aloqa"
+    "contacts": "Kontaktlar"
   },
   "footer": {
     "privacy": "© 2024 Set.uz. Sayt ommaviy oferta emas",
@@ -34,6 +34,11 @@
     "check": {
       "label": "Maxfiylik siyosatiga roziman",
       "required": "Tasdiqlash majburiy"
+    },
+    "state": {
+      "success": "Rahmat! Sizning arizangiz muvaffaqiyatli yuborildi.",
+      "error": "Arizani yuborishda xatolik yuz berdi. Iltimos, qayta urinib ko‘ring.",
+      "loading": "Ariza yuborilmoqda..."
     },
     "button": "Arizani yuborish"
   }

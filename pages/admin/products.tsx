@@ -1,3 +1,5 @@
+'use client'
+
 // pages/admin/products.tsx
 import React, { useEffect, useState } from 'react';
 import ProductModalWizard from '@/components/admin/ProductModalWizard';

@@ -16,6 +16,7 @@ import {appWithTranslation} from 'next-i18next';
 import i18nConfig from '../next-i18next.config';
 import {QueryClientProvider, QueryClient} from '@tanstack/react-query';
 import {useState} from 'react';
+import {ToastContainer} from 'react-toastify';
 
 const theme = createTheme({});
 
@@ -26,6 +27,17 @@ function App({Component, pageProps}: AppProps) {
     <MantineProvider theme={theme}>
       <QueryClientProvider client={queryClient}>
         <Component {...pageProps} />
+        <ToastContainer
+          position='top-right'
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          theme='light'
+        />
       </QueryClientProvider>
     </MantineProvider>
   );

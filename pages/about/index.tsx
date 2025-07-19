@@ -9,20 +9,27 @@ import i18nConfig from '../../next-i18next.config';
 import Timeline from '@/ui/sections/about/Timeline';
 import AboutCompany from '@/ui/sections/about/AboutCompany';
 import Header from '@/components/header/Header';
+import Head from 'next/head';
 
 const index = () => {
   const {t} = useTranslation('about');
 
   return (
     <>
-      <Header />
-      <PageHeader title={t('header.title')} subtitle={t('header.subtitle')} />
+      <Head>
+        <title>{t('header.title')}</title>
+        <meta property='og:title' content={t('header.title')} key='title' />
+      </Head>
+      <main>
+        <Header />
+        <PageHeader title={t('header.title')} />
 
-      <AboutCompany />
-      <Timeline />
-      <Partners />
-      <ContactUs />
-      <Footer />
+        <AboutCompany />
+        <Timeline />
+        <Partners />
+        <ContactUs />
+        <Footer />
+      </main>
     </>
   );
 };

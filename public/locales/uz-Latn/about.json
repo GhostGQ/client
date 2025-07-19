@@ -5,7 +5,9 @@
   },
   "content": {
     "title": "Kompaniya haqida",
-    "intro": "To‘qimachilik kompaniyasi — bu matolarni ishlab chiqarish, qayta ishlash va sotish bilan shug‘ullanuvchi korxona. Bunday kompaniyalar yirik fabrikalardan tortib tayyor mahsulot ishlab chiqaruvchi kichik ustaxonalarigacha bo‘lishi mumkin.",
+    "intro": "2014 yilda tashkil etilgan 'Samarkand Euro Asia Textile' kompaniyasi kamtarona korxonadan to'qimachilik mahsulotlarini ishlab chiqaruvchi yetakchi kompaniyalardan biriga aylandi. Bugungi kunda Samarkand Euro Asia Textile O'zbekistondagi SAG GROUP yirik ishlab chiqarish xoldingiga kiradi.",
+    "intro2": "Bu yupqa tolali paxta etishtirishdan tortib, o'z ishlab chiqarish quvvatlarida tayyor to'qimachilik mahsulotlarini ishlab chiqarishgacha bo'lgan butun ishlab chiqarish tsiklini amalga oshiradigan noyob korxona.",
+    "intro3": "Kompaniyamiz O'zbekiston to'qimachilik sanoati bozorida yetakchi hisoblanadi va o'z ishlab chiqarishimiz hamkorlarimizga turli xil modellar va rang sxemalarini tayyor mahsulotlarning keng assortimentini taklif qilish imkonini beradi.",
     "functions_title": "To‘qimachilik kompaniyasining asosiy funksiyalari",
     "functions": {
       "f1": {
@@ -22,5 +24,73 @@
       }
     },
     "conclusion": "To‘qimachilik sanoati eng qadimiy va eng talab yuqori bo‘lgan sohalardan biridir, u kiyim-kechak, uy tekstili va boshqa mahsulotlarga bo‘lgan ehtiyojni qondiradi. To‘qimachilik kompaniyalari iqtisodiyotda muhim rol o‘ynaydi, ish o‘rinlari yaratadi va boshqa sohalarning rivojlanishiga hissa qo‘shadi."
+  },
+  "timeline": {
+    "2014": {
+      "desc": "Yostiq jildlari tikish bo‘yicha tikuv fabrikasi ishga tushirildi"
+    },
+    "2016": {
+      "title": "Yangi tikuv liniyalari o‘rnatildi",
+      "desc": "Tikuv uskunalari parki yangilandi"
+    },
+    "2017": {
+      "title": "Yangi ishlab chiqarish liniyalari ishga tushirildi",
+      "desc": "Ishlab chiqarish quvvatlari oshirildi"
+    },
+    "2018": {
+      "title": "Yangi tikuv liniyalari o‘rnatildi",
+      "desc": "Tikuv uskunalari parki yangilandi"
+    },
+    "2019": {
+      "desc": "Rasmli satinga bosma chop etish liniyasi ishga tushirildi"
+    },
+    "2020": {
+      "desc": "Satin matosini bo‘yash uchun bo‘yash liniyasi o‘rnatildi"
+    },
+    "2021": {
+      "title": "To‘quv liniyasi ishga tushirildi",
+      "desc": "To‘liq ishlab chiqarish tsikliga o‘tildi"
+    },
+    "2022": {
+      "title": "600 tonnadan ortiq mato ishlab chiqarildi",
+      "desc": "Oqartirish liniyasi ishga tushirildi"
+    },
+    "2023": {
+      "title": "LELIT",
+      "desc": [
+        "LELIT brendi ishga tushirildi",
+        "Xalqaro ko‘rgazmalarda ishtirok etildi",
+        "Internet do‘koni ishga tushirildi",
+        "700 tonnadan ortiq mato ishlab chiqarildi",
+        "Eksport yo‘nalishi rivojlantirildi",
+        "OEKO-TEX sertifikatlari olindi",
+        "Yangi ishlab chiqarish liniyalari o‘rnatildi",
+        "Uskunalar modernizatsiya qilindi"
+      ]
+    },
+    "2024": {
+      "desc": [
+        "Yangi oqartirish liniyasi ishga tushirildi",
+        "Ishlab chiqarish quvvatlari oshirildi",
+        "800 tonnadan ortiq mato ishlab chiqarildi",
+        "Mato assortimenti kengaytirildi",
+        "ISO 9001 sertifikatlari olindi",
+        "LELIT brendi rivojlantirildi",
+        "Xalqaro ko‘rgazmalarda ishtirok etildi"
+      ]
+    },
+    "2025": {
+      "desc": [
+        "Trikotaj mashinalari uskunalari ishga tushirildi va yangilandi",
+        "Raqamli bosma uskunalari o‘rnatildi",
+        "Xalqaro darajadagi sertifikatlar olindi (GOTS, BCI, ISO)",
+        "Yangi mato kolleksiyalari ishlab chiqildi va chiqarildi",
+        "Xalqaro ko‘rgazmalarda ishtirok etildi",
+        "Sifat nazorati laboratoriyasi ishga tushirildi",
+        "1000 tonnadan ortiq mato ishlab chiqarildi",
+        "Tayyor mahsulotlar assortimenti kengaytirildi",
+        "Eksport yo‘nalishi rivojlantirildi"
+      ]
+    }
   }
 }
