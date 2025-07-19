@@ -28,7 +28,7 @@ const ProductInfo = ({product}: Product) => {
                 key={category.id}
                 className='text-[##081B24] text-[16px] rounded-2xl bg-[#D3F0FF] px-3 py-1 ml-2 first:ml-0'
               >
-                {lang === 'uz' ? category.name_uz : category.name_ru}
+                {lang === 'uz' ? category?.name_uz : category?.name_ru}
               </span>
             ))}
           </div>
@@ -39,13 +39,13 @@ const ProductInfo = ({product}: Product) => {
             <div className='text-[#7C7C7C]'>
               <span>
                 {lang === 'uz'
-                  ? product?.densitys?.[0].name_uz
-                  : product?.densitys?.[0].name_ru}
+                  ? product?.densitys?.[0]?.name_uz
+                  : product?.densitys?.[0]?.name_ru}
               </span>
               <span className='ml-2'>
                 {lang === 'uz'
-                  ? product?.compositions?.[0].name_uz
-                  : product?.compositions?.[0].name_ru}
+                  ? product?.compositions?.[0]?.name_uz
+                  : product?.compositions?.[0]?.name_ru}
               </span>
             </div>
           </div>
@@ -55,7 +55,7 @@ const ProductInfo = ({product}: Product) => {
               {lang === 'ru' ? 'Описание' : 'Tavsif'}
             </h2>
             <p className='text-[16px] text-[#7C7C7C]'>
-              {lang === 'ru' ? product.description_ru : product.description_uz}
+              {lang === 'ru' ? product?.description_ru : product?.description_uz}
             </p>
           </div>
 

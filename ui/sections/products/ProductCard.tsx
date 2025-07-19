@@ -23,13 +23,13 @@ const ProductCard = ({product}: {product: any}) => {
           <div className='text-[#7C7C7C]'>
             <span>
               {language === 'uz'
-                ? product?.densitys?.[0].name_uz
-                : product?.densitys?.[0].name_ru}
+                ? product?.densitys?.[0]?.name_uz
+                : product?.densitys?.[0]?.name_ru}
             </span>
             <span className='ml-2'>
               {language === 'uz'
                 ? product?.compositions?.[0].name_uz
-                : product?.compositions?.[0].name_ru}
+                : product?.compositions?.[0]?.name_ru}
             </span>
           </div>
         </div>
