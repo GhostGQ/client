@@ -7,7 +7,7 @@ name: Docker
 
 on:
   push:
-    branches: [ "master", "dev" ]
+    branches: ['master', 'dev']
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -17,12 +17,14 @@ env:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
       id-token: write
+
+    env:
+      NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
 
     steps:
       - name: Checkout repository
@@ -36,6 +38,9 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@f95db51fddba0c2d1ec667646a06c2ce06100226 # v3.0.0
+
+      - name: Create .env file
+        run: echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env
 
       - name: Log into registry ${{ env.REGISTRY }}
         if: github.event_name != 'pull_request'
