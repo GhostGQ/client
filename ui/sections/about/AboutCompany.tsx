@@ -49,7 +49,7 @@ const AboutCompany = () => {
         </div>
         <div className='mt-10'>
           <img src='/about_img.png' alt='Image of peaple' className='w-full' />
-          <p className='mt-10 font-medium'>{t('content.conclusion')}</p>
+          {/*<p className='mt-10 font-medium'>{t('content.conclusion')}</p>*/}
         </div>
       </div>
     </section>
