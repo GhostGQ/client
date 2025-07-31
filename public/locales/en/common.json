@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "production": "Production",
+    "products": "Products",
+    "news": "News & Blog",
+    "contacts": "Contacts"
+  },
+  "footer": {
+    "privacy": "© 2024 Set.uz. This website is not a public offer",
+    "copyrights": "SET is part of the holding"
+  },
+  "email": {
+    "title": "Subscribe to our newsletter"
+  },
+  "form": {
+    "name": {
+      "label": "Name",
+      "placeholder": "Your name",
+      "required": "Name is required",
+      "short": "Name is too short"
+    },
+    "phone": {
+      "label": "Phone number",
+      "required": "Phone number is required",
+      "incorrect": "Enter a valid phone number"
+    },
+    "message": {
+      "label": "Message",
+      "required": "Message is required",
+      "short": "Message is too short"
+    },
+    "check": {
+      "label": "I agree with the privacy policy",
+      "required": "Confirmation is required"
+    },
+    "state": {
+      "success": "Thank you! Your request has been successfully sent.",
+      "error": "An error occurred while submitting the request. Please try again.",
+      "loading": "Submitting request..."
+    },
+    "button": "Submit Request"
+  }
+}

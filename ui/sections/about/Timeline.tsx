@@ -30,7 +30,7 @@ const Timeline = () => {
   return (
     <section className='md:py-20 py-8'>
       <h1 className='text-[#2A3F87] text-[40px] font-semibold text-center'>
-        {t('История производства')}
+        {t('timeline.header')}
       </h1>
       <div className='w-full relative py-20 px-4 max-w-6xl mx-auto'>
         <div className='absolute left-1/2 top-24 bottom-20 w-1 transform -translate-x-1/2 bg-linear-180 from-[#D04391] to-[#2A3F87]' />

@@ -21,7 +21,7 @@ const LanguageSwitcher = ({isMain}: {isMain: boolean}) => {
     >
       <button
         onClick={() => changeLanguage('ru')}
-        className={`transition-opacity text-[16px] ${
+        className={`transition-opacity text-[16px] cursor-pointer ${
           locale === 'ru' ? 'opacity-100' : 'opacity-40'
         }`}
       >
@@ -34,11 +34,24 @@ const LanguageSwitcher = ({isMain}: {isMain: boolean}) => {
 
       <button
         onClick={() => changeLanguage('uz-Latn')}
-        className={`transition-opacity text-[16px] ${
+        className={`transition-opacity text-[16px] cursor-pointer ${
           locale === 'uz-Latn' ? 'opacity-100' : 'opacity-40'
         }`}
       >
         O‘zb
+      </button>
+
+      <div className={`w-px h-5 ${
+        isMain ? 'bg-white' : 'bg-[#2A3F87]'
+      }`} />
+
+      <button
+        onClick={() => changeLanguage('en')}
+        className={`transition-opacity text-[16px] cursor-pointer ${
+          locale === 'en' ? 'opacity-100' : 'opacity-40'
+        }`}
+      >
+        En
       </button>
     </div>
   );

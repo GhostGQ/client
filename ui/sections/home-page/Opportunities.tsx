@@ -26,14 +26,21 @@ const Opportunities = () => {
   ];
 
   return (
-    <section className='py-20'>
+    <section className='pt-20 pb-7'>
       <div className='container'>
         <div className='text-center md:w-3/4 mx-auto'>
           <h2 className='text-[#2A3F87] text-[24px] font-semibold uppercase'>
-            {t('opportunities.title')}
+            {t('advantages.title')}
           </h2>
-          <p className='text-[16px] font-medium'>{t('opportunities.desc')}</p>
+          <p className='text-[16px] font-medium'>{t('advantages.subtitle')}</p>
         </div>
+
+        {/*<div className='text-center md:w-3/4 mx-auto'>*/}
+        {/*  <h2 className='text-[#2A3F87] text-[24px] font-semibold uppercase'>*/}
+        {/*    {t('opportunities.title')}*/}
+        {/*  </h2>*/}
+        {/*  <p className='text-[16px] font-medium'>{t('opportunities.desc')}</p>*/}
+        {/*</div>*/}
 
         <div className='flex flex-col items-center'>
           {opportunities.map((op, index) => (

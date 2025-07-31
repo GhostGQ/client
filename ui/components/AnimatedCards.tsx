@@ -28,7 +28,7 @@ const AnimatedCards = () => {
       title: t('products.el1.title'),
       description: t('products.el1.description'),
       button: t('products.button'),
-      image: '/card1.png',
+      image: '/card1.webp',
       gradient: {
         from: 'rgba(21, 38, 33, 0.2)',
         to: 'rgba(35, 51, 46, 1)',
@@ -39,7 +39,7 @@ const AnimatedCards = () => {
       title: t('products.el2.title'),
       description: t('products.el2.description'),
       button: t('products.button'),
-      image: '/card2.png',
+      image: '/card2.webp',
       gradient: {
         from: 'rgba(16, 46, 70, 0.2)',
         to: 'rgba(16, 43, 64, 1)',
@@ -50,7 +50,7 @@ const AnimatedCards = () => {
       title: t('products.el3.title'),
       description: t('products.el3.description'),
       button: t('products.button'),
-      image: '/card3.png',
+      image: '/card3.webp',
       gradient: {
         from: 'rgba(52, 7, 37, 0.2)',
         to: 'rgba(52, 7, 37, 1)',

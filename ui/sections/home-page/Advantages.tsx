@@ -24,15 +24,8 @@ const Advantages = () => {
   ];
 
   return (
-    <section className='py-10'>
+    <section className='pb-10'>
       <div className='container'>
-        <div className='text-center md:w-3/4 mx-auto'>
-          <h2 className='text-[#2A3F87] text-[24px] font-semibold uppercase'>
-            {t('advantages.title')}
-          </h2>
-          <p className='text-[16px] font-medium'>{t('advantages.subtitle')}</p>
-        </div>
-
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6'>
           {items.map((item, index) => (
             <div

@@ -3,7 +3,7 @@
 import {MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
 import {LatLngExpression, Icon} from 'leaflet';
 
-const position: LatLngExpression = [39.673972, 66.910005];
+const position: LatLngExpression = [39.680103, 66.908382];
 
 const customIcon = new Icon({
   iconUrl:

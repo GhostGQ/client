@@ -1,0 +1,95 @@
+{
+  "hero": {
+    "title1": "Preserving the Best Traditions",
+    "title2": "Multiplying Experience",
+    "subTitle1": "Modern design, maximum functionality",
+    "subTitle2": "tailored to your individual needs",
+    "button": {
+      "aboutCompany": "About the Company",
+      "products": "Product Catalog"
+    }
+  },
+  "about": {
+    "title": "about the company",
+    "text": "This is a unique enterprise that carries out the entire production cycle from growing fine-fiber cotton to producing finished textile products at its own facilities.",
+    "text2": "Our company is a leader in Uzbekistan's textile industry, and our in-house production enables us to offer our partners a wide range of finished products with diverse models and color options.",
+    "cards": {
+      "years": "Year the company was founded",
+      "partners": "Regular partners",
+      "employes": "Staff members"
+    },
+    "button": {
+      "more": "Learn more"
+    }
+  },
+  "products": {
+    "title": "Products",
+    "button": "View other products",
+    "el1": {
+      "title": "Fabric",
+      "description": "Fabric is an important material used in various fields, including fashion, home décor, industry, and more. It can be made from a variety of fibers, both natural and synthetic."
+    },
+    "el2": {
+      "title": "Bedding",
+      "description": "Bedding is an important material used in various fields, including fashion, home décor, industry, and more. It can be made from a variety of fibers, both natural and synthetic."
+    },
+    "el3": {
+      "title": "Home Textile",
+      "description": "Home textile is an important material used in various fields, including fashion, home décor, industry, and more. It can be made from a variety of fibers, both natural and synthetic."
+    }
+  },
+  "lelitAd": {
+    "desc": "The Lelit Home Textile brand was launched in 2021. It is a home textile brand that combines elegance, comfort, and quality.",
+    "button": "Learn more"
+  },
+  "opportunities": {
+    "title": "Benefits of Cooperation",
+    "desc": "A textile factory is an enterprise engaged in the production of textile products from fibers and threads. The main activity of such factories includes the manufacture of fabrics.",
+    "button": "Product Catalog",
+    "op1": {
+      "title": "Wide Range",
+      "desc": "Cotton fabric with twill weave and soft one- or two-sided even sparse nap. Soft and gentle material, does not irritate the skin, absorbs moisture well and retains heat. Used for children's clothing, shirts, pajamas, bathrobes, lining fabric, etc."
+    },
+    "op2": {
+      "title": "Flexible Cooperation Terms",
+      "desc": "Cotton fabric with twill weave and soft one- or two-sided even sparse nap. Soft and gentle material, does not irritate the skin, absorbs moisture well and retains heat. Used for children's clothing, shirts, pajamas, bathrobes, lining fabric, etc."
+    },
+    "op3": {
+      "title": "Competitive Prices",
+      "desc": "Cotton fabric with twill weave and soft one- or two-sided even sparse nap. Soft and gentle material, does not irritate the skin, absorbs moisture well and retains heat. Used for children's clothing, shirts, pajamas, bathrobes, lining fabric, etc."
+    }
+  },
+  "advantages": {
+    "title": "OUR ADVANTAGES",
+    "subtitle": "We have high-tech equipment that allows us to produce a wide range of fabrics most in demand on the market and according to consumer needs. We create unique conditions for you and your business.",
+    "item1": {
+      "title": "We are a Manufacturer",
+      "text": "A unique enterprise where production is established from growing high-quality cotton and processing it to finished textile products, allowing us to control product quality at every stage of production."
+    },
+    "item2": {
+      "title": "Capabilities",
+      "text": "High-tech production allows the manufacture of high-quality products that meet your requirements."
+    },
+    "item3": {
+      "title": "Continuous Development",
+      "text": "We never settle for what we’ve achieved because improvement and increasing production efficiency is an endless and exciting process."
+    }
+  },
+  "partners": {
+    "title": "Our Partners",
+    "desc": "A textile factory is an enterprise engaged in the production of textile products from fibers and threads. The main activity of such factories includes the manufacture of fabrics."
+  },
+  "contactUs": {
+    "title": "Contact Us",
+    "desc": "A textile factory is an enterprise engaged in the production of textile products from fibers and threads. The main activity of such factories includes the manufacture of fabrics.",
+    "cards": {
+      "phone": "Phone Number",
+      "email": "Email Address",
+      "addres": "Address",
+      "addressText": "Address: 270 Spitamen Avenue, Samarkand",
+      "tg": "Telegram Channel",
+      "inst": "Instagram",
+      "face": "Facebook"
+    }
+  }
+}

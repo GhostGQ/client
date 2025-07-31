@@ -1,0 +1,89 @@
+{
+  "header": {
+    "title": "About the Company",
+    "subtitle": "A textile factory is an enterprise engaged in the production of textile products from fibers and threads."
+  },
+  "content": {
+    "title": "About the Company",
+    "intro": "Founded in 2014, 'Samarkand Euro Asia Textile' has grown from a modest enterprise into one of the leading textile manufacturers. Today, Samarkand Euro Asia Textile is part of the large production holding SAG GROUP in Uzbekistan.",
+    "intro2": "This is a unique enterprise that carries out the entire production cycle from growing fine-fiber cotton to the production of finished textile products at its own facilities.",
+    "intro3": "Our company is a leader in Uzbekistan's textile industry, and our in-house production enables us to offer our partners a wide range of finished products with diverse models and color options.",
+    "functions_title": "Main Functions of a Textile Company",
+    "functions": {
+      "f1": {
+        "title": "Fabric Production:",
+        "desc": "Textile companies produce various types of fabrics, including natural (cotton, linen, wool) and synthetic (polyester, nylon) ones."
+      },
+      "f2": {
+        "title": "Design and Development:",
+        "desc": "Many textile companies develop unique designs and collections, which allows them to stand out in the market."
+      },
+      "f3": {
+        "title": "Wholesale and Retail Sales:",
+        "desc": "Textile companies can sell their products both wholesale and retail, providing access to their goods to various clients, including stores and end consumers."
+      }
+    },
+    "conclusion": "The textile industry is one of the oldest and most in-demand industries, meeting essential public needs for clothing, home textiles, and other products. Textile companies play a key role in the economy by creating jobs and contributing to the development of related industries."
+  },
+  "timeline": {
+    "header": "Production History",
+    "2014": {
+      "title": "Launched the first sewing workshop",
+      "desc": "300 shirts were produced daily."
+    },
+    "2016": {
+      "desc": "Increased production volume to 1,000 shirts per day"
+    },
+    "2017": {
+      "desc": "Increased production volume to 1,500 shirts per day"
+    },
+    "2018": {
+      "desc": "Launched fabric finishing workshop, 9,000 - 12,000 meters of fabric dyed daily"
+    },
+    "2019": {
+      "desc": "Launched weaving workshop with 34 looms (17 narrow and 17 wide)"
+    },
+    "2020": {
+      "desc": "Productivity increased to 400,000 meters of fabric per month"
+    },
+    "2021": {
+      "desc": [
+        "Launched the Lelit home textile brand",
+        "Opened the first retail store",
+        "Production increased to 500 sets per day"
+      ]
+    },
+    "2022": {
+      "desc": [
+        "Expanded the weaving workshop to 80 looms",
+        "Opened an additional sewing workshop in the city of Nukus"
+      ]
+    },
+    "2023": {
+      "desc": [
+        "Opened 5 more Lelit stores in various formats",
+        "Corners in SAG carpet stores and branded stores in Tashkent",
+        "Expanded the assortment of the Lelit brand"
+      ]
+    },
+    "2024": {
+      "desc": [
+        "Launched terry production with 22 machines. Improved muslin production technology",
+        "First retail sale of Lelit at a corner in the SAG flagship store in Yekaterinburg",
+        "Opened a finished goods warehouse in Russia",
+        "Core processes for working with Chestny ZNAK (honest sign)"
+      ]
+    },
+    "2025": {
+      "desc": [
+        "Launched and upgraded equipment in all workshops, including dyeing, washing, and color lab equipment",
+        "Launched boiled cotton technology",
+        "Registered TM Lelit in the Russian Federation",
+        "Lelit corners in Aviapark, Moscow at the SAG store",
+        "Launched own clothing brand",
+        "Opened an additional sewing workshop for towels and terry products",
+        "Opened a representative office in the Czech Republic"
+      ]
+    }
+  }
+}

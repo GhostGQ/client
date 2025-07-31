@@ -26,70 +26,63 @@
     "conclusion": "To‘qimachilik sanoati eng qadimiy va eng talab yuqori bo‘lgan sohalardan biridir, u kiyim-kechak, uy tekstili va boshqa mahsulotlarga bo‘lgan ehtiyojni qondiradi. To‘qimachilik kompaniyalari iqtisodiyotda muhim rol o‘ynaydi, ish o‘rinlari yaratadi va boshqa sohalarning rivojlanishiga hissa qo‘shadi."
   },
   "timeline": {
+    "header": "Ishlab chiqarish tarixi",
     "2014": {
-      "desc": "Yostiq jildlari tikish bo‘yicha tikuv fabrikasi ishga tushirildi"
+      "title": "Birinchi tikuvchilik sexini ishga tushirdik",
+      "desc": "Kuniga 300 ta ko‘ylak ishlab chiqarilgan."
     },
     "2016": {
-      "title": "Yangi tikuv liniyalari o‘rnatildi",
-      "desc": "Tikuv uskunalari parki yangilandi"
+      "desc": "Ishlab chiqarish hajmini kuniga 1000 ta ko‘ylakkacha oshirdik"
     },
     "2017": {
-      "title": "Yangi ishlab chiqarish liniyalari ishga tushirildi",
-      "desc": "Ishlab chiqarish quvvatlari oshirildi"
+      "desc": "Ishlab chiqarish hajmini kuniga 1500 dona ko‘ylakkacha oshirdik"
     },
     "2018": {
-      "title": "Yangi tikuv liniyalari o‘rnatildi",
-      "desc": "Tikuv uskunalari parki yangilandi"
+      "desc": "Matoni pardozlash sexining ishga tushirilishi kuniga 9000 - 12 000 metr mato bo‘yaldi"
     },
     "2019": {
-      "desc": "Rasmli satinga bosma chop etish liniyasi ishga tushirildi"
+      "desc": "34 ta stanokli (17 ta tor va 17 ta keng stanokli) to‘quv sexini ishga tushirish"
     },
     "2020": {
-      "desc": "Satin matosini bo‘yash uchun bo‘yash liniyasi o‘rnatildi"
+      "desc": "Unumdorlik oyiga 400 000 metr matogacha oshdi"
     },
     "2021": {
-      "title": "To‘quv liniyasi ishga tushirildi",
-      "desc": "To‘liq ishlab chiqarish tsikliga o‘tildi"
+      "desc": [
+        "Lelit uy to‘qimachiligi savdo belgisini ishga tushirish",
+        "Birinchi chakana savdo do‘koni ochildi.",
+        "Ishlab chiqarish kuniga 500 komplektgacha o‘sdi"
+      ]
     },
     "2022": {
-      "title": "600 tonnadan ortiq mato ishlab chiqarildi",
-      "desc": "Oqartirish liniyasi ishga tushirildi"
+      "desc": [
+        "To‘quv sexini 80 ta dastgohgacha kengaytirish,",
+        "Nukus shahrida qo‘shimcha tikuvchilik sexi ochildi"
+      ]
     },
     "2023": {
-      "title": "LELIT",
       "desc": [
-        "LELIT brendi ishga tushirildi",
-        "Xalqaro ko‘rgazmalarda ishtirok etildi",
-        "Internet do‘koni ishga tushirildi",
-        "700 tonnadan ortiq mato ishlab chiqarildi",
-        "Eksport yo‘nalishi rivojlantirildi",
-        "OEKO-TEX sertifikatlari olindi",
-        "Yangi ishlab chiqarish liniyalari o‘rnatildi",
-        "Uskunalar modernizatsiya qilindi"
+        "Turli formatdagi yana 5 ta Lelit do‘koni ochildi",
+        "SAG gilam do‘konlaridagi kornerlar va ularning Toshkentdagi firma do‘konlari",
+        "O‘z savdo belgisi assortimentini rivojlantirish"
       ]
     },
     "2024": {
       "desc": [
-        "Yangi oqartirish liniyasi ishga tushirildi",
-        "Ishlab chiqarish quvvatlari oshirildi",
-        "800 tonnadan ortiq mato ishlab chiqarildi",
-        "Mato assortimenti kengaytirildi",
-        "ISO 9001 sertifikatlari olindi",
-        "LELIT brendi rivojlantirildi",
-        "Xalqaro ko‘rgazmalarda ishtirok etildi"
+        "22 ta stanokda maxra ishlab chiqarishni yo‘lga qo‘yish. Muslin ishlab chiqarish texnologiyasini takomillashtirish",
+        "Lelitning Yekaterinburgdagi SAG firma do‘konidagi birinchi chakana savdosi",
+        "Rossiyada tayyor mahsulotlar ombori ochildi",
+        "Faxriy nishon bilan ishlashning asosiy jarayonlari"
       ]
     },
     "2025": {
       "desc": [
-        "Trikotaj mashinalari uskunalari ishga tushirildi va yangilandi",
-        "Raqamli bosma uskunalari o‘rnatildi",
-        "Xalqaro darajadagi sertifikatlar olindi (GOTS, BCI, ISO)",
-        "Yangi mato kolleksiyalari ishlab chiqildi va chiqarildi",
-        "Xalqaro ko‘rgazmalarda ishtirok etildi",
-        "Sifat nazorati laboratoriyasi ishga tushirildi",
-        "1000 tonnadan ortiq mato ishlab chiqarildi",
-        "Tayyor mahsulotlar assortimenti kengaytirildi",
-        "Eksport yo‘nalishi rivojlantirildi"
+        "Barcha sexlardagi uskunalarni, shu jumladan bo‘yash, yuvish va rang laboratoriyalari uskunalarini ishga tushirish va yangilash",
+        "Pishirilgan paxta texnologiyasini ishga tushirish",
+        "Rossiya Federatsiyasida TM Lelitni ro‘yxatdan o‘tkazish",
+        "Moskvadagi Lelit burchaklari SAG do‘konidagi aviatsiya parki",
+        "O‘z kiyim brendini ishga tushirish",
+        "Sochiqlar va maxradan buyumlar tikish bo‘yicha qo‘shimcha tikuvchilik sexi ochish",
+        "Chexiyada vakolatxona ochish"
       ]
     }
   }

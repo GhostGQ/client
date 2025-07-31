@@ -1,0 +1,35 @@
+{
+  "header": {
+    "title": "Production",
+    "subtitle": "A textile factory is an enterprise engaged in the production of textile products from fibers and threads."
+  },
+  "content": {
+    "title": "Production",
+    "intro": "A textile company is an enterprise engaged in the manufacturing, processing, and sale of textile products. These companies can range from large factories producing fabrics and finished goods to small workshops specializing in unique or designer textile items.",
+    "machine": {
+      "type": "Automatic Spreading Complex",
+      "params": {
+        "width": "Fabric Width (mm)",
+        "speed": "Spreading Speed (m/min)",
+        "diameter": "Roll Diameter (mm)"
+      },
+      "descriptionTitle": "Description",
+      "descriptionText": "Poplin is a type of fabric known for its strength, smoothness, and lightness. It is often used for sewing clothing, bed linens, and other textile products. Poplin is a type of fabric known for its strength, smoothness, and lightness. It is often used for sewing clothing, bed linens, and other textile products."
+    },
+    "functions_title": "Main Functions of a Textile Company",
+    "functions": {
+      "f1": {
+        "title": "Fabric Production:",
+        "desc": "Textile companies produce various types of fabrics, including natural (cotton, linen, wool) and synthetic (polyester, nylon) ones."
+      },
+      "f2": {
+        "title": "Design and Development:",
+        "desc": "Many textile companies develop unique designs and collections, which allows them to stand out in the market."
+      },
+      "f3": {
+        "title": "Wholesale and Retail Sales:",
+        "desc": "Textile companies can sell their products both wholesale and retail, providing access to their goods to various clients, including stores and end consumers."
+      }
+    }
+  }
+}
