@@ -28,27 +28,27 @@ const Contacts = () => {
     {
       image: '/socials/addres.png',
       title: t('contactUs.cards.addres'),
-      content: 'Адрес: г. Самарканд, пр. Спитамена, 270',
+      content: t('contactUs.cards.addressText'),
       linkType: 'https://yandex.uz/maps/-/CHDlI8y2', // можно обновить на точную ссылку на карту
     },
-    {
-      image: '/socials/tg.png',
-      title: t('contactUs.cards.tg'),
-      content: '@set.uz',
-      linkType: 'https://t.me/set.uz',
-    },
-    {
-      image: '/socials/inst.png',
-      title: t('contactUs.cards.inst'),
-      content: 'Set.uz',
-      linkType: 'https://www.instagram.com/set.uz',
-    },
-    {
-      image: '/socials/facebook.png',
-      title: t('contactUs.cards.face'),
-      content: 'Set.uz',
-      linkType: 'https://www.facebook.com/set.uz',
-    },
+    // {
+    //   image: '/socials/tg.png',
+    //   title: t('contactUs.cards.tg'),
+    //   content: '@set.uz',
+    //   linkType: 'https://t.me/set.uz',
+    // },
+    // {
+    //   image: '/socials/inst.png',
+    //   title: t('contactUs.cards.inst'),
+    //   content: 'Set.uz',
+    //   linkType: 'https://www.instagram.com/set.uz',
+    // },
+    // {
+    //   image: '/socials/facebook.png',
+    //   title: t('contactUs.cards.face'),
+    //   content: 'Set.uz',
+    //   linkType: 'https://www.facebook.com/set.uz',
+    // },
   ];
 
   return (
