@@ -48,7 +48,7 @@ const AboutCompany = () => {
         {/*  </div>*/}
         {/*</div>*/}
         <div className='mt-10'>
-          <img src='/o-kompanii.webp' alt='Image of peaple' className='w-full' />
+          <img src='/o-kompanii.jpg' alt='Image of peaple' className='w-full' />
           {/*<p className='mt-10 font-medium'>{t('content.conclusion')}</p>*/}
         </div>
       </div>
