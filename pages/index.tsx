@@ -34,7 +34,7 @@ export default function Home() {
         <Products />
         <LelitAd />
         <Opportunities />
-        {/*<Advantages />*/}
+        <Advantages />
         <Partners />
         <ContactUs />
         <Footer />

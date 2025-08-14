@@ -17,7 +17,7 @@ const Hero = () => {
 
   return (
     <section className={`container h-full flex flex-col justify-between`}>
-      <div className="absolute inset-0 w-full sm:h-[100vh] h-[573px] bg-cover bg-center bg-no-repeat -z-10 bg-[url('/hero-img.jpg')]" />
+      <div className="absolute inset-0 w-full sm:h-[100vh] h-[573px] bg-cover bg-center bg-no-repeat -z-10 bg-[url('/main-bg.webp')]" />
 
       <div className='relative z-10 text-white sm:pt-20 pt-12 md:w-[800px] sm:w-[600px] w-[300px]'>
         <h1 className='lg:text-[84px] md:text-[64px] sm:text-[48px] text-[24px] font-medium'>
