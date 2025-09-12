@@ -39,9 +39,9 @@ export default function Dashboard() {
     );
 
   const requestChartData = [
-    {name: 'Новые', value: stats.requests.pending},
-    {name: 'Одобренные', value: stats.requests.approved},
-    {name: 'Отклонённые', value: stats.requests.rejected},
+    {name: 'Новые', value: stats.requests?.pending},
+    {name: 'Одобренные', value: stats.requests?.approved},
+    {name: 'Отклонённые', value: stats.requests?.rejected},
   ];
 
   return (
@@ -65,19 +65,19 @@ export default function Dashboard() {
           <div style={cardStyle}>
             <h3>📨 Новых заявок</h3>
             <p style={{...countStyle, color: '#FFA500'}}>
-              {stats.requests.pending}
+              {stats.requests?.pending}
             </p>
           </div>
           <div style={cardStyle}>
             <h3>✅ Одобренных</h3>
             <p style={{...countStyle, color: '#28a745'}}>
-              {stats.requests.approved}
+              {stats.requests?.approved}
             </p>
           </div>
           <div style={cardStyle}>
             <h3>❌ Отклонённых</h3>
             <p style={{...countStyle, color: '#dc3545'}}>
-              {stats.requests.rejected}
+              {stats.requests?.rejected}
             </p>
           </div>
         </div>
