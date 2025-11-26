@@ -1,37 +1,51 @@
 'use client';
 
-import {MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
-import {LatLngExpression, Icon} from 'leaflet';
+import {
+    YMap,
+    YMapComponentsProvider,
+    YMapDefaultFeaturesLayer,
+    YMapDefaultMarker,
+    YMapDefaultSchemeLayer,
+    YMapListener,
+    YMapMarker
+} from "@/ymap3-components/dist";
+import React, {useState} from "react";
+import {YMapLocation} from "@yandex/ymaps3-types/imperative/YMap";
 
-const position: LatLngExpression = [39.680103, 66.908382];
+const Map = () => {
+    const [location, setLocation] = useState<YMapLocation>({center: [66.908382, 39.680103], zoom: 16});
 
-const customIcon = new Icon({
-  iconUrl:
-    'https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/images/marker-icon.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowUrl:
-    'https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/images/marker-shadow.png',
-  shadowSize: [41, 41],
-});
+    const onUpdate = React.useCallback(({location, mapInAction}: any) => {
+        if (!mapInAction) {
+            setLocation({
+                center: location.center,
+                zoom: location.zoom,
+            });
+        }
+    }, []);
+    //34081406-1ec3-48f4-83ef-9fd4a1f048da
 
-export default function SimpleMap() {
-  return (
-    <MapContainer
-      center={position}
-      zoom={16}
-      scrollWheelZoom={false}
-      style={{height: '400px', width: '100%', border: '4px solid #fff'}}
-    >
-      <TileLayer
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-      />
-
-      <Marker position={position} icon={customIcon}>
-        <Popup>Мы здесь 🌍</Popup>
-      </Marker>
-    </MapContainer>
-  );
+    return (
+        <div className='w-full h-[450px]'>
+            <YMapComponentsProvider
+                apiKey='34081406-1ec3-48f4-83ef-9fd4a1f048da'
+                lang="ru_RU"
+                reuseLoadPromise={true}
+            >
+                <YMap
+                    location={location}
+                    mode="vector"
+                    theme="dark"
+                >
+                    <YMapDefaultSchemeLayer/>
+                    <YMapDefaultFeaturesLayer/>
+                    <YMapMarker coordinates={location.center}/>
+                    <YMapDefaultMarker coordinates={location.center}/>
+                    <YMapListener onUpdate={onUpdate}/>
+                </YMap>
+            </YMapComponentsProvider>
+        </div>
+    )
 }
+
+export default Map;

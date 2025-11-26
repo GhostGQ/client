@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "about": "About Us",
+    "vacancies": "Vacancies",
     "production": "Production",
     "products": "Products",
     "news": "News & Blog",
@@ -41,5 +42,13 @@
       "loading": "Submitting request..."
     },
     "button": "Submit Request"
+  },
+  "articles": "News",
+  "blog": "Blog",
+  "experiences": {
+    "without_experience": "Без опыта",
+    "from_1_to_3_years": "От 1 до 3 года",
+    "from_3_to_6_years": "От 3 до 6 года",
+    "more_than_6_years": "Больше 6 лет"
   }
 }

@@ -9,7 +9,7 @@ import {useDisclosure} from '@mantine/hooks';
 import ContactModal from './ContactModal';
 import {memo} from 'react';
 
-const ProductInfo = ({product}: Product) => {
+const ProductInfo = ({article}: Product) => {
   const [opened, {open, close}] = useDisclosure(false);
   const {t, i18n} = useTranslation('common');
   const lang = i18n.language?.startsWith('ru') ? 'ru' : 'uz';
@@ -17,13 +17,13 @@ const ProductInfo = ({product}: Product) => {
   return (
     <section className='md:py-20 pt-4 pb-10'>
       <h1 className='text-[#2A3F87] text-[20px] font-medium mb-6 text-center md:hidden'>
-        {lang === 'uz' ? product?.title_uz : product.title_ru}
+        {lang === 'uz' ? article?.title_uz : article.title_ru}
       </h1>
       <div className='container flex gap-8 lg:flex-row flex-col'>
-        <ImageGallery img={product?.img} images={product?.images} />
+        <ImageGallery img={article?.img} images={article?.images} />
         <div className='lg:w-1/2 '>
           <div className='mb-2'>
-            {product?.categorys?.map(category => (
+            {article?.categorys?.map(category => (
               <span
                 key={category.id}
                 className='text-[##081B24] text-[16px] rounded-2xl bg-[#D3F0FF] px-3 py-1 ml-2 first:ml-0'
@@ -34,18 +34,18 @@ const ProductInfo = ({product}: Product) => {
           </div>
           <div>
             <h2 className='text-[32px] font-semibold text-[#2A3F87]'>
-              {lang === 'uz' ? product?.title_uz : product?.title_ru}
+              {lang === 'uz' ? article?.title_uz : article?.title_ru}
             </h2>
             <div className='text-[#7C7C7C]'>
               <span>
                 {lang === 'uz'
-                  ? product?.densitys?.[0]?.name_uz
-                  : product?.densitys?.[0]?.name_ru}
+                  ? article?.densitys?.[0]?.name_uz
+                  : article?.densitys?.[0]?.name_ru}
               </span>
               <span className='ml-2'>
                 {lang === 'uz'
-                  ? product?.compositions?.[0]?.name_uz
-                  : product?.compositions?.[0]?.name_ru}
+                  ? article?.compositions?.[0]?.name_uz
+                  : article?.compositions?.[0]?.name_ru}
               </span>
             </div>
           </div>
@@ -55,7 +55,7 @@ const ProductInfo = ({product}: Product) => {
               {lang === 'ru' ? 'Описание' : 'Tavsif'}
             </h2>
             <p className='text-[16px] text-[#7C7C7C]'>
-              {lang === 'ru' ? product?.description_ru : product?.description_uz}
+              {lang === 'ru' ? article?.description_ru : article?.description_uz}
             </p>
           </div>
 
@@ -74,7 +74,7 @@ const ProductInfo = ({product}: Product) => {
         </div>
       </div>
 
-      <ContactModal opened={opened} onClose={close} productId={product.id} />
+      <ContactModal opened={opened} onClose={close} productId={article.id} />
     </section>
   );
 };

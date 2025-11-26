@@ -223,7 +223,7 @@ export default function AdminProductsPage() {
 
         {showAddModal && <ProductModalWizard onClose={() => { setShowAddModal(false); setRefreshTrigger(prev => !prev); }} />}
         {editProduct && <EditProductModal product={editProduct} onClose={() => setEditProduct(null)} />}
-        {deleteProductId && <DeleteProductModal productId={deleteProductId} onClose={() => setDeleteProductId(null)} onDeleted={() => setRefreshTrigger(prev => !prev)} />}
+        {deleteProductId && <DeleteProductModal articleId={deleteProductId} onClose={() => setDeleteProductId(null)} onDeleted={() => setRefreshTrigger(prev => !prev)} />}
       </div>
     </AdminLayout>
   );

@@ -43,7 +43,7 @@ const Product = () => {
             lang === 'uz' ? data?.product?.title_uz : data?.product?.title_ru
           }
         />
-        {data?.product && <ProductInfo product={data.product} />}
+        {data?.product && <ProductInfo article={data.product} />}
         <SuggestionProducts />
         <Partners />
         <ContactUs />

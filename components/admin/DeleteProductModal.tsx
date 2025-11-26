@@ -2,13 +2,13 @@
 
 import styles from './ProductModalWizard.module.css';
 
-export default function DeleteProductModal({ productId, onClose, onDeleted }: {
-  productId: string;
+export default function DeleteProductModal({ articleId, onClose, onDeleted }: {
+  articleId: string;
   onClose: () => void;
   onDeleted: () => void;
 }) {
   const handleDelete = async () => {
-    const res = await fetch(`/api/products/${productId}`, {
+    const res = await fetch(`/api/products/${articleId}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
     });

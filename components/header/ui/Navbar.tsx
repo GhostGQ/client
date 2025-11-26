@@ -23,7 +23,9 @@ const Navbar = ({isMain}: {isMain: boolean}) => {
   const navItems = [
     {key: 'nav.home', path: '/'},
     {key: 'nav.about', path: '/about'},
-    // {key: 'nav.production', path: '/production'},
+    {key: 'nav.vacancies', path: '/vacancies'},
+    {key: 'nav.news', path: '/news'},
+    {key: 'nav.production', path: '/production'},
     {key: 'nav.products', path: '/products'},
     {key: 'nav.contacts', path: '/contacts'},
   ];

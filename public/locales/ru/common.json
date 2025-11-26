@@ -2,7 +2,8 @@
   "nav": {
     "home": "Главная",
     "about": "О компании",
-    "production": "Производства",
+    "production": "Производство",
+    "vacancies": "Вакансии",
     "products": "Продукция",
     "news": "Новости и блог",
     "contacts": "Контакты"
@@ -41,5 +42,119 @@
       "loading": "Отправка заявки..."
     },
     "button": "Отправить заявку"
+  },
+  "articles": "Новости",
+  "blog": "Блог",
+  "experiences": {
+    "without_experience": "Без опыта",
+    "from_1_to_3_years": "От 1 до 3 года",
+    "from_3_to_6_years": "От 3 до 6 года",
+    "more_than_6_years": "Больше 6 лет"
+  },
+  "work_conditions": {
+    "full_time": "Полная занятость",
+    "part_time": "Неполная занятость",
+    "project_or_one_time": "Проект или разовая работа",
+    "by_hours": "Вахта"
+  },
+  "work_schedule_formats": {
+    "5/2 schedule": "График 5/2",
+    "6/1 schedule": "График 6/1",
+    "24-hour shifts (24 on / 48 off or 72 off)": "Смены 24 часа (24/48 или 72)",
+    "Rotating schedule": "Сменный график"
+  },
+  "work_formats": {
+    "Office": "Офис",
+    "Remote": "Удалённо",
+    "Hybrid": "Гибридный",
+    "Field work": "Выездная работа",
+    "Co-working": "Коворкинг",
+    "Client-site": "На территории клиента"
+  },
+  "working_hours_per_day": {
+    "Office": "Офис",
+    "Remote": "Удалённо",
+    "Hybrid": "Гибридный",
+    "Field work": "Выездная работа",
+    "Co-working": "Коворкинг",
+    "Client-site": "На территории клиента"
+  },
+  "specializations": {
+    "Software Development": "Разработка ПО",
+    "Frontend Development": "Фронтенд разработка",
+    "Backend Development": "Бэкенд разработка",
+    "Full-stack Development": "Фулл-стек разработка",
+    "Mobile Development": "Мобильная разработка",
+    "UI/UX Design": "UI/UX дизайн",
+    "Graphic Design": "Графический дизайн",
+    "System Administration / DevOps": "Системное администрирование / DevOps",
+    "QA / Testing": "Тестирование / QA",
+    "Product Management": "Продукт-менеджмент",
+    "Project Management": "Проектный менеджмент",
+    "Data Analysis / BI": "Аналитика данных / BI",
+    "Cybersecurity": "Кибербезопасность",
+
+    "Sales Manager": "Менеджер по продажам",
+    "Account Manager": "Аккаунт-менеджер",
+    "Customer Support / Call Center": "Поддержка клиентов / Колл-центр",
+    "SMM (Social Media Marketing)": "SMM (маркетинг в соцсетях)",
+    "Digital Marketing": "Цифровой маркетинг",
+    "Advertising / Media": "Реклама / Медиа",
+    "Copywriting / Content Writing": "Копирайтинг / Написание контента",
+
+    "Accounting / Bookkeeping": "Бухгалтерия / Учёт",
+    "Finance & Audit": "Финансы и аудит",
+    "Economics / Business Analysis": "Экономика / Бизнес-анализ",
+    "Banking / Credit Specialist": "Банковский / Кредитный специалист",
+
+    "HR / Recruitment": "HR / Рекрутинг",
+    "Office Administration": "Администрирование офиса",
+    "Secretary / Assistant": "Секретарь / Ассистент",
+    "Training / Education / Teacher": "Обучение / Преподавание",
+
+    "Retail Sales (Shop / Store)": "Розничные продажи (магазин)",
+    "Cashier": "Кассир",
+    "Waiter / Bartender": "Официант / Бармен",
+    "Cook / Chef": "Повар / Шеф-повар",
+    "Hotel / Reception": "Гостиничный сервис / Ресепшн",
+    "Beauty / Hair / Cosmetics": "Красота / Парикмахер / Косметология",
+
+    "Engineer (General)": "Инженер (общий)",
+    "Mechanical Engineering": "Машиностроение",
+    "Electrical Engineering": "Электротехника",
+    "Manufacturing / Production Worker": "Производство / Рабочий",
+    "Quality Control": "Контроль качества",
+    "Construction / Architecture": "Строительство / Архитектура",
+
+    "Driver": "Водитель",
+    "Courier / Delivery": "Курьер / Доставка",
+    "Logistics / Warehouse": "Логистика / Склад",
+    "Customs / Import / Export": "Таможня / Импорт / Экспорт",
+
+    "Doctor / Specialist": "Врач / Специалист",
+    "Nurse / Medical Staff": "Медсестра / Медперсонал",
+    "Pharmacy / Pharmacist": "Фармацевт / Аптека"
+  },
+  "languages": {
+    "English": "Английский",
+    "Russian": "Русский",
+    "Uzbek": "Узбекский",
+    "Tajik": "Таджикский"
+  },
+  "driver_licences": {
+    "A": "A",
+    "B": "B",
+    "C": "C",
+    "D": "D",
+    "BE": "BE",
+    "BC": "BC",
+    "CE": "CE",
+    "DE": "DE",
+    "all": "Все"
+  },
+  "payment_terms": {
+    "Monthly salary": "Оплата за месяц",
+    "Hourly wage": "Оплата за час",
+    "Weekly payment": "Оплата за неделю"
   }
 }

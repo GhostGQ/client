@@ -3,7 +3,7 @@ import { fetchProducts } from '@/lib/api/products';
 import axios from 'axios';
 
 export interface Product {
-  product: {
+  article: {
     id: number;
     title_ru: string;
     title_uz: string;
